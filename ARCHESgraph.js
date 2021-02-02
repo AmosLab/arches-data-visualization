@@ -2,11 +2,11 @@ var width = 1600;
 var height = 750;
 
 // pulls JSON file containing nodes and links from local directory
-var graphfile = "http://localhost:8003/ARCHES_connections.json";
+var graphFile = "http://localhost:8003/ARCHES_connections.json";
 
-function loadNetwork(nodesJSON){
+function loadNetwork(graphFile){
 
-d3.json(nodesJSON).then(function(graph) {
+d3.json(graphFile).then(function(graph) {
     
     var label = {
         'nodes': [],
@@ -30,7 +30,7 @@ d3.json(nodesJSON).then(function(graph) {
     
 	// sets force of repulsion (negative value) between nodes, and force of attraction between linked nodes
     var graphLayout = d3.forceSimulation(graph.nodes)
-        .force("charge", d3.forceManyBody().strength(-300))
+        .force("charge", d3.forceManyBody().strength(-50))
         .force("center", d3.forceCenter(width / 2, height / 2))
         .force("link", d3.forceLink(graph.links).id(function(d) {return d.id; }).distance(20).strength(0.2))
         .on("tick", ticked);
