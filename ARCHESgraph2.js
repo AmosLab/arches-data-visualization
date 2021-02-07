@@ -25,7 +25,7 @@ d3.json(graphFile).then(function(graph) {
 	
 	// sets force of repulsion (negative value) between labels, and very strong force of attraction between labels and their respective nodes
     var labelLayout = d3.forceSimulation(label.nodes)
-        .force("charge", d3.forceManyBody().strength(-200))
+        .force("charge", d3.forceManyBody().strength(-50))
         .force("link", d3.forceLink(label.links).distance(0).strength(3));
     
 	// sets force of repulsion (negative value) between nodes, and force of attraction between linked nodes
@@ -82,6 +82,25 @@ d3.json(graphFile).then(function(graph) {
 
 	// hovering over a node with the cursor causes the network to focus on linked nodes
     node.on("mouseover", focus).on("mouseout", unfocus);
+
+    // Attempt to make changes when mouseover on links
+
+    link.on('mouseover', function(l) {
+        node.style('opacity', function(d) {
+          return (d === l.source || d === l.target) ? 1 : 0.1;
+          });
+        labelNode.attr("display", function(d) {
+            return (d.node.index === l.source.index || d.node.index === l.target.index) ? "block" : "none";
+        });
+        link.style("opacity", function(l2) {
+            return (l2 == l) ? 1 : 0.1;
+        });
+        node.attr("r", function(d) {
+            return (d === l.source || d === l.target) ? 15 : 10;
+            });
+
+      });
+    link.on("mouseout", unfocus);
     
 	// prevents mouse capture
     node.call(
@@ -154,6 +173,9 @@ d3.json(graphFile).then(function(graph) {
         link.style("opacity", function(o) {
             return o.source.index == index || o.target.index == index ? 1 : 0.1;
         });
+        node.attr("r", function(o) {
+            return neigh(index, o.index) ? 15 : 10;
+        });
     }
     
 	// resets opacity to full once node is unfocused
@@ -161,6 +183,28 @@ d3.json(graphFile).then(function(graph) {
        labelNode.attr("display", "block");
        node.style("opacity", 1);
        link.style("opacity", 1);
+       node.attr("r", 10);
+    }
+
+    // function for showing project info on link mouseover
+
+    function showProjectInfo() {
+        d3.select(this).style("stroke", "red");
+        node.style('fill', function(d) {
+            if (d === l.source || d === l.target)
+              return "red";
+            else
+              return "#0455A4";
+            });
+        d3.select(this).source.style("fill", "red");
+    }
+
+
+    // function for clearing project info on link mouseover
+
+    function clearProjectInfo() {
+        d3.select(this).style("stroke", "#bbb");
+        d3.select(this).source.style("fill", "#0455A4");
     }
     
 	// redraws link endpoints per tick
