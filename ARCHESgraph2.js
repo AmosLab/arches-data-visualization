@@ -89,7 +89,7 @@ d3.json(graphFile).then(function(graph) {
     node.on("mouseover", focus).on("mouseout", unfocus);
 
 
-    // Hovering over a link performs focusing
+    // Hovering over a link performs focusing and creates a popup with some relevant project info
 
     link.on('mouseover', function(l) {
         node.style('opacity', function(d) {
@@ -107,7 +107,7 @@ d3.json(graphFile).then(function(graph) {
         div.transition()		
             .duration(200)		
             .style("opacity", .9);		
-        div	.html("<b>Project Name</b>" + "<br/>" + "Test Name" + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$10,000" + "<br/>" + "<b>Invesitagors<b>" + "<br/>")	
+        div	.html("<b>Project Name</b>" + "<br/>" + "Test Name" + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Invesitagors</b>" + "<br/>" + l.source.id + "<br/>" + "<b>Other Invesitagors</b>" + "<br/>" + l.target.id)	
             .style("left", (d3.event.pageX) + "px")
             .style("padding", "7px")		
             .style("top", (d3.event.pageY - 28) + "px");	
@@ -202,25 +202,9 @@ d3.json(graphFile).then(function(graph) {
        .style("opacity", 0);	
     }
 
-    // function for showing project info on link mouseover
-
-    function showProjectInfo() {
-        d3.select(this).style("stroke", "red");
-        node.style('fill', function(d) {
-            if (d === l.source || d === l.target)
-              return "red";
-            else
-              return "#0455A4";
-            });
-        d3.select(this).source.style("fill", "red");
-    }
-
-
-    // function for clearing project info on link mouseover
-
-    function clearProjectInfo() {
-        d3.select(this).style("stroke", "#bbb");
-        d3.select(this).source.style("fill", "#0455A4");
+    // Adds commas to the number to show funding a little prettier
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     
 	// redraws link endpoints per tick
