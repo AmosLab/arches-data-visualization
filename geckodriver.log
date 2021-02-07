@@ -1124,3 +1124,4 @@ JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't fin
 JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
 JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
 1612722137971	Marionette	ERROR	[16] No reply from Marionette:Register
+JavaScript error: http://localhost:8003/ARCHESgraph2.js, line 110: SyntaxError: expected expression, got '<'

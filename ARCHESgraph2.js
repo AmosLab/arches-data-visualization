@@ -107,8 +107,9 @@ d3.json(graphFile).then(function(graph) {
         div.transition()		
             .duration(200)		
             .style("opacity", .9);		
-        div	.html("<b>Project Name</b>")	
-            .style("left", (d3.event.pageX) + "px")		
+        div	.html("<b>Project Name</b>" + "<br/>" + "Test Name" + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$10,000" + "<br/>" + "<b>Invesitagors<b>" + "<br/>")	
+            .style("left", (d3.event.pageX) + "px")
+            .style("padding", "7px")		
             .style("top", (d3.event.pageY - 28) + "px");	
 
       });
