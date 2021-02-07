@@ -78,12 +78,18 @@ d3.json(graphFile).then(function(graph) {
         .attr("r", 10)
         .attr("fill", "#0455A4")
     	.attr("stroke", "#fff")
-    	.attr("stroke-width", "2px")
+        .attr("stroke-width", "2px")
+        
+    // Div Tooltip for Displaying info
+    var div = d3.select("body").append("div")	
+        .attr("class", "tooltip")				
+        .style("opacity", 0);
 
 	// hovering over a node with the cursor causes the network to focus on linked nodes
     node.on("mouseover", focus).on("mouseout", unfocus);
 
-    // Attempt to make changes when mouseover on links
+
+    // Hovering over a link performs focusing
 
     link.on('mouseover', function(l) {
         node.style('opacity', function(d) {
@@ -97,7 +103,13 @@ d3.json(graphFile).then(function(graph) {
         });
         node.attr("r", function(d) {
             return (d === l.source || d === l.target) ? 15 : 10;
-            });
+        });
+        div.transition()		
+            .duration(200)		
+            .style("opacity", .9);		
+        div	.html("<b>Project Name</b>")	
+            .style("left", (d3.event.pageX) + "px")		
+            .style("top", (d3.event.pageY - 28) + "px");	
 
       });
     link.on("mouseout", unfocus);
@@ -184,6 +196,9 @@ d3.json(graphFile).then(function(graph) {
        node.style("opacity", 1);
        link.style("opacity", 1);
        node.attr("r", 10);
+       div.transition()		
+       .duration(500)		
+       .style("opacity", 0);	
     }
 
     // function for showing project info on link mouseover

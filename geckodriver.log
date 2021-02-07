@@ -1111,3 +1111,16 @@ JavaScript error: http://localhost:8003/ARCHESgraph2.js, line 95: TypeError: l.s
 JavaScript error: http://localhost:8003/ARCHESgraph2.js, line 95: TypeError: l.style is not a function
 JavaScript error: http://localhost:8003/ARCHESgraph2.js, line 95: TypeError: l.style is not a function
 JavaScript error: http://localhost:8003/ARCHESgraph2.js, line 95: TypeError: l.style is not a function
+1612721078396	Marionette	ERROR	[48] No reply from Marionette:Register
+JavaScript error: http://localhost:8003/ARCHESgraph2.js, line 110: SyntaxError: expected expression, got '<'
+1612721604926	Marionette	ERROR	[53] No reply from Marionette:Register
+JavaScript error: http://localhost:8003/ARCHESgraph2.js, line 110: SyntaxError: unexpected token: string literal
+1612722135382	Marionette	ERROR	[16] No reply from Marionette:Register
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1612722137971	Marionette	ERROR	[16] No reply from Marionette:Register
