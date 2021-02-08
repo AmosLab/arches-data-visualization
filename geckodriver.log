@@ -1125,3 +1125,6 @@ JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't fin
 JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
 1612722137971	Marionette	ERROR	[16] No reply from Marionette:Register
 JavaScript error: http://localhost:8003/ARCHESgraph2.js, line 110: SyntaxError: expected expression, got '<'
+1612724349971	Marionette	ERROR	[58] No reply from Marionette:Register
+JavaScript error: , line 0: SyntaxError: JSON.parse: expected ':' after property name in object at line 345 column 74 of the JSON data
+1612759507111	Marionette	ERROR	[63] No reply from Marionette:Register
