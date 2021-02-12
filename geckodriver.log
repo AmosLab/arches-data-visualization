@@ -2717,3 +2717,14 @@ JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.c
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1612908316705	geckodriver	INFO	Listening on 127.0.0.1:53064
+1612908317702	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofilePRLhvW"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1612908342629	Marionette	INFO	Listening on port 53076
+1612908342926	Marionette	WARN	TLS certificate errors will be ignored for this session
+1612908342972	Marionette	ERROR	[19] No reply from Marionette:Register
+1612908344721	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: http://code.jquery.com/ui/1.11.0/jquery-ui.min.js, line 6: ReferenceError: jQuery is not defined
+JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
+1613073519827	Marionette	INFO	Stopped listening on port 53076
