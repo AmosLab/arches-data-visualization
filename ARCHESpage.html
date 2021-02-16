@@ -46,6 +46,22 @@
 		padding: 2px;	
 	}
 
+	/* div.ui-widget {	
+		position: absolute;			
+		text-align: center;			
+		width: 300;					
+		height: 100px;					
+		padding: 5px;				
+		font: 12px sans-serif;		
+		background: white;	
+		border: 1px;	
+		border-color: black;
+		border-style: solid;	
+		border-radius: 8px;					
+		margin-top: 5px;
+		margin-left: 5px;
+	} */
+
 	br {
    		display: block;
    		margin: 5px;
@@ -101,21 +117,34 @@
 	}
 
 </style>
-
+<head>
+	<script src="ARCHESgraph2.js"></script>
+</head>
 <body>
 	<svg id='viz'></svg>
 	
-	<script type='text/javascript' src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"> </script>
+
+
+	<script
+  		src="https://code.jquery.com/jquery-3.2.1.min.js"
+  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  		crossorigin="anonymous"></script>
+	<script type='text/javascript' src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"> </script>
 	<script type='text/javascript' src="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> </script>
 
 	<script src='https://d3js.org/d3.v5.min.js'></script>
 	<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-	<script src="http://localhost:8003/ARCHESgraph2.js"></script>
+	<script src="ARCHESgraph2.js"></script>
 
-	<!-- <div class="ui-widget">
+
+	<div class="ui-widget">
+		
 		<input id="search">
-		 <button type="button" onclick="searchNode()">Search</button>
-	 </div> -->
+		 <button type="button" id="searchF">Search</button>
+		 <button type="button" id="clear">Clear</button>
+	 </div>
+
+
 </body>
 </html>
