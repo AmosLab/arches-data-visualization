@@ -65,7 +65,7 @@ d3.json(graphFile).then(function(graph) {
         .append("line")
         .attr("stroke", "#bbb")
         .attr("stroke-width", function(d) {
-			return d.amount/20000;
+			return d.amount/20000 + 2;
 		}
 			);
 	
