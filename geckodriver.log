@@ -5011,3 +5011,13 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 137: T
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1613628471285	geckodriver	INFO	Listening on 127.0.0.1:64428
+1613628472245	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofileF173Tj"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613628476305	Marionette	INFO	Listening on port 64441
+1613628476395	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613628476409	Marionette	ERROR	[19] No reply from Marionette:Register
+1613628476741	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
