@@ -2,7 +2,7 @@ var width = 1600;
 var height = 750;
 
 // pulls JSON file containing nodes and links from local directory
-var graphFile = "http://localhost:8003/ARCHES_connections3.json";
+var graphFile = "ARCHES_connections5.json";
 
 function loadNetwork(graphFile){
 
@@ -130,6 +130,9 @@ d3.json(graphFile).then(function(graph) {
             node.attr("opacity", function(o) {
                 return (o.id==selectedVal) ? 1 : 0.1;
             });
+            labelNode.attr("display", function(d) {
+                return (d.node.id==selectedVal) ? "block" : "none";
+            });
         }
     );
     $("#clear").click(
@@ -137,6 +140,7 @@ d3.json(graphFile).then(function(graph) {
             console.log(optArray);
             //find the node
             node.attr("opacity", 1);
+            labelNode.attr("display", "block")
         }
     );
 

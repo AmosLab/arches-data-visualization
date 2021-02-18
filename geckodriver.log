@@ -5021,3 +5021,35 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1613628476741	Marionette	ERROR	[19] No reply from Marionette:Register
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
 JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+1613629136465	Marionette	ERROR	[37] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 103: TypeError: $(...).data(...) is undefined
