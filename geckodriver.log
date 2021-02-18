@@ -5007,3 +5007,7 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: Ref
 JavaScript error: http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css, line 9: SyntaxError: expected expression, got '.'
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 137: TypeError: this.destroy is not a function
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 137: TypeError: this.destroy is not a function
+1613527448218	Marionette	INFO	Stopped listening on port 49708
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
