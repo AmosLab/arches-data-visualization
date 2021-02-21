@@ -2,6 +2,14 @@
 
 <meta charset="utf-8">
 <style type="text/css">
+	.ui-menu-item {
+        
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+		font-size: 15px;
+
+    } 
 	
 	.button {
 		background-color: steelblue;
@@ -46,21 +54,14 @@
 		padding: 2px;	
 	}
 
-	/* div.ui-widget {	
-		position: absolute;			
-		text-align: center;			
-		width: 300;					
+	div.ui-widget {	
+		position: absolute;					
+		width: 400px;					
 		height: 100px;					
 		padding: 5px;				
-		font: 12px sans-serif;		
-		background: white;	
-		border: 1px;	
-		border-color: black;
-		border-style: solid;	
-		border-radius: 8px;					
-		margin-top: 5px;
-		margin-left: 5px;
-	} */
+		font: 12px sans-serif;			
+
+	}
 
 	br {
    		display: block;
@@ -109,7 +110,7 @@
 		display: none;
 	}
 
-	div {
+	div.search {
 		top: 0;
 		left: 0;
 		position: absolute;
@@ -118,10 +119,21 @@
 
 </style>
 <head>
-	<script src="ARCHESgraph2.js"></script>
+	<script src="ARCHESgraph3.js"></script>
 </head>
 <body>
-	<svg id='viz'></svg>
+		<div class="search">
+			
+
+			<div class="ui-widget">
+				<input size="30" id="search">
+				<button type="button" id="searchF">Search</button>
+				<button type="button" id="clear">Clear</button>
+			 </div>
+		</div>
+	
+		<svg id='viz'></svg>
+
 	
 
 
@@ -130,7 +142,7 @@
   		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   		crossorigin="anonymous"></script>
 	<script type='text/javascript' src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"> </script>
-	<script type='text/javascript' src="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> </script>
+	<link type='text/css' href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
 
 	<script src='https://d3js.org/d3.v5.min.js'></script>
 	<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
@@ -138,12 +150,7 @@
 	<script src="ARCHESgraph2.js"></script>
 
 
-	<div class="ui-widget">
-		
-		<input id="search">
-		 <button type="button" id="searchF">Search</button>
-		 <button type="button" id="clear">Clear</button>
-	 </div>
+
 
 
 </body>

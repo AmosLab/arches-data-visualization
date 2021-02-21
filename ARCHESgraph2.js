@@ -99,23 +99,6 @@ d3.json(graphFile).then(function(graph) {
     $(function () {
         $("#search").autocomplete({
             source: optArray,
-            open: function( event, ui ) {
-                var firstElement = $(this).data("autocomplete").menu.element[0].children[0]
-                   , inpt = $('#autocomplete')
-                   , original = inpt.val()
-                   , firstElementText = $(firstElement).text();
-        
-                /*
-                   here we want to make sure that we're not matching something that doesn't start
-                   with what was typed in 
-                */
-                if(firstElementText.toLowerCase().indexOf(original.toLowerCase()) === 0){
-                    inpt.val(firstElementText);//change the input to the first match
-        
-                    inpt[0].selectionStart = original.length; //highlight from end of input
-                    inpt[0].selectionEnd = firstElementText.length;//highlight to the end
-                }
-            }
         });
     });
 

@@ -91,34 +91,42 @@ d3.json(graphFile).then(function(graph) {
 
     // Search Bar Functionality
 
-    // var optArray = [];
-    // for (var i = 0; i < graph.nodes.length - 1; i++) {
-    //     optArray.push(graph.nodes[i].id);
-    // }
-    // optArray = optArray.sort();
-    // $(function () {
-    //     $("#search").autocomplete({
-    //         source: optArray
-    //     });
-    // });
-    // function searchNode() {
-    //     //find the node
-    //     var selectedVal = document.getElementById('search').value;
-    //     var node = svg.selectAll(".node");
-    //     if (selectedVal == "none") {
-    //         node.style("stroke", "white").style("stroke-width", "1");
-    //     } else {
-    //         var selected = node.filter(function (d, i) {
-    //             return d.name != selectedVal;
-    //         });
-    //         selected.style("opacity", "0");
-    //         var link = svg.selectAll(".link")
-    //         link.style("opacity", "0");
-    //         d3.selectAll(".node, .link").transition()
-    //             .duration(5000)
-    //             .style("opacity", 1);
-    //     }
-    // }
+   var optArray = [];
+   for (var i = 0; i < graph.nodes.length - 1; i++) {
+       optArray.push(graph.nodes[i].id);
+   }
+   optArray = optArray.sort();
+   $(function () {
+       $("#search").autocomplete({
+           source: optArray,
+       });
+   });
+
+   // Search Function 
+   
+   $('#searchF').on('click',
+       function searchNode() {
+           console.log(optArray);
+           //find the node
+           var selectedVal = document.getElementById('search').value;
+           console.log(selectedVal)
+           node.attr("opacity", function(o) {
+               return (o.id==selectedVal) ? 1 : 0.1;
+           });
+           labelNode.attr("display", function(d) {
+               return (d.node.id==selectedVal) ? "block" : "none";
+           });
+       }
+   );
+   $("#clear").click(
+       function clearFocus() {
+           console.log(optArray);
+           //find the node
+           node.attr("opacity", 1);
+           labelNode.attr("display", "block")
+       }
+   );
+
 
 
     // Hovering over a link performs focusing and creates a popup with some relevant project info
