@@ -41,8 +41,8 @@
 	div.tooltip {	
 		position: absolute;			
 		text-align: center;			
-		width: 240px;					
-		height: 300px;					
+		width: 300px;					
+		height: 400px;					
 		padding: 2px;				
 		font: 12px sans-serif;		
 		background: white;	
@@ -61,6 +61,17 @@
 		padding: 5px;				
 		font: 12px sans-serif;			
 
+	}
+
+	/* div.TopSection {
+
+	} */
+
+	div.search {
+		top: 0;
+		left: 0;
+		position: absolute;
+		z-index: 1;
 	}
 
 	br {
@@ -110,14 +121,8 @@
 		display: none;
 	}
 
-	div.search {
-		top: 0;
-		left: 0;
-		position: absolute;
-		z-index: 1;
-	}
 	
-	form{
+	form.Filtering{
 		float:right;
 	}
 	
@@ -135,9 +140,8 @@
 	<script src="ARCHESgraph3.js"></script>
 </head>
 <body>
+	<div class="TopSection">
 		<div class="search">
-			
-
 			<div class="ui-widget">
 				<input size="30" id="search">
 				<button type="button" id="searchF">Search</button>
@@ -145,7 +149,7 @@
 			 </div>
 		</div>
 	
-		<form>
+		<form class = "Filtering">
 			<fieldset id="digHealth">Digital Health
 				<br>
 				<input type="radio" value="yes" name="digHealth">Yes
@@ -177,8 +181,10 @@
 			<button type="button" id="filter">Set Filters</button>
 			<button type="button" id="clear">Clear Filters</button>
 		</form>
+	</div>
+
 		
-		<svg id='viz'></svg>
+	<svg id='viz'></svg>
 
 	
 

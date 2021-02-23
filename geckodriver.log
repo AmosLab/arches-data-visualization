@@ -7790,3 +7790,43 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: Ref
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 9: ReferenceError: d3 is not defined
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+1614060494137	geckodriver	INFO	Listening on 127.0.0.1:53103
+1614060495093	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofileWlMqv6"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614060502349	Marionette	INFO	Listening on port 53114
+1614060502418	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614060502431	Marionette	ERROR	[16] No reply from Marionette:Register
+1614060502724	Marionette	ERROR	[16] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
