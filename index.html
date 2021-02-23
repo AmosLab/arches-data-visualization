@@ -2,6 +2,14 @@
 
 <meta charset="utf-8">
 <style type="text/css">
+	.ui-menu-item {
+        
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+		font-size: 15px;
+
+    } 
 	
 	.button {
 		background-color: steelblue;
@@ -33,8 +41,8 @@
 	div.tooltip {	
 		position: absolute;			
 		text-align: center;			
-		width: 240px;					
-		height: 300px;					
+		width: 300px;					
+		height: 400px;					
 		padding: 2px;				
 		font: 12px sans-serif;		
 		background: white;	
@@ -46,9 +54,29 @@
 		padding: 2px;	
 	}
 
+	div.ui-widget {	
+		position: absolute;					
+		width: 400px;					
+		height: 100px;					
+		padding: 5px;				
+		font: 12px sans-serif;			
+
+	}
+
+	/* div.TopSection {
+
+	} */
+
+	div.search {
+		top: 0;
+		left: 0;
+		position: absolute;
+		z-index: 1;
+	}
+
 	br {
    		display: block;
-   		margin: 5px;
+   		margin: 2px;
 	}
 	
 
@@ -93,29 +121,89 @@
 		display: none;
 	}
 
-	div {
-		top: 0;
-		left: 0;
-		position: absolute;
-		z-index: 1;
+	
+	form.Filtering{
+		float:right;
+	}
+	
+	fieldset {
+		float:left;
+		border: none;
+		width: 150px;
+		height: 70px;
+		font-family:sans-serif;
+		font-size:12px;
 	}
 
 </style>
-
+<head>
+	<script src="ARCHESgraph3.js"></script>
+</head>
 <body>
-	<svg id='viz'></svg>
+	<div class="TopSection">
+		<div class="search">
+			<div class="ui-widget">
+				<input size="30" id="search">
+				<button type="button" id="searchF">Search</button>
+				<button type="button" id="clear">Clear</button>
+			 </div>
+		</div>
 	
-	<script type='text/javascript' src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"> </script>
-	<script type='text/javascript' src="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> </script>
+		<form class = "Filtering">
+			<fieldset id="digHealth">Digital Health
+				<br>
+				<input type="radio" value="yes" name="digHealth">Yes
+				<br>
+				<input type="radio" value="no" name="digHealth">No
+			</fieldset>
+
+			<fieldset id="nextGen">Next Generation of Primary Care
+				<br>
+				<input type="radio" value="yes" name="nextGen">Yes
+				<br>
+				<input type="radio" value="no" name="nextGen">No
+			</fieldset>
+			
+			<fieldset id="commHealth">Community Health and Social Determinants of Heath
+				<br>
+				<input type="radio" value="yes" name="commHealth">Yes
+				<br>
+				<input type="radio" value="no" name="commHealth">No
+			</fieldset>
+			
+			<fieldset id="radEff">Radical Efficiecy
+				<br>
+				<input type="radio" value="yes" name="radEff">Yes
+				<br>
+				<input type="radio" value="no" name="radEff">No
+			</fieldset>
+			
+			<button type="button" id="filter">Set Filters</button>
+			<button type="button" id="clear">Clear Filters</button>
+		</form>
+	</div>
+
+		
+	<svg id='viz'></svg>
+
+	
+
+
+	<script
+  		src="https://code.jquery.com/jquery-3.2.1.min.js"
+  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  		crossorigin="anonymous"></script>
+	<script type='text/javascript' src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"> </script>
+	<link type='text/css' href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
 
 	<script src='https://d3js.org/d3.v5.min.js'></script>
 	<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-	<script src="ARCHESgraph2.js"></script>
+	<script src="ARCHESgraph3.js"></script>
 
-	<!-- <div class="ui-widget">
-		<input id="search">
-		 <button type="button" onclick="searchNode()">Search</button>
-	 </div> -->
+
+
+
+
 </body>
 </html>
