@@ -65,7 +65,7 @@
 
 	br {
    		display: block;
-   		margin: 5px;
+   		margin: 2px;
 	}
 	
 
@@ -116,6 +116,19 @@
 		position: absolute;
 		z-index: 1;
 	}
+	
+	form{
+		float:right;
+	}
+	
+	fieldset {
+		float:left;
+		border: none;
+		width: 150px;
+		height: 70px;
+		font-family:sans-serif;
+		font-size:12px;
+	}
 
 </style>
 <head>
@@ -132,6 +145,39 @@
 			 </div>
 		</div>
 	
+		<form>
+			<fieldset id="digHealth">Digital Health
+				<br>
+				<input type="radio" value="yes" name="digHealth">Yes
+				<br>
+				<input type="radio" value="no" name="digHealth">No
+			</fieldset>
+
+			<fieldset id="nextGen">Next Generation of Primary Care
+				<br>
+				<input type="radio" value="yes" name="nextGen">Yes
+				<br>
+				<input type="radio" value="no" name="nextGen">No
+			</fieldset>
+			
+			<fieldset id="commHealth">Community Health and Social Determinants of Heath
+				<br>
+				<input type="radio" value="yes" name="commHealth">Yes
+				<br>
+				<input type="radio" value="no" name="commHealth">No
+			</fieldset>
+			
+			<fieldset id="radEff">Radical Efficiecy
+				<br>
+				<input type="radio" value="yes" name="radEff">Yes
+				<br>
+				<input type="radio" value="no" name="radEff">No
+			</fieldset>
+			
+			<button type="button" id="filter">Set Filters</button>
+			<button type="button" id="clear">Clear Filters</button>
+		</form>
+		
 		<svg id='viz'></svg>
 
 	
@@ -147,7 +193,7 @@
 	<script src='https://d3js.org/d3.v5.min.js'></script>
 	<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-	<script src="ARCHESgraph2.js"></script>
+	<script src="ARCHESgraph3.js"></script>
 
 
 
