@@ -147,7 +147,7 @@ d3.json(graphFile).then(function(graph) {
         div.transition()		
             .duration(200)		
             .style("opacity", .9);		
-        div	.html("<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Invesitagors</b>" + "<br/>" + l.source.id + "<br/>" + "<b>Other Invesitagors</b>" + "<br/>" + l.target.id)	
+        div	.html("<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.source.id + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.target.id)	
             .style("left", (d3.event.pageX) + "px")
             .style("padding", "7px")		
             .style("top", (d3.event.pageY - 28) + "px");	
