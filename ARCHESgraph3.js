@@ -2,7 +2,6 @@ var width = 1600;
 var height = 830;
 
 // pulls JSON file containing nodes and links from local directory
-<<<<<<< HEAD
 var graphFile = "ARCHES_connections5.json";
 
 function loadNetwork(graphFile){
