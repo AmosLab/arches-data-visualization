@@ -2,204 +2,204 @@
 
 <meta charset="utf-8">
 <style type="text/css">
-	.ui-menu-item {
+    .ui-menu-item {
         
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-		font-size: 15px;
+        font-size: 15px;
 
     } 
-	
-	.button {
-		background-color: steelblue;
-		border: none;
-		color: white;
-		padding: 10px 15px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		margin: 10px 20px;
-		z-index: 2;
-		top: 0;
-		left: 0;
-		position: -webkit-sticky;
-		position: sticky;
-		cursor: pointer;
-		-webkit-transition-duration: 0.4s; /* Safari */
-		transition-duration: 0.4s;
-	}
-	.button1 {
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	}
+    
+    .button {
+        background-color: steelblue;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 20px;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        position: -webkit-sticky;
+        position: sticky;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    }
+    .button1 {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
 
-	.button2:hover {
-		box-shadow: 0 8px 10px 0 rgba(0,0,0,0.24),0 3px 2px 0 rgba(0,0,0,0.19);
-	}
+    .button2:hover {
+        box-shadow: 0 8px 10px 0 rgba(0,0,0,0.24),0 3px 2px 0 rgba(0,0,0,0.19);
+    }
 
-	div.tooltip {	
-		position: absolute;			
-		text-align: center;			
-		width: 300px;					
-		height: 400px;					
-		padding: 2px;				
-		font: 12px sans-serif;		
-		background: white;	
-		border: 1px;	
-		border-color: black;
-		border-style: solid;	
-		border-radius: 8px;			
-		pointer-events: none;		
-		padding: 2px;	
-	}
+    div.tooltip {   
+        position: absolute;         
+        text-align: center;         
+        width: 300px;                   
+        height: 400px;                  
+        padding: 2px;               
+        font: 12px sans-serif;      
+        background: white;  
+        border: 1px;    
+        border-color: black;
+        border-style: solid;    
+        border-radius: 8px;         
+        pointer-events: none;       
+        padding: 2px;   
+    }
 
-	div.ui-widget {	
-		position: absolute;					
-		width: 400px;					
-		height: 100px;					
-		padding: 5px;				
-		font: 12px sans-serif;			
+    div.ui-widget { 
+        position: absolute;                 
+        width: 400px;                   
+        height: 100px;                  
+        padding: 5px;               
+        font: 12px sans-serif;          
 
-	}
+    }
 
-	/* div.TopSection {
+    /* div.TopSection {
 
-	} */
+    } */
 
-	div.search {
-		top: 0;
-		left: 0;
-		position: absolute;
-		z-index: 1;
-	}
+    div.search {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 1;
+    }
 
-	br {
-   		display: block;
-   		margin: 2px;
-	}
-	
+    br {
+        display: block;
+        margin: 2px;
+    }
+    
 
   
-	.node {
-		cursor: pointer;
-	}
+    .node {
+        cursor: pointer;
+    }
 
-	.overlay{
-		background-color:#FFF;
-	}
+    .overlay{
+        background-color:#FFF;
+    }
 
-	.node circle {
-		fill: #fff;
-		stroke: steelblue;
-		stroke-width: 1.5px;
-	}
+    .node circle {
+        fill: #fff;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
 
-	.node text {
-		color:#808080;
-		font-size:22px; 
-		font-family:sans-serif;
-	}
+    .node text {
+        color:#808080;
+        font-size:22px; 
+        font-family:sans-serif;
+    }
 
-	.link {
-		fill: none;
-		stroke: #ccc;
-		stroke-width: 1.5px;
-	}
+    .link {
+        fill: none;
+        stroke: #ccc;
+        stroke-width: 1.5px;
+    }
 
-	.templink {
-		fill: none;
-		stroke: red;
-		stroke-width: 3px;
-	}
+    .templink {
+        fill: none;
+        stroke: red;
+        stroke-width: 3px;
+    }
 
-	.ghostCircle.show{
-		display:block;
-	}
+    .ghostCircle.show{
+        display:block;
+    }
 
-	.ghostCircle, .activeDrag .ghostCircle{
-		display: none;
-	}
+    .ghostCircle, .activeDrag .ghostCircle{
+        display: none;
+    }
 
-	
-	form.Filtering{
-		float:right;
-	}
-	
-	fieldset {
-		float:left;
-		border: none;
-		width: 150px;
-		height: 70px;
-		font-family:sans-serif;
-		font-size:12px;
-	}
+    
+    form.Filtering{
+        float:right;
+    }
+    
+    fieldset {
+        float:left;
+        border: none;
+        width: 150px;
+        height: 70px;
+        font-family:sans-serif;
+        font-size:12px;
+    }
 
 </style>
 <head>
-	<script src="ARCHESgraph3.js"></script>
+    <script src="ARCHESgraph3.js"></script>
 </head>
 <body>
-	<div class="TopSection">
-		<div class="search">
-			<div class="ui-widget">
-				<input size="30" id="search">
-				<button type="button" id="searchF">Search</button>
-				<button type="button" id="clear">Clear</button>
-			 </div>
-		</div>
-	
-		<form class = "Filtering">
-			<fieldset id="digHealth">Digital Health
-				<br>
-				<input type="radio" value="yes" name="digHealth">Yes
-				<br>
-				<input type="radio" value="no" name="digHealth">No
-			</fieldset>
+    <div class="TopSection">
+        <div class="search">
+            <div class="ui-widget">
+                <input size="30" id="search">
+                <button type="button" id="searchF">Search</button>
+                <button type="button" id="clear">Clear</button>
+             </div>
+        </div>
+    
+        <form class = "Filtering">
+            <fieldset id="digHealth">Digital Health
+                <br>
+                <input type="radio" value="yes" name="digHealth">Yes
+                <br>
+                <input type="radio" value="no" name="digHealth">No
+            </fieldset>
 
-			<fieldset id="nextGen">Next Generation of Primary Care
-				<br>
-				<input type="radio" value="yes" name="nextGen">Yes
-				<br>
-				<input type="radio" value="no" name="nextGen">No
-			</fieldset>
-			
-			<fieldset id="commHealth">Community Health and Social Determinants of Heath
-				<br>
-				<input type="radio" value="yes" name="commHealth">Yes
-				<br>
-				<input type="radio" value="no" name="commHealth">No
-			</fieldset>
-			
-			<fieldset id="radEff">Radical Efficiecy
-				<br>
-				<input type="radio" value="yes" name="radEff">Yes
-				<br>
-				<input type="radio" value="no" name="radEff">No
-			</fieldset>
-			
-			<button type="button" id="filter">Set Filters</button>
-			<button type="button" id="clear">Clear Filters</button>
-		</form>
-	</div>
+            <fieldset id="nextGen">Next Generation of Primary Care
+                <br>
+                <input type="radio" value="yes" name="nextGen">Yes
+                <br>
+                <input type="radio" value="no" name="nextGen">No
+            </fieldset>
+            
+            <fieldset id="commHealth">Community Health and Social Determinants of Heath
+                <br>
+                <input type="radio" value="yes" name="commHealth">Yes
+                <br>
+                <input type="radio" value="no" name="commHealth">No
+            </fieldset>
+            
+            <fieldset id="radEff">Radical Efficiecy
+                <br>
+                <input type="radio" value="yes" name="radEff">Yes
+                <br>
+                <input type="radio" value="no" name="radEff">No
+            </fieldset>
+            
+            <button type="button" id="filter">Set Filters</button>
+            <button type="button" id="clearFilter">Clear Filters</button>
+        </form>
+    </div>
 
-		
-	<svg id='viz'></svg>
+        
+    <svg id='viz'></svg>
 
-	
+    
 
 
-	<script
-  		src="https://code.jquery.com/jquery-3.2.1.min.js"
-  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  		crossorigin="anonymous"></script>
-	<script type='text/javascript' src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"> </script>
-	<link type='text/css' href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script type='text/javascript' src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"> </script>
+    <link type='text/css' href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
 
-	<script src='https://d3js.org/d3.v5.min.js'></script>
-	<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-	<script src="ARCHESgraph3.js"></script>
+    <script src='https://d3js.org/d3.v5.min.js'></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="ARCHESgraph3.js"></script>
 
 
 
