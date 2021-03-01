@@ -19,15 +19,49 @@ d3.json(graphFile).then(function(graph) {
         'links': [],
     };
 
+    var possiblePIs = []
     // Check through the filterIDs array and delete links that are 
     for (var idx = 0; idx < filterIDs.length; idx++) {
         var filterName = filterIDs[idx];
         graph.links.forEach(function(link, index) {
             if (link[filterName] == "No") { // If the link with this filterName is not that type, delete it
                 graph.links.splice(index,1);
+                if (!possiblePIs.includes(link.source)) {
+                    possiblePIs.push(link.source);
+                }
+                if (!possiblePIs.includes(link.target)) {
+                    possiblePIs.push(link.target);
+                }
             }
         });
     }
+
+    var inLinks = false;
+    possiblePIs.forEach(function(pi,index2) {
+        inLinks = false;
+        for (var indexL = 0; indexL < graph.links.length; indexL++) {
+            const link1 = graph.links[indexL];
+            if (pi == link1.source || pi == link1.target) {
+                inLinks = true;
+                break;            
+            }
+        }
+        if (!inLinks) {
+            console.log("Not in links")
+            var piIdx;
+            for (var piIdx = 0; piIdx < graph.nodes.length; piIdx++) {
+                if (graph.nodes[piIdx].id == pi) {
+                    break;
+                }
+            }
+            if (piIdx > -1) {
+                console.log("Deleting Nodes")
+                graph.nodes.splice(piIdx, 1);
+            }
+        }
+    });
+
+
 
     graph.nodes.forEach(function(d, i) {
         label.nodes.push({node: d});
