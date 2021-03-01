@@ -4,15 +4,31 @@ var height = 830;
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections5.json";
 
+// Keeps track of the IDs of specific project types that should be removed
+var filterIDs = [];
+
 function loadNetwork(graphFile){
 
 d3.json(graphFile).then(function(graph) {
+
+    var svg = d3.select("svg");
+    svg.selectAll("*").remove();
     
     var label = {
         'nodes': [],
         'links': [],
     };
-    
+
+    // Check through the filterIDs array and delete links that are 
+    for (var idx = 0; idx < filterIDs.length; idx++) {
+        var filterName = filterIDs[idx];
+        graph.links.forEach(function(link, index) {
+            if (link[filterName] == "No") { // If the link with this filterName is not that type, delete it
+                graph.links.splice(index,1);
+            }
+        });
+    }
+
     graph.nodes.forEach(function(d, i) {
         label.nodes.push({node: d});
 		label.nodes.push({node: d});
@@ -21,7 +37,9 @@ d3.json(graphFile).then(function(graph) {
             target: i * 2 + 1
         });
     });
-    
+
+
+
 	
 	// sets force of repulsion (negative value) between labels, and very strong force of attraction between labels and their respective nodes
     var labelLayout = d3.forceSimulation(label.nodes)
@@ -128,6 +146,34 @@ d3.json(graphFile).then(function(graph) {
    );
 
 
+    //Filtering Work
+
+   $('#filter').on('click',
+       function filterNodes() {
+            // Reset the filterIDs array
+            filterIDs.splice(0,filterIDs.length);
+
+            // Check values of each radio buttons
+            var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff'];
+            for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
+                var filterName = filterLabels[filterIdx];
+                var filterValue = document.getElementsByName(filterName);
+                if (filterValue[1].checked) {
+                    filterIDs.push(filterName);
+                }
+            }
+
+            // Reload the network
+            loadNetwork(graphFile);
+        }
+    );
+
+    $('#clearFilter').on('click',
+    function ClearFilterNodes() {
+         filterIDs.splice(0,filterIDs.length);
+         loadNetwork(graphFile);
+     }
+ );
 
     // Hovering over a link performs focusing and creates a popup with some relevant project info
 

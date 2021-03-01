@@ -7830,3 +7830,221 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: Ref
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+1614142564019	geckodriver	INFO	Listening on 127.0.0.1:52185
+1614142564959	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofileIkFmr3"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614142571523	Marionette	INFO	Listening on port 52193
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614142571643	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614142571661	Marionette	ERROR	[19] No reply from Marionette:Register
+1614142571977	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NotFoundError: Could not move source file(/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofileIkFmr3/bookmarkbackups/bookmarks-2021-02-26_11_0--LDhFusuGCwQjLqkb75A==.jsonlz4) because it does not exist
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 287: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+1614551144173	Marionette	ERROR	[37] No reply from Marionette:Register
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 287: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 287: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 1: SyntaxError: redeclaration of const data
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 1: SyntaxError: redeclaration of const data
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 288: ReferenceError: data is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 1: SyntaxError: redeclaration of const data1
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 287: ReferenceError: require is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 290: NetworkError: A network error occurred.
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 290: NetworkError: A network error occurred.
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 294: TypeError: data1 is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 294: TypeError: data1 is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 291: TypeError: data1.nodes is undefined
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph2.js, line 5: SyntaxError: expected expression, got '<<'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: resource:///modules/UrlbarInput.jsm, line 2915: TypeError: event.target.closest is not a function
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 138: TypeError: label.splice is not a function
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 138: TypeError: graph.splice is not a function
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 13: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 152: TypeError: filterIDs.push is not a function
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 152: TypeError: filterIDs.push is not a function
+1614558070196	Marionette	ERROR	[44] No reply from Marionette:Register
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+1614559526335	Marionette	ERROR	[49] No reply from Marionette:Register
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 11: ReferenceError: d3 is not defined
+JavaScript error: , line 0: uncaught exception: null
