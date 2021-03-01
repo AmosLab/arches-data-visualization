@@ -48,7 +48,7 @@ d3.json(graphFile).then(function(graph) {
         }
         if (!inLinks) {
             console.log("Not in links")
-            var piIdx;
+            var piIdx = -1;
             for (var piIdx = 0; piIdx < graph.nodes.length; piIdx++) {
                 if (graph.nodes[piIdx].id == pi) {
                     break;
