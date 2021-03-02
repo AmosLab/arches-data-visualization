@@ -3,12 +3,10 @@
 <meta charset="utf-8">
 <style type="text/css">
     .ui-menu-item {
-        
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: 15px;
-
     } 
     
     .button {
@@ -30,6 +28,7 @@
         -webkit-transition-duration: 0.4s; /* Safari */
         transition-duration: 0.4s;
     }
+	
     .button1 {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     }
@@ -60,27 +59,21 @@
         height: 100px;                  
         padding: 5px;               
         font: 12px sans-serif;          
-
     }
-
-    /* div.TopSection {
-
-    } */
 
     div.search {
-        top: 0;
-        left: 0;
-        position: absolute;
         z-index: 1;
     }
+
+	div.TopSection {
+		display: block;
+	}
 
     br {
         display: block;
         margin: 2px;
     }
     
-
-  
     .node {
         cursor: pointer;
     }
@@ -140,7 +133,20 @@
     <script src="ARCHESgraph3.js"></script>
 </head>
 <body>
-    <div class="TopSection">
+    <button onclick="togglePanel()">Toggle Panel</button>
+	<script
+		function togglePanel() {
+			var x = document.getElementById("filterPanel");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			}
+			else {
+				x.style.display = "none";
+			}
+		}
+	>
+	</script>
+	<div class="TopSection" id="filterPanel">
         <div class="search">
             <div class="ui-widget">
                 <input size="30" id="search">
@@ -182,12 +188,8 @@
             <button type="button" id="clearFilter">Clear Filters</button>
         </form>
     </div>
-
-        
+	 
     <svg id='viz'></svg>
-
-    
-
 
     <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -200,10 +202,6 @@
     <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script src="ARCHESgraph3.js"></script>
-
-
-
-
 
 </body>
 </html>
