@@ -7962,3 +7962,8 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: T
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+1615147351614	Marionette	ERROR	[42] No reply from Marionette:Register
+1615147362992	Marionette	INFO	Stopped listening on port 57401
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
