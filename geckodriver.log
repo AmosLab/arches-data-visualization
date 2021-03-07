@@ -7830,3 +7830,135 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: Ref
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 9: ReferenceError: d3 is not defined
+1615141219816	geckodriver	INFO	Listening on 127.0.0.1:57389
+1615141220797	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofileMU7jfz"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615141228669	Marionette	INFO	Listening on port 57401
+1615141228811	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615141228830	Marionette	ERROR	[19] No reply from Marionette:Register
+1615141229178	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESpage.html, line 1: ReferenceError: togglePanel is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESpage.html, line 1: ReferenceError: togglePanel is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+1615143324493	Marionette	ERROR	[37] No reply from Marionette:Register
+console.error: (new TypeError("store is null", "resource://devtools/client/webconsole/webconsole-wrapper.js", 222))
+TypeError: store is null: dispatchSplitConsoleCloseButtonToggle@resource://devtools/client/webconsole/webconsole-wrapper.js:222:5
+_onChangeSplitConsoleState@resource://devtools/client/webconsole/webconsole-ui.js:654:18
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+selectTool/<@resource://devtools/client/framework/toolbox.js:2645:12
+
+JavaScript error: resource://devtools/client/framework/devtools.js, line 730: TypeError: inspector is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 406: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 406: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 12: ReferenceError: d3 is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null

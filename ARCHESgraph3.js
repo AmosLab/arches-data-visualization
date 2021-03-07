@@ -1,5 +1,5 @@
-var width = 1600;
-var height = 830;
+var width = getWidth() - 40;
+var height = getHeight() -30;
 
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections6.json";
@@ -190,10 +190,14 @@ d3.json(graphFile).then(function(graph) {
             var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff'];
             for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
                 var filterName = filterLabels[filterIdx];
-                var filterValue = document.getElementsByName(filterName);
-                if (filterValue[1].checked) {
+                if ($('#' + filterName).is(":checked")) {
+                    console.log("Made it")
                     filterIDs.push(filterName);
                 }
+                // var filterValue = document.getElementsByName(filterName);
+                // if (filterValue[1].checked) {
+                //     filterIDs.push(filterName);
+                // }
             }
 
             // Reload the network
@@ -365,7 +369,7 @@ d3.json(graphFile).then(function(graph) {
 	var zmin = Math.log(parseFloat(graph.values[0].minPITotal));
 	var zmax = Math.log(parseFloat(graph.values[0].maxPITotal));	
 	for (i = zmin; i <= zmax; i += (zmax - zmin)/(numCells - 1)) {
-		znumbering[znumbering.length]= "$" + Number(Math.exp(i).toPrecision(3)).toFixed().toString();
+		znumbering[znumbering.length]= "$" + numberWithCommas(Number(Math.exp(i).toPrecision(3)).toFixed().toString());
 	}
 
 	// legend values
@@ -381,7 +385,7 @@ d3.json(graphFile).then(function(graph) {
 	// legend styling
 	var container2 = svg.append("g")
   		.attr("class", "legendSequential")
-  		.attr("transform", "translate("+(width/2+150)+","+(height-50)+")")
+  		.attr("transform", "translate("+(width/2+120)+","+(height-60)+")")
         	.style("fill", "#000")
 		.style("font-size","15px")
 		.style("font-family", "Arial");
@@ -396,3 +400,33 @@ loadNetwork(graphFile);
 // creates scale for red-yellow-green color spectrum
 var sequentialScale = d3.scaleSequential(d3.interpolateRdYlGn)
 	.domain([0,1]);
+
+function togglePanel() {
+    var x = document.getElementById("filterBar");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    }
+    else {
+        x.style.display = "none";
+    }
+}
+
+function getWidth() {
+    return Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.documentElement.clientWidth
+    );
+  }
+  
+  function getHeight() {
+    return Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.documentElement.clientHeight
+    );
+  }

@@ -8,7 +8,9 @@
         text-overflow: ellipsis;
         font-size: 15px;
     } 
-    
+    body, h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, Helvetica, Arial, sans-serif;
+	}
     .button {
         background-color: steelblue;
         border: none;
@@ -54,19 +56,52 @@
     }
 
     div.ui-widget { 
-        position: absolute;                 
-        width: 400px;                   
-        height: 100px;                  
-        padding: 5px;               
-        font: 12px sans-serif;          
+        position: absolute;  
+		top: 0;
+		left: 0;              
+		width: 100%;
+		padding-bottom: 10;
+		text-align: center;                              
+        font: 12px ;    
+		font-family: t;
+		border-color: black;
+		border-bottom-style: solid;
+		border-bottom: 2px;   
+		background-color: cornflowerblue;   
     }
 
     div.search {
         z-index: 1;
+		text-align: center;
+		width: 100%;
+
     }
 
-	div.TopSection {
-		display: block;
+	div.filterBar {
+		float: left;
+		position:absolute;
+		margin-top: 7%;
+		width: 25%;
+		border-color: grey;
+		border-width: 2px;
+		border-style: solid;
+		padding-left: 0%;
+		margin-left: 0%;
+		text-align: left;
+		border-radius: 5px;
+		background-color: white;
+		display: none;
+
+	}
+
+	button.filterButton {
+		float: center;
+		font-size: 16px;
+		text-align: center;
+	}
+	button.toggleButton {
+		float: left;
+		font-size: 16px;
 	}
 
     br {
@@ -116,16 +151,8 @@
 
     
     form.Filtering{
-        float:right;
-    }
-    
-    fieldset {
         float:left;
-        border: none;
-        width: 150px;
-        height: 70px;
-        font-family:sans-serif;
-        font-size:12px;
+		padding: 10px;
     }
 
 </style>
@@ -133,61 +160,32 @@
     <script src="ARCHESgraph3.js"></script>
 </head>
 <body>
-    <button onclick="togglePanel()">Toggle Panel</button>
-	<script
-		function togglePanel() {
-			var x = document.getElementById("filterPanel");
-			if (x.style.display === "none") {
-				x.style.display = "block";
-			}
-			else {
-				x.style.display = "none";
-			}
-		}
-	>
-	</script>
-	<div class="TopSection" id="filterPanel">
-        <div class="search">
-            <div class="ui-widget">
-                <input size="30" id="search">
-                <button type="button" id="searchF">Search</button>
-                <button type="button" id="clear">Clear</button>
-             </div>
-        </div>
-    
+	<div class="ui-widget">
+		<p><b>JUMP ARCHES Data Visualizations</b></p>
+		<button onclick="togglePanel()" class="toggleButton">Add Filters</button>
+		<input size="80" id="search" placeholder="Search for an Investigator...">
+		<button type="button" id="searchF">Search</button>
+		<button type="button" id="clear">Clear</button>
+	</div>
+	<div class = "filterBar" id="filterBar">
         <form class = "Filtering">
-            <fieldset id="digHealth">Digital Health
-                <br>
-                <input type="radio" value="yes" name="digHealth">Yes
-                <br>
-                <input type="radio" value="no" name="digHealth">No
-            </fieldset>
-
-            <fieldset id="nextGen">Next Generation of Primary Care
-                <br>
-                <input type="radio" value="yes" name="nextGen">Yes
-                <br>
-                <input type="radio" value="no" name="nextGen">No
-            </fieldset>
-            
-            <fieldset id="commHealth">Community Health and Social Determinants of Heath
-                <br>
-                <input type="radio" value="yes" name="commHealth">Yes
-                <br>
-                <input type="radio" value="no" name="commHealth">No
-            </fieldset>
-            
-            <fieldset id="radEff">Radical Efficiecy
-                <br>
-                <input type="radio" value="yes" name="radEff">Yes
-                <br>
-                <input type="radio" value="no" name="radEff">No
-            </fieldset>
-            
-            <button type="button" id="filter">Set Filters</button>
-            <button type="button" id="clearFilter">Clear Filters</button>
+			<input type="checkbox" id="digHealth">
+			<label>Digital Health</label>
+			<br>
+			<input type="checkbox" id="nextGen">
+			<label>Next Generation of Primary Care</label>
+			<br>
+			<input type="checkbox" id="commHealth">
+			<label>Community Health</label>
+			<br>
+			<input type="checkbox" id="radEff">
+			<label>Radical Efficiecy</label>
+			<br>
+            <button type="button" id="filter" class="filterButton">Set Filters</button>
+            <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>
         </form>
-    </div>
+
+	</div>
 	 
     <svg id='viz'></svg>
 
