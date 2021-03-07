@@ -1,8 +1,8 @@
-var width = 1600;
-var height = 830;
+var width = getWidth() - 40;
+var height = getHeight() -30;
 
 // pulls JSON file containing nodes and links from local directory
-var graphFile = "ARCHES_connections5.json";
+var graphFile = "ARCHES_connections6.json";
 
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
@@ -19,34 +19,63 @@ d3.json(graphFile).then(function(graph) {
         'links': [],
     };
 
+    var possiblePIs = []
     // Check through the filterIDs array and delete links that are 
     for (var idx = 0; idx < filterIDs.length; idx++) {
         var filterName = filterIDs[idx];
         graph.links.forEach(function(link, index) {
             if (link[filterName] == "No") { // If the link with this filterName is not that type, delete it
                 graph.links.splice(index,1);
+                if (!possiblePIs.includes(link.source)) {
+                    possiblePIs.push(link.source);
+                }
+                if (!possiblePIs.includes(link.target)) {
+                    possiblePIs.push(link.target);
+                }
             }
         });
     }
 
+    var inLinks = false;
+    possiblePIs.forEach(function(pi,index2) {
+        inLinks = false;
+        for (var indexL = 0; indexL < graph.links.length; indexL++) {
+            const link1 = graph.links[indexL];
+            if (pi == link1.source || pi == link1.target) {
+                inLinks = true;
+                break;            
+            }
+        }
+        if (!inLinks) {
+            console.log("Not in links")
+            var piIdx = -1;
+            for (var piIdx = 0; piIdx < graph.nodes.length; piIdx++) {
+                if (graph.nodes[piIdx].id == pi) {
+                    break;
+                }
+            }
+            if (piIdx > -1) {
+                console.log("Deleting Nodes")
+                graph.nodes.splice(piIdx, 1);
+            }
+        }
+    });
+
     graph.nodes.forEach(function(d, i) {
         label.nodes.push({node: d});
-		label.nodes.push({node: d});
+        label.nodes.push({node: d});
         label.links.push({
             source: i * 2,
             target: i * 2 + 1
         });
     });
 
-
-
-	
-	// sets force of repulsion (negative value) between labels, and very strong force of attraction between labels and their respective nodes
+    // sets force of repulsion (negative value) between labels, and very strong force of attraction between labels and their respective nodes
     var labelLayout = d3.forceSimulation(label.nodes)
         .force("charge", d3.forceManyBody().strength(-200))
         .force("link", d3.forceLink(label.links).distance(0).strength(3));
     
-	// sets force of repulsion (negative value) between nodes, and force of attraction between linked nodes
+    // sets force of repulsion (negative value) between nodes, and force of attraction between linked nodes
     var graphLayout = d3.forceSimulation(graph.nodes)
         .force("charge", d3.forceManyBody().strength(-200))
         .force("center", d3.forceCenter(width / 2, height / 2))
@@ -64,46 +93,50 @@ d3.json(graphFile).then(function(graph) {
         return a == b || adjlist[a + "-" + b];
     }
     
-	// creates svg container to draw elements
+    // creates svg container to draw elements
     var svg = d3.select("#viz").attr("width", width).attr("height", height);
     var container = svg.append("g");
     
-	// uses mouse scroll wheel as zoom function to scale the svg container
+    // uses mouse scroll wheel as zoom function to scale the svg container
     svg.call(
         d3.zoom()
             .scaleExtent([.1, 4])
             .on("zoom", function() { container.attr("transform", d3.event.transform); })
     );
     
-	// link style formatting
+    // link style formatting
     var link = container.append("g").attr("class", "links")
         .selectAll("line")
         .data(graph.links)
         .enter()
         .append("line")
         .attr("stroke", "#bbb")
+		// link width is function of project funding, scaled by 1/$20000
         .attr("stroke-width", function(d) {
-			return d.amount/20000 + 2;
-		}
-			);
-	
-	// node style formatting
+            return d.amount/20000 + 2;
+        }
+            );
+    
+    // node style formatting
     var node = container.append("g").attr("class", "nodes")  
         .selectAll("g")
         .data(graph.nodes)
         .enter()
         .append("circle")
         .attr("r", 10)
-        .attr("fill", "#0455A4")
-    	.attr("stroke", "#fff")
+        .attr("fill", function(d) {
+			return d3.color(d3.interpolateRdYlGn(d.fundingLogScaled)).formatHex();
+		}
+		)
+        .attr("stroke", "#fff")
         .attr("stroke-width", "2px")
         
     // Div Tooltip for Displaying info
-    var div = d3.select("body").append("div")	
-        .attr("class", "tooltip")				
+    var div = d3.select("body").append("div")   
+        .attr("class", "tooltip")               
         .style("opacity", 0);
 
-	// hovering over a node with the cursor causes the network to focus on linked nodes
+    // hovering over a node with the cursor causes the network to focus on linked nodes
     node.on("mouseover", focus).on("mouseout", unfocus);
 
 
@@ -157,10 +190,14 @@ d3.json(graphFile).then(function(graph) {
             var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff'];
             for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
                 var filterName = filterLabels[filterIdx];
-                var filterValue = document.getElementsByName(filterName);
-                if (filterValue[1].checked) {
+                if ($('#' + filterName).is(":checked")) {
+                    console.log("Made it")
                     filterIDs.push(filterName);
                 }
+                // var filterValue = document.getElementsByName(filterName);
+                // if (filterValue[1].checked) {
+                //     filterIDs.push(filterName);
+                // }
             }
 
             // Reload the network
@@ -190,18 +227,18 @@ d3.json(graphFile).then(function(graph) {
         node.attr("r", function(d) {
             return (d === l.source || d === l.target) ? 15 : 10;
         });
-        div.transition()		
-            .duration(200)		
-            .style("opacity", .9);		
-        div	.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff)	
+        div.transition()        
+            .duration(200)      
+            .style("opacity", .9);      
+        div .html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff)    
             .style("left", (d3.event.pageX) + "px")
-            .style("padding", "7px")		
-            .style("top", (d3.event.pageY - 28) + "px");	
+            .style("padding", "7px")        
+            .style("top", (d3.event.pageY - 28) + "px");    
 
       });
     link.on("mouseout", unfocus);
     
-	// prevents mouse capture
+    // prevents mouse capture
     node.call(
         d3.drag()
             .on("start", dragstarted)
@@ -209,7 +246,7 @@ d3.json(graphFile).then(function(graph) {
             .on("end", dragended)
     );
     
-	// label style formatting
+    // label style formatting
     var labelNode = container.append("g").attr("class", "labelNodes")
         .selectAll("text")
         .data(label.nodes)
@@ -219,14 +256,14 @@ d3.json(graphFile).then(function(graph) {
         .style("fill", "#000")
         .style("font-family", "Arial")
         .style("font-size", 18)
-		.attr("font-weight", 700)
-		.style("stroke", "#fff")
-		.style("stroke-width", 0.6)
+        .attr("font-weight", 700)
+        .style("stroke", "#fff")
+        .style("stroke-width", 0.6)
         .style("pointer-events", "none"); // to prevent mouseover/drag capture
     
     node.on("mouseover", focus).on("mouseout", unfocus);
     
-	// updates node and link position per tick
+    // updates node and link position per tick
     function ticked() {
     
         node.call(updateNode);
@@ -260,7 +297,7 @@ d3.json(graphFile).then(function(graph) {
         return 0;
     }
     
-	// decreases opacity of nodes that are not linked to focused node
+    // decreases opacity of nodes that are not linked to focused node
     function focus(d) {
         var index = d3.select(d3.event.target).datum().index;
         node.style("opacity", function(o) {
@@ -277,15 +314,15 @@ d3.json(graphFile).then(function(graph) {
         });
     }
     
-	// resets opacity to full once node is unfocused
+    // resets opacity to full once node is unfocused
     function unfocus() {
        labelNode.attr("display", "block");
        node.style("opacity", 1);
        link.style("opacity", 1);
        node.attr("r", 10);
-       div.transition()		
-       .duration(500)		
-       .style("opacity", 0);	
+       div.transition()     
+       .duration(500)       
+       .style("opacity", 0);    
     }
 
     // Adds commas to the number to show funding a little prettier
@@ -293,7 +330,7 @@ d3.json(graphFile).then(function(graph) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     
-	// redraws link endpoints per tick
+    // redraws link endpoints per tick
     function updateLink(link) {
         link.attr("x1", function(d) { return fixna(d.source.x); })
             .attr("y1", function(d) { return fixna(d.source.y); })
@@ -301,7 +338,7 @@ d3.json(graphFile).then(function(graph) {
             .attr("y2", function(d) { return fixna(d.target.y); });
     }
     
-	// redraws nodes per tick
+    // redraws nodes per tick
     function updateNode(node) {
         node.attr("transform", function(d) {
             return "translate(" + fixna(d.x) + "," + fixna(d.y) + ")";
@@ -325,7 +362,71 @@ d3.json(graphFile).then(function(graph) {
         d.fx = null;
         d.fy = null;
     }
+	
+	// divides legend scale into 5 colors, uses increments in log scale before converting back to normal values
+	var znumbering = [];
+	var numCells = 5
+	var zmin = Math.log(parseFloat(graph.values[0].minPITotal));
+	var zmax = Math.log(parseFloat(graph.values[0].maxPITotal));	
+	for (i = zmin; i <= zmax; i += (zmax - zmin)/(numCells - 1)) {
+		znumbering[znumbering.length]= "$" + numberWithCommas(Number(Math.exp(i).toPrecision(3)).toFixed().toString());
+	}
+
+	// legend values
+	var legendSequential = d3.legendColor()
+  		.shapeWidth(100)
+  		.cells(numCells)
+  		.orient('horizontal')
+		.title("Total funding as PI (log scale)")
+		.titleWidth(300)
+		.labels(znumbering)
+  		.scale(sequentialScale);
+
+	// legend styling
+	var container2 = svg.append("g")
+  		.attr("class", "legendSequential")
+  		.attr("transform", "translate("+(width/2+120)+","+(height-60)+")")
+        	.style("fill", "#000")
+		.style("font-size","15px")
+		.style("font-family", "Arial");
+
+	svg.select(".legendSequential")
+  		.call(legendSequential);
 }
 );
 }
 loadNetwork(graphFile);
+
+// creates scale for red-yellow-green color spectrum
+var sequentialScale = d3.scaleSequential(d3.interpolateRdYlGn)
+	.domain([0,1]);
+
+function togglePanel() {
+    var x = document.getElementById("filterBar");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    }
+    else {
+        x.style.display = "none";
+    }
+}
+
+function getWidth() {
+    return Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.documentElement.clientWidth
+    );
+  }
+  
+  function getHeight() {
+    return Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.documentElement.clientHeight
+    );
+  }
