@@ -2,7 +2,7 @@ var width = 1600;
 var height = 830;
 
 // pulls JSON file containing nodes and links from local directory
-var graphFile = "ARCHES_connections5.json";
+var graphFile = "ARCHES_connections6.json";
 
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
@@ -61,8 +61,6 @@ d3.json(graphFile).then(function(graph) {
         }
     });
 
-
-
     graph.nodes.forEach(function(d, i) {
         label.nodes.push({node: d});
         label.nodes.push({node: d});
@@ -72,9 +70,6 @@ d3.json(graphFile).then(function(graph) {
         });
     });
 
-
-
-    
     // sets force of repulsion (negative value) between labels, and very strong force of attraction between labels and their respective nodes
     var labelLayout = d3.forceSimulation(label.nodes)
         .force("charge", d3.forceManyBody().strength(-200))
@@ -116,6 +111,7 @@ d3.json(graphFile).then(function(graph) {
         .enter()
         .append("line")
         .attr("stroke", "#bbb")
+		// link width is function of project funding, scaled by 1/$20000
         .attr("stroke-width", function(d) {
             return d.amount/20000 + 2;
         }
@@ -128,7 +124,10 @@ d3.json(graphFile).then(function(graph) {
         .enter()
         .append("circle")
         .attr("r", 10)
-        .attr("fill", "#0455A4")
+        .attr("fill", function(d) {
+			return d3.color(d3.interpolateRdYlGn(d.fundingLogScaled)).formatHex();
+		}
+		)
         .attr("stroke", "#fff")
         .attr("stroke-width", "2px")
         
@@ -359,7 +358,41 @@ d3.json(graphFile).then(function(graph) {
         d.fx = null;
         d.fy = null;
     }
+	
+	// divides legend scale into 5 colors, uses increments in log scale before converting back to normal values
+	var znumbering = [];
+	var numCells = 5
+	var zmin = Math.log(parseFloat(graph.values[0].minPITotal));
+	var zmax = Math.log(parseFloat(graph.values[0].maxPITotal));	
+	for (i = zmin; i <= zmax; i += (zmax - zmin)/(numCells - 1)) {
+		znumbering[znumbering.length]= "$" + Number(Math.exp(i).toPrecision(3)).toFixed().toString();
+	}
+
+	// legend values
+	var legendSequential = d3.legendColor()
+  		.shapeWidth(100)
+  		.cells(numCells)
+  		.orient('horizontal')
+		.title("Total funding as PI (log scale)")
+		.titleWidth(300)
+		.labels(znumbering)
+  		.scale(sequentialScale);
+
+	// legend styling
+	var container2 = svg.append("g")
+  		.attr("class", "legendSequential")
+  		.attr("transform", "translate("+(width/2+150)+","+(height-50)+")")
+        	.style("fill", "#000")
+		.style("font-size","15px")
+		.style("font-family", "Arial");
+
+	svg.select(".legendSequential")
+  		.call(legendSequential);
 }
 );
 }
 loadNetwork(graphFile);
+
+// creates scale for red-yellow-green color spectrum
+var sequentialScale = d3.scaleSequential(d3.interpolateRdYlGn)
+	.domain([0,1]);
