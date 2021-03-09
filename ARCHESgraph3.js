@@ -127,7 +127,7 @@ d3.json(graphFile).then(function(graph) {
         .append("circle")
         .attr("r", 10)
         .attr("fill", function(d) {
-			return d3.color(d3.interpolateRdYlGn(d.fundingLogScaled)).formatHex();
+			return d3.color(d3.interpolatePlasma(d.fundingLogScaled)).formatHex();
 		}
 		)
         .attr("stroke", "#fff")
@@ -408,7 +408,7 @@ d3.json(graphFile).then(function(graph) {
 loadNetwork(graphFile);
 
 // creates scale for red-yellow-green color spectrum
-var sequentialScale = d3.scaleSequential(d3.interpolateRdYlGn)
+var sequentialScale = d3.scaleSequential(d3.interpolatePlasma)
 	.domain([0,1]);
 
 function togglePanel() {
