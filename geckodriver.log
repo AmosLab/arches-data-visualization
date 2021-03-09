@@ -7967,3 +7967,30 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: T
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1615326979756	geckodriver	INFO	Listening on 127.0.0.1:52712
+1615326980781	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofileQOHqlo"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615326986016	Marionette	INFO	Listening on port 52724
+1615326986138	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615326986171	Marionette	ERROR	[19] No reply from Marionette:Register
+1615326986874	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: TypeError: document.body is null
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 425: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 425: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 425: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 325: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 325: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 325: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 325: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 325: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 426: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined

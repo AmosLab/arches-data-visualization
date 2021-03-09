@@ -11,6 +11,8 @@ function loadNetwork(graphFile){
 
 d3.json(graphFile).then(function(graph) {
 
+    var searchedName = "None";
+
     var svg = d3.select("svg");
     svg.selectAll("*").remove();
     
@@ -157,24 +159,23 @@ d3.json(graphFile).then(function(graph) {
    
    $('#searchF').on('click',
        function searchNode() {
-           console.log(optArray);
            //find the node
            var selectedVal = document.getElementById('search').value;
-           console.log(selectedVal)
            node.attr("opacity", function(o) {
                return (o.id==selectedVal) ? 1 : 0.1;
            });
            labelNode.attr("display", function(d) {
                return (d.node.id==selectedVal) ? "block" : "none";
            });
+           searchedName = selectedVal;
        }
    );
    $("#clear").click(
        function clearFocus() {
-           console.log(optArray);
            //find the node
            node.attr("opacity", 1);
            labelNode.attr("display", "block")
+           searchedName = "None";
        }
    );
 
@@ -191,7 +192,6 @@ d3.json(graphFile).then(function(graph) {
             for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
                 var filterName = filterLabels[filterIdx];
                 if ($('#' + filterName).is(":checked")) {
-                    console.log("Made it")
                     filterIDs.push(filterName);
                 }
                 // var filterValue = document.getElementsByName(filterName);
@@ -215,25 +215,28 @@ d3.json(graphFile).then(function(graph) {
     // Hovering over a link performs focusing and creates a popup with some relevant project info
 
     link.on('mouseover', function(l) {
-        node.style('opacity', function(d) {
-          return (d === l.source || d === l.target) ? 1 : 0.1;
-          });
-        labelNode.attr("display", function(d) {
-            return (d.node.index === l.source.index || d.node.index === l.target.index) ? "block" : "none";
-        });
-        link.style("opacity", function(l2) {
-            return (l2 == l) ? 1 : 0.1;
-        });
-        node.attr("r", function(d) {
-            return (d === l.source || d === l.target) ? 15 : 10;
-        });
-        div.transition()        
-            .duration(200)      
-            .style("opacity", .9);      
-        div .html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff)    
-            .style("left", (d3.event.pageX) + "px")
-            .style("padding", "7px")        
-            .style("top", (d3.event.pageY - 28) + "px");    
+        if (searchedName == "None") {
+            node.style('opacity', function(d) {
+                return (d === l.source || d === l.target) ? 1 : 0.1;
+                });
+              labelNode.attr("display", function(d) {
+                  return (d.node.index === l.source.index || d.node.index === l.target.index) ? "block" : "none";
+              });
+              link.style("opacity", function(l2) {
+                  return (l2 == l) ? 1 : 0.1;
+              });
+              node.attr("r", function(d) {
+                  return (d === l.source || d === l.target) ? 15 : 10;
+              });
+              div.transition()        
+                  .duration(200)      
+                  .style("opacity", .9);      
+              div .html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff)    
+                  .style("left", (d3.event.pageX) + "px")
+                  .style("padding", "7px")        
+                  .style("top", (d3.event.pageY - 28) + "px"); 
+        }
+   
 
       });
     link.on("mouseout", unfocus);
@@ -299,30 +302,37 @@ d3.json(graphFile).then(function(graph) {
     
     // decreases opacity of nodes that are not linked to focused node
     function focus(d) {
-        var index = d3.select(d3.event.target).datum().index;
-        node.style("opacity", function(o) {
-            return neigh(index, o.index) ? 1 : 0.1;
-        });
-        labelNode.attr("display", function(o) {
-          return neigh(index, o.node.index) ? "block": "none";
-        });
-        link.style("opacity", function(o) {
-            return o.source.index == index || o.target.index == index ? 1 : 0.1;
-        });
-        node.attr("r", function(o) {
-            return neigh(index, o.index) ? 15 : 10;
-        });
+        if (searchedName == "None" || searchedName == d.id) {
+            var index = d3.select(d3.event.target).datum().index;
+            node.style("opacity", function(o) {
+                return neigh(index, o.index) ? 1 : 0.1;
+            });
+            labelNode.attr("display", function(o) {
+              return neigh(index, o.node.index) ? "block": "none";
+            });
+            link.style("opacity", function(o) {
+                return o.source.index == index || o.target.index == index ? 1 : 0.1;
+            });
+            node.attr("r", function(o) {
+                return neigh(index, o.index) ? 15 : 10;
+            });
+            searchedName = "None"
+        }
+
     }
     
     // resets opacity to full once node is unfocused
     function unfocus() {
-       labelNode.attr("display", "block");
-       node.style("opacity", 1);
-       link.style("opacity", 1);
-       node.attr("r", 10);
-       div.transition()     
-       .duration(500)       
-       .style("opacity", 0);    
+        if (searchedName == "None" || searchedName == d.id) {
+            labelNode.attr("display", "block");
+            node.style("opacity", 1);
+            link.style("opacity", 1);
+            node.attr("r", 10);
+            div.transition()     
+            .duration(500)       
+            .style("opacity", 0);  
+        }
+  
     }
 
     // Adds commas to the number to show funding a little prettier
