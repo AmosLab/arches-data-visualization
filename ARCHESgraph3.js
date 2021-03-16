@@ -13,6 +13,8 @@ d3.json(graphFile).then(function(graph) {
 
     var searchedName = "None";
 
+    var infoBarOn = false;
+
     var svg = d3.select("svg");
     svg.selectAll("*").remove();
     
@@ -131,16 +133,17 @@ d3.json(graphFile).then(function(graph) {
 		}
 		)
         .attr("stroke", "#fff")
-        .attr("stroke-width", "2px")
+        .attr("stroke-width", "2px");
         
+    // Div Tooltip for Displaying Node info
+    var divNode = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
     // Div Tooltip for Displaying Link info
     var div = d3.select("body").append("div")   
         .attr("class", "tooltip")               
         .style("opacity", 0);
-    // Div Tooltip for Displaying Node info
-    var divNode = d3.select("body").append("div")   
-        .attr("class", "invesigatorInfo")               
-        .style("opacity", 1);
+
     // hovering over a node with the cursor causes the network to focus on linked nodes
     node.on("mouseover", focus).on("mouseout", unfocus);
 
@@ -234,7 +237,7 @@ d3.json(graphFile).then(function(graph) {
               div.transition()        
                   .duration(200)      
                   .style("opacity", .9);      
-              div .html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff)    
+              div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff)    
                   .style("left", (d3.event.pageX) + "px")
                   .style("padding", "7px")        
                   .style("top", (d3.event.pageY - 28) + "px")
@@ -336,6 +339,28 @@ d3.json(graphFile).then(function(graph) {
         }
 
     }
+
+    // Creates an Info Bar
+    // We still need to add more detailed investigator information to this bar!!!!
+    function toggleInfoBar() {
+        if (infoBarOn) {
+            divNode.transition()     
+                .duration(500)       
+                .style("opacity", 0); 
+            infoBarOn = !infoBarOn
+        } else {
+            divNode.transition()        
+                .duration(200)      
+                .style("opacity", 1);      
+            divNode.html("<b>Investigator Name</b>")   
+                .style("padding", "7px")        
+                .style("height","80%")
+                .style("left", "1%")
+                .style("top", "15%");
+            infoBarOn = !infoBarOn;
+        }
+
+    }
     
     // resets opacity to full once node is unfocused
     function unfocus() {
@@ -367,15 +392,6 @@ d3.json(graphFile).then(function(graph) {
             }
         }
         return connections;
-    }
-
-    function toggleInfoBar() {
-        divNode.transition()        
-            .duration(200)      
-            .style("opacity", .9);      
-        divNode.html("<b>Investigator Name</b>")   
-            .style("padding", "7px")        
-            .style("height","450px");
     }
 
     
