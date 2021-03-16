@@ -133,11 +133,14 @@ d3.json(graphFile).then(function(graph) {
         .attr("stroke", "#fff")
         .attr("stroke-width", "2px")
         
-    // Div Tooltip for Displaying info
+    // Div Tooltip for Displaying Link info
     var div = d3.select("body").append("div")   
         .attr("class", "tooltip")               
         .style("opacity", 0);
-
+    // Div Tooltip for Displaying Node info
+    var divNode = d3.select("body").append("div")   
+        .attr("class", "invesigatorInfo")               
+        .style("opacity", 1);
     // hovering over a node with the cursor causes the network to focus on linked nodes
     node.on("mouseover", focus).on("mouseout", unfocus);
 
@@ -234,12 +237,15 @@ d3.json(graphFile).then(function(graph) {
               div .html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff)    
                   .style("left", (d3.event.pageX) + "px")
                   .style("padding", "7px")        
-                  .style("top", (d3.event.pageY - 28) + "px"); 
+                  .style("top", (d3.event.pageY - 28) + "px")
+                  .style("height","400px");
         }
    
 
       });
     link.on("mouseout", unfocus);
+
+    node.on("click",toggleInfoBar);
     
     // prevents mouse capture
     node.call(
@@ -317,6 +323,16 @@ d3.json(graphFile).then(function(graph) {
                 return neigh(index, o.index) ? 15 : 10;
             });
             searchedName = "None"
+            totalConnections = getConnections(d);
+            
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);      
+            div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Total Funding Received</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)   
+                .style("left", (d3.event.pageX) + "px")
+                .style("padding", "7px")        
+                .style("top", (d3.event.pageY - 28) + "px")
+                .style("height","100px");
         }
 
     }
@@ -339,6 +355,29 @@ d3.json(graphFile).then(function(graph) {
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
+    // Get total connections from one node
+    function getConnections(d) {
+        connections = 0
+        for (var indexL = 0; indexL < graph.links.length; indexL++) {
+            link1 = graph.links[indexL];
+            if (d.id == link1.source.id || d.id == link1.target.id) {
+                connections += 1; 
+    
+            }
+        }
+        return connections;
+    }
+
+    function toggleInfoBar() {
+        divNode.transition()        
+            .duration(200)      
+            .style("opacity", .9);      
+        divNode.html("<b>Investigator Name</b>")   
+            .style("padding", "7px")        
+            .style("height","450px");
+    }
+
     
     // redraws link endpoints per tick
     function updateLink(link) {
@@ -420,6 +459,8 @@ function togglePanel() {
         x.style.display = "none";
     }
 }
+
+
 
 function getWidth() {
     return Math.max(

@@ -7994,3 +7994,265 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: R
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 326: ReferenceError: d is not defined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1615866231914	geckodriver	INFO	Listening on 127.0.0.1:65004
+1615866232894	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofileds6Rmg"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615866242051	Marionette	INFO	Listening on port 65017
+1615866242171	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615866242185	Marionette	ERROR	[19] No reply from Marionette:Register
+1615866242512	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 426: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 433: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 433: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 433: TypeError: document.body is null
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 433: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 447: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 448: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 357: ReferenceError: pi is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 357: ReferenceError: pi is not defined
+1615867216737	Marionette	ERROR	[37] No reply from Marionette:Register
+JavaScript error: resource://devtools/client/framework/devtools.js, line 730: TypeError: inspector is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 357: ReferenceError: pi is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 448: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 449: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 450: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 451: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 449: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 452: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 452: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 455: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 455: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 455: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 455: TypeError: document.body is null
+1615868012529	Marionette	ERROR	[42] No reply from Marionette:Register
+1615868023277	Marionette	ERROR	[46] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 455: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 455: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 455: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 332: SyntaxError: expected expression, got '.'
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 332: SyntaxError: expected expression, got '.'
+1615868144503	Marionette	ERROR	[51] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 456: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 456: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 457: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 457: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 469: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 469: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 459: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+1615868748445	Marionette	ERROR	[56] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+console.error: "Error while calling actor 'pagestyle's method 'getApplied'" "node is null"
+console.error: "getApplied@resource://devtools/server/actors/page-style.js:571:5\nhandler@resource://devtools/shared/protocol/Actor.js:172:37\nonPacket@resource://devtools/server/devtools-server-connection.js:379:58\nreceiveMessage@resource://devtools/shared/transport/child-transport.js:68:16\n"
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+console.error: "Error while calling actor 'pagestyle's method 'getApplied'" "node is null"
+console.error: "getApplied@resource://devtools/server/actors/page-style.js:571:5\nhandler@resource://devtools/shared/protocol/Actor.js:172:37\nonPacket@resource://devtools/server/devtools-server-connection.js:379:58\nreceiveMessage@resource://devtools/shared/transport/child-transport.js:68:16\n"
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+1615869045657	geckodriver	INFO	Listening on 127.0.0.1:49160
+1615869045668	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/sq/0jdzhhhn5kq7qtfl2r7z2f400000gn/T/rust_mozprofileWxR7ch"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615869048652	Marionette	INFO	Listening on port 49169
+1615869048682	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615869048704	Marionette	ERROR	[19] No reply from Marionette:Register
+1615869049077	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+1615869181180	Marionette	ERROR	[35] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 460: TypeError: x is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 470: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript warning: https://d3js.org/d3.v5.min.js, line 2: Script terminated by timeout at:
+Ta.visit@https://d3js.org/d3.v5.min.js:2:74266
+c@https://d3js.org/d3.v5.min.js:2:203809
+l/<@https://d3js.org/d3.v5.min.js:2:205914
+each@https://d3js.org/d3.v5.min.js:2:62604
+l@https://d3js.org/d3.v5.min.js:2:205896
+s@https://d3js.org/d3.v5.min.js:2:205755
+dr@https://d3js.org/d3.v5.min.js:2:37780
+pr@https://d3js.org/d3.v5.min.js:2:37854
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+pr/<@https://d3js.org/d3.v5.min.js:2:38006
+pr@https://d3js.org/d3.v5.min.js:2:38012
+Async*gr@https://d3js.org/d3.v5.min.js:2:38246
+
+1615927790837	Marionette	ERROR	[19] No reply from Marionette:Register
+console.warn: "Failed to add watcher data entry for frame targets in browsing context" 19
+console.warn: (new AbortError("Actor 'DevToolsFrame' destroyed before query 'DevToolsFrameParent:addWatcherDataEntry' was resolved", (void 0)))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: "Error while calling actor 'pagestyle's method 'getUsedFontFaces'" "node is null"
+console.error: "getUsedFontFaces@resource://devtools/server/actors/page-style.js:368:24\nhandler@resource://devtools/shared/protocol/Actor.js:172:37\nonPacket@resource://devtools/server/devtools-server-connection.js:379:58\nreceiveMessage@resource://devtools/shared/transport/child-transport.js:68:16\n"
+console.error: "Could not get the list of font families" (new Error("Protocol error (TypeError): node is null from: server0.conn0.child1815/pagestyle26 (resource://devtools/server/actors/page-style.js:368:24)", "resource://devtools/shared/protocol/Front.js", 361))
+1615927792618	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 467: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 342: ReferenceError: d is not defined

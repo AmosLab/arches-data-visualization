@@ -55,6 +55,22 @@
         padding: 2px;   
     }
 
+    div.tooltipNode {   
+        position: absolute;         
+        text-align: center;         
+        width: 300px;                   
+        height: 200px;                  
+        padding: 2px;               
+        font: 12px sans-serif;      
+        background: white;  
+        border: 1px;    
+        border-color: black;
+        border-style: solid;    
+        border-radius: 8px;         
+        pointer-events: none;       
+        padding: 2px;   
+    }
+
     div.ui-widget { 
         position: absolute;  
 		top: 0;
@@ -92,6 +108,23 @@
 		background-color: white;
 		display: none;
 
+	}
+
+    div.investigatorInfo {
+		float: left;
+		position:absolute;
+		margin-top: 7%;
+		width: 25%;
+		border-color: grey;
+		border-width: 2px;
+		border-style: solid;
+		padding-left: 0%;
+		margin-left: 0%;
+		text-align: left;
+		border-radius: 5px;
+		background-color: white;
+		display: none;
+        height: 400px;
 	}
 
 	button.filterButton {
@@ -167,6 +200,24 @@
 		<button type="button" id="searchF">Search</button>
 		<button type="button" id="clear">Clear</button>
 	</div>
+	<div class = "investigatorInfo" id="investigatorInfo">
+        <form class = "Filtering">
+			<input type="checkbox" id="digHealth">
+			<label>Digital Health</label>
+			<br>
+			<input type="checkbox" id="nextGen">
+			<label>Next Generation of Primary Care</label>
+			<br>
+			<input type="checkbox" id="commHealth">
+			<label>Community Health</label>
+			<br>
+			<input type="checkbox" id="radEff">
+			<label>Radical Efficiecy</label>
+			<br>
+            <button type="button" id="filter" class="filterButton">Set Filters</button>
+            <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>
+        </form>
+	</div>
 	<div class = "filterBar" id="filterBar">
         <form class = "Filtering">
 			<input type="checkbox" id="digHealth">
@@ -184,8 +235,8 @@
             <button type="button" id="filter" class="filterButton">Set Filters</button>
             <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>
         </form>
-
 	</div>
+
 	 
     <svg id='viz'></svg>
 
