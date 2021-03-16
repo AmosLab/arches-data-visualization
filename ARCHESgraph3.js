@@ -342,6 +342,7 @@ d3.json(graphFile).then(function(graph) {
 
     // Creates an Info Bar
     // We still need to add more detailed investigator information to this bar!!!!
+    // Clicking any node again closes the info bar.
     function toggleInfoBar() {
         if (infoBarOn) {
             divNode.transition()     
