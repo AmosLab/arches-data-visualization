@@ -13,7 +13,7 @@ d3.json(graphFile).then(function(graph) {
 
     var searchedName = "None";
 
-    var infoBarOn = false;
+    var infoBarOnName = "None";
 
     var svg = d3.select("svg");
     svg.selectAll("*").remove();
@@ -243,12 +243,40 @@ d3.json(graphFile).then(function(graph) {
                   .style("top", (d3.event.pageY - 28) + "px")
                   .style("height","400px");
         }
-   
 
       });
     link.on("mouseout", unfocus);
 
-    node.on("click",toggleInfoBar);
+
+    // Creates an Info Bar
+    // We still need to add more detailed investigator information to this bar!!!!
+    // Weird issue where when the div disappears, it still blocks nodes in that area from being interacted with
+    // Clicking any node again closes the info bar.
+    node.on("click",function(d) {
+        if (infoBarOnName == "None") {
+            $('#infoBar').css("display","none")
+            $('#infoBar').fadeTo(500,1);
+            $('#Investigator').text(d.id);
+            $('#Funding').text("$"+numberWithCommas(d.funding));
+            $('#TotalProjects').text(getConnections(d));
+            $('#ProjectNames').append(getProjects(d));
+
+            infoBarOnName = d.id;
+        } else if (infoBarOnName != d.id) {
+            $('#Investigator').text(d.id);
+            $('#Funding').text("$"+numberWithCommas(d.funding));
+            $('#TotalProjects').text(getConnections(d));
+            $('#ProjectNames').append(getProjects(d));
+
+            infoBarOnName = d.id;
+        } else {
+            $('#infoBar').fadeTo(500,0);
+            $('#infoBar').css("display","block")
+            infoBarOnName = "None";
+        }
+    });
+
+    // }
     
     // prevents mouse capture
     node.call(
@@ -340,28 +368,8 @@ d3.json(graphFile).then(function(graph) {
 
     }
 
-    // Creates an Info Bar
-    // We still need to add more detailed investigator information to this bar!!!!
-    // Clicking any node again closes the info bar.
-    function toggleInfoBar() {
-        if (infoBarOn) {
-            divNode.transition()     
-                .duration(500)       
-                .style("opacity", 0); 
-            infoBarOn = !infoBarOn
-        } else {
-            divNode.transition()        
-                .duration(200)      
-                .style("opacity", 1);      
-            divNode.html("<b>Investigator Name</b>")   
-                .style("padding", "7px")        
-                .style("height","80%")
-                .style("left", "1%")
-                .style("top", "15%");
-            infoBarOn = !infoBarOn;
-        }
 
-    }
+
     
     // resets opacity to full once node is unfocused
     function unfocus() {
@@ -385,14 +393,35 @@ d3.json(graphFile).then(function(graph) {
     // Get total connections from one node
     function getConnections(d) {
         connections = 0
+        projects = []
         for (var indexL = 0; indexL < graph.links.length; indexL++) {
             link1 = graph.links[indexL];
             if (d.id == link1.source.id || d.id == link1.target.id) {
-                connections += 1; 
+                if (!projects.includes(link1.projectName)) {
+                    projects.push(link1.projectName);
+                    connections += 1; 
+                }
     
             }
         }
         return connections;
+    }
+
+    // Gets the names of all the projects an invesitgator was a part of in a bulleted list
+    function getProjects(d) {
+        projectsString = "<ul>";
+        projects = []
+        for (var indexL = 0; indexL < graph.links.length; indexL++) {
+            link1 = graph.links[indexL];
+            if (d.id == link1.source.id || d.id == link1.target.id) {
+                if (!projects.includes(link1.projectName)) {
+                    projects.push(link1.projectName);
+                    projectsString += "<li>" + link1.projectName + "</li>";
+                }
+            }
+        }
+        projectsString +=  '</ul>';
+        return projectsString;
     }
 
     

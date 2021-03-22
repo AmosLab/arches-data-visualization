@@ -55,6 +55,26 @@
         padding: 2px;   
     }
 
+    div.infoBar {   
+        position: absolute;         
+        text-align: center;         
+        width: 300px;                   
+        height: 80%;                  
+        padding: 2px;               
+        font: 12px sans-serif;      
+        background: white;  
+        border: 1px;    
+        border-color: black;
+        border-style: solid;    
+        border-radius: 8px;         
+        padding: 5px;
+        left: 1%;
+        top: 15%;  
+        display: none; 
+        overflow-y: auto;
+        overflow: scroll;
+    }
+
     div.ui-widget { 
         position: absolute;  
 		top: 0;
@@ -91,6 +111,7 @@
 		border-radius: 5px;
 		background-color: white;
 		display: none;
+
 
 	}
 
@@ -167,6 +188,18 @@
 		<button type="button" id="searchF">Search</button>
 		<button type="button" id="clear">Clear</button>
 	</div>
+        <div class="infoBar" id="infoBar">
+        <h4>Investigator:</h4>
+        <p id="Investigator"></p>
+        <h4>Total Funding Received:</h4>
+        <p id="Funding"></p>
+        <h4>Total Projects:</h4>
+        <p id="TotalProjects"></p>
+        <h4>Project Names</h4>
+        <div id="ProjectNames"></div>
+        <h4>Collaborating Investigators:</h4>
+        <p id="Collab"></p>
+    </div>
 	<div class = "filterBar" id="filterBar">
         <form class = "Filtering">
 			<input type="checkbox" id="digHealth">
