@@ -259,14 +259,14 @@ d3.json(graphFile).then(function(graph) {
             $('#Investigator').text(d.id);
             $('#Funding').text("$"+numberWithCommas(d.funding));
             $('#TotalProjects').text(getConnections(d));
-            $('#ProjectNames').append(getProjects(d));
+            $('#ProjectNames').html(getProjects(d));
 
             infoBarOnName = d.id;
         } else if (infoBarOnName != d.id) {
             $('#Investigator').text(d.id);
             $('#Funding').text("$"+numberWithCommas(d.funding));
             $('#TotalProjects').text(getConnections(d));
-            $('#ProjectNames').append(getProjects(d));
+            $('#ProjectNames').html(getProjects(d));
 
             infoBarOnName = d.id;
         } else {
@@ -415,6 +415,7 @@ d3.json(graphFile).then(function(graph) {
             link1 = graph.links[indexL];
             if (d.id == link1.source.id || d.id == link1.target.id) {
                 if (!projects.includes(link1.projectName)) {
+                    console.log(link1.projectName);
                     projects.push(link1.projectName);
                     projectsString += "<li>" + link1.projectName + "</li>";
                 }

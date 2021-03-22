@@ -9586,3 +9586,6 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 511: T
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 511: TypeError: document.body is null
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 512: TypeError: document.body is null
 1616419473268	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 514: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 514: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 514: TypeError: document.body is null
