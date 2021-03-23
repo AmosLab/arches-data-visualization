@@ -9589,3 +9589,545 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 512: T
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 514: TypeError: document.body is null
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 514: TypeError: document.body is null
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 514: TypeError: document.body is null
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 527: TypeError: document.body is null
+1616523019931	Marionette	ERROR	[37] No reply from Marionette:Register
+JavaScript error: resource://devtools/client/framework/devtools.js, line 730: TypeError: inspector is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 527: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 527: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 527: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 527: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 532: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 532: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 524: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 523: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 523: TypeError: document.body is null
+2021-03-23 13:29:54.887 firefox-bin[22990:2061815] IMKClient Stall detected, *please Report* your user scenario attaching a spindump (or sysdiagnose) that captures the problem - (invocationInterruptXPCReply) block performed very slowly (1.14 secs).
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+1616524887112	Marionette	ERROR	[19] No reply from Marionette:Register
+1616524892944	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+1616524932845	Marionette	ERROR	[19] No reply from Marionette:Register
+1616524946158	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 538: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 539: TypeError: document.body is null
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 540: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 540: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 391: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 540: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 540: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 540: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 540: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 527: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 537: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 537: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 538: TypeError: document.body is null
+1616526021008	Marionette	ERROR	[42] No reply from Marionette:Register
+JavaScript error: resource://devtools/client/framework/devtools.js, line 730: TypeError: inspector is undefined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 541: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 541: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: resource:///modules/UrlbarInput.jsm, line 2915: TypeError: event.target.closest is not a function
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 392: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 542: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 542: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 393: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 548: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 454: ReferenceError: str is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 548: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 281: ReferenceError: numResearchers is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 550: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 287: TypeError: document.getElementById(...) is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 550: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 550: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 550: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 399: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 551: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 551: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 288: TypeError: document.getElementById(...) is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 288: TypeError: document.getElementById(...) is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 552: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 552: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 289: TypeError: document.getElementById(...) is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 553: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 290: TypeError: document.getElementById(...) is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 291: TypeError: document.getElementById(...) is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 555: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 404: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 404: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 404: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 574: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 423: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 423: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 556: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 556: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 394: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 394: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 556: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 554: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 403: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 555: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 562: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 562: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 562: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 563: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 563: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 563: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 412: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 563: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 563: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 567: TypeError: document.body is null
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined
+JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 416: ReferenceError: d is not defined

@@ -11,6 +11,8 @@ function loadNetwork(graphFile){
 
 d3.json(graphFile).then(function(graph) {
 
+    var clickedID = 'None';
+
     var searchedName = "None";
 
     var infoBarOnName = "None";
@@ -167,7 +169,7 @@ d3.json(graphFile).then(function(graph) {
        function searchNode() {
            //find the node
            var selectedVal = document.getElementById('search').value;
-           node.attr("opacity", function(o) {
+           node.style("opacity", function(o) {
                return (o.id==selectedVal) ? 1 : 0.1;
            });
            labelNode.attr("display", function(d) {
@@ -176,6 +178,8 @@ d3.json(graphFile).then(function(graph) {
            searchedName = selectedVal;
        }
    );
+
+
    $("#clear").click(
        function clearFocus() {
            //find the node
@@ -253,6 +257,17 @@ d3.json(graphFile).then(function(graph) {
     // Weird issue where when the div disappears, it still blocks nodes in that area from being interacted with
     // Clicking any node again closes the info bar.
     node.on("click",function(d) {
+
+        focus(d);
+        div.transition()        
+        .duration(200)      
+        .style("opacity", 0);
+        if (clickedID == 'None') {
+            clickedID = d.id;
+        } else {
+            clickedID = 'None'
+        }
+        numResearchers = 0;
         if (infoBarOnName == "None") {
             $('#infoBar').css("display","none")
             $('#infoBar').fadeTo(500,1);
@@ -260,20 +275,44 @@ d3.json(graphFile).then(function(graph) {
             $('#Funding').text("$"+numberWithCommas(d.funding));
             $('#TotalProjects').text(getConnections(d));
             $('#ProjectNames').html(getProjects(d));
-
+            [numResearchers, collabOutput] = getResearchers(d);
+            console.log(collabOutput)
+            console.log(numResearchers)
+            $('#Collab').html(collabOutput);
             infoBarOnName = d.id;
         } else if (infoBarOnName != d.id) {
             $('#Investigator').text(d.id);
             $('#Funding').text("$"+numberWithCommas(d.funding));
             $('#TotalProjects').text(getConnections(d));
             $('#ProjectNames').html(getProjects(d));
-
+            [numResearchers, collabOutput] = getResearchers(d);
+            $('#Collab').html(collabOutput);
             infoBarOnName = d.id;
         } else {
             $('#infoBar').fadeTo(500,0);
             $('#infoBar').css("display","block")
             infoBarOnName = "None";
         }
+        // For loop this code for each link to work properly.
+        for (let totalR = 0; totalR < numResearchers; totalR++) {
+            rName = 'researcher' + totalR.toString();
+            $('#'+rName).on('click', {'idx':rName},
+            function (e) {
+                //find the node
+                var elem = document.getElementById(e.data.idx);
+                var selectedVal= elem.textContent || elem.innerText;
+                console.log(selectedVal)
+                node.style("opacity", function(d) {
+                    return (d.id==selectedVal) ? 1 : 0.1;
+                });
+                labelNode.attr("display", function(d) {
+                    return (d.node.id==selectedVal) ? "block" : "none";
+                });
+                searchedName = selectedVal;
+            }
+            );
+        }
+
     });
 
     // }
@@ -339,7 +378,8 @@ d3.json(graphFile).then(function(graph) {
     
     // decreases opacity of nodes that are not linked to focused node
     function focus(d) {
-        if (searchedName == "None" || searchedName == d.id) {
+        console.log(clickedID)
+        if ((searchedName == "None" || searchedName == d.id)) {
             var index = d3.select(d3.event.target).datum().index;
             node.style("opacity", function(o) {
                 return neigh(index, o.index) ? 1 : 0.1;
@@ -373,7 +413,7 @@ d3.json(graphFile).then(function(graph) {
     
     // resets opacity to full once node is unfocused
     function unfocus() {
-        if (searchedName == "None" || searchedName == d.id) {
+        if ((searchedName == "None" || searchedName == d.id) && clickedID == 'None') {
             labelNode.attr("display", "block");
             node.style("opacity", 1);
             link.style("opacity", 1);
@@ -415,15 +455,28 @@ d3.json(graphFile).then(function(graph) {
             link1 = graph.links[indexL];
             if (d.id == link1.source.id || d.id == link1.target.id) {
                 if (!projects.includes(link1.projectName)) {
-                    console.log(link1.projectName);
                     projects.push(link1.projectName);
                     projectsString += "<li>" + link1.projectName + "</li>";
                 }
             }
         }
-        projectsString +=  '</ul>';
-        return projectsString;
+        return projectsString +=  '</ul>';
     }
+
+    // Gets the names of all the projects an invesitgator was a part of in a bulleted list
+    function getResearchers(d) {
+        researcherString = "<ul>";
+        totalResearchers = 0;
+        graph.nodes.forEach(function(d2, index) {
+            if (neigh(index, d.index) && d != d2) {
+                researcherString += '<li><button id="researcher'+ totalResearchers.toString() + '" class="Investigator">' + d2.id + "</button></li>";
+                totalResearchers += 1;
+            }
+        });
+        return [totalResearchers, researcherString += "</ul>"];
+    }
+
+
 
     
     // redraws link endpoints per tick
