@@ -8,10 +8,12 @@
         text-overflow: ellipsis;
         font-size: 15px;
     } 
-    body, h1, h2, h3, h4, h5, h6 {
-  font-family: Arial, Helvetica, Arial, sans-serif;
+    
+	body, h1, h2, h3, h4, h5, h6 {
+		font-family: Arial, Helvetica, Arial, sans-serif;
 	}
-    .button {
+    
+	.button {
         background-color: steelblue;
         border: none;
         color: white;
@@ -43,7 +45,7 @@
         position: absolute;         
         text-align: center;         
         width: 300px;                   
-        height: 4000px;                  
+        height: 400px;                  
         padding: 2px;               
         font: 12px sans-serif;      
         background: white;  
@@ -52,7 +54,8 @@
         border-style: solid;    
         border-radius: 8px;         
         pointer-events: none;       
-        padding: 2px;   
+        padding: 2px;
+		z-index:2;
     }
 
     div.infoBar {   
@@ -73,6 +76,7 @@
         display: none; 
         overflow-y: auto;
         overflow: scroll;
+		z-index:2;
     }
 
     div.ui-widget { 
@@ -88,6 +92,7 @@
 		border-bottom-style: solid;
 		border-bottom: 2px;   
 		background-color: cornflowerblue;   
+		z-index:2;
     }
 
     div.search {
@@ -111,8 +116,7 @@
 		border-radius: 5px;
 		background-color: white;
 		display: none;
-
-
+		z-index: 2;
 	}
 
 	button.filterButton {
@@ -120,11 +124,13 @@
 		font-size: 16px;
 		text-align: center;
 	}
+
 	button.toggleButton {
 		float: left;
 		font-size: 16px;
 	}
-    button.Investigator {
+    
+	button.Investigator {
         background: none!important;
         border: none;
         padding: 0!important;
@@ -173,20 +179,28 @@
         stroke-width: 3px;
     }
 
-    .ghostCircle.show{
+    .ghostCircle.show {
         display:block;
     }
 
-    .ghostCircle, .activeDrag .ghostCircle{
+    .ghostCircle, .activeDrag .ghostCircle {
         display: none;
     }
 
-    
-    form.Filtering{
+    form.Filtering {
         float:left;
 		padding: 10px;
     }
-
+	
+	.graphContainer {
+		position:relative;
+	}
+	
+	.legend {
+		position:absolute;
+		bottom:0;
+		right:0;
+	}
 </style>
 <head>
     <script src="ARCHESgraph3.js"></script>
@@ -238,22 +252,23 @@
             <button type="button" id="filter" class="filterButton">Set Filters</button>
             <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>
         </form>
-
 	</div>
-	 
-    <svg id='viz'></svg>
-
+	<script src='https://d3js.org/d3.v5.min.js'></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
+    
+	<div class = "graphContainer">
+		<svg id='viz'></svg>
+		<div class = "legend" id="colorLegend"></div>
+		<script src="contLegend.js"></script>
+	</div>
+	
     <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
     <script type='text/javascript' src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"> </script>
     <link type='text/css' href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
-
-    <script src='https://d3js.org/d3.v5.min.js'></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script src="ARCHESgraph3.js"></script>
-
 </body>
 </html>

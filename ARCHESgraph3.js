@@ -1,5 +1,5 @@
 var width = getWidth() - 40;
-var height = getHeight() -30;
+var height = getHeight() - 30;
 
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections7.json";
@@ -178,6 +178,8 @@ d3.json(graphFile).then(function(graph) {
            searchedName = selectedVal;
        }
    );
+
+	// Download function
 
    $('#download').on('click',
        function exportCSV() {
@@ -512,8 +514,6 @@ d3.json(graphFile).then(function(graph) {
     }
 
 
-
-    
     // redraws link endpoints per tick
     function updateLink(link) {
         link.attr("x1", function(d) { return fixna(d.source.x); })
@@ -546,44 +546,10 @@ d3.json(graphFile).then(function(graph) {
         d.fx = null;
         d.fy = null;
     }
-	
-	// divides legend scale into 5 colors, uses increments in log scale before converting back to normal values
-	var znumbering = [];
-	var numCells = 5
-	var zmin = Math.log(parseFloat(graph.values[0].minPITotal));
-	var zmax = Math.log(parseFloat(graph.values[0].maxPITotal));	
-	for (i = zmin; i <= zmax; i += (zmax - zmin)/(numCells - 1)) {
-		znumbering[znumbering.length]= "$" + numberWithCommas(Number(Math.exp(i).toPrecision(3)).toFixed().toString());
-	}
-
-	// legend values
-	var legendSequential = d3.legendColor()
-  		.shapeWidth(100)
-  		.cells(numCells)
-  		.orient('horizontal')
-		.title("Total funding as PI (log scale)")
-		.titleWidth(300)
-		.labels(znumbering)
-  		.scale(sequentialScale);
-
-	// legend styling
-	var container2 = svg.append("g")
-  		.attr("class", "legendSequential")
-  		.attr("transform", "translate("+(width/2+120)+","+(height-60)+")")
-        	.style("fill", "#000")
-		.style("font-size","15px")
-		.style("font-family", "Arial");
-
-	svg.select(".legendSequential")
-  		.call(legendSequential);
 }
 );
 }
 loadNetwork(graphFile);
-
-// creates scale for red-yellow-green color spectrum
-var sequentialScale = d3.scaleSequential(d3.interpolatePlasma)
-	.domain([0,1]);
 
 function togglePanel() {
     var x = document.getElementById("filterBar");
@@ -594,8 +560,6 @@ function togglePanel() {
         x.style.display = "none";
     }
 }
-
-
 
 function getWidth() {
     return Math.max(
