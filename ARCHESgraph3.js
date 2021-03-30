@@ -282,7 +282,7 @@ d3.json(graphFile).then(function(graph) {
                   .style("left", (d3.event.pageX) + "px")
                   .style("padding", "7px")        
                   .style("top", (d3.event.pageY - 28) + "px")
-                  .style("height","400px");
+                  .style("height","550px");
         }
 
       });

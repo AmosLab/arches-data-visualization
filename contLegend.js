@@ -9,6 +9,7 @@ d3.json(graphFile).then(function(graph) {
 	.domain([0, 20]);
 	var legendLogScale = d3.scaleLog()
 		.domain([min,max]);
+//		.domain([min,max]).nice;	Powers of 10 for bounds
 	continuous("#colorLegend", colorScale, legendLogScale);
 });
 
@@ -56,7 +57,9 @@ function continuous(selector_id, colorscale, axisScale) {
 	var legendaxis = d3.axisBottom()
 		.scale(axisScale)
 		.tickSize(6)
-		.ticks(8);
+//		.ticks(8);
+		.ticks(6, "~s");	// Uses k, M as display units
+//		.ticks(10, formatPower);	// Exponential notation
 
 	//creates svg container for axis and title
 	var svg = d3.select(selector_id)
@@ -80,4 +83,11 @@ function continuous(selector_id, colorscale, axisScale) {
 		.style("color", "black")
 		.style("text-anchor", "middle")
 		.style("z-index","2");
+}
+
+//Formatting axis labels from scientific notation to exponential notation
+function formatPower(x) {
+  const e = Math.log10(x);
+  if (e !== Math.floor(e)) return; // Ignore non-exact power of ten.
+  return `10${(e + "").replace(/./g, c => "⁰¹²³⁴⁵⁶⁷⁸⁹"[c] || "⁻")}`;
 }
