@@ -7,6 +7,8 @@ var graphFile = "ARCHES_connections7.json";
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
 
+var activeNameOpacity = 1;
+
 function loadNetwork(graphFile){
 
 d3.json(graphFile).then(function(graph) {
@@ -375,7 +377,8 @@ d3.json(graphFile).then(function(graph) {
         .attr("font-weight", 700)
         .style("stroke", "#fff")
         .style("stroke-width", 0.6)
-        .style("pointer-events", "none"); // to prevent mouseover/drag capture
+        .style("pointer-events", "none") // to prevent mouseover/drag capture
+		.style("opacity", activeNameOpacity); // label visibility is toggled by button
     
     node.on("mouseover", focus).on("mouseout", unfocus);
     
@@ -562,21 +565,42 @@ function togglePanel() {
 }
 
 function getWidth() {
-    return Math.max(
-      document.body.scrollWidth,
-      document.documentElement.scrollWidth,
-      document.body.offsetWidth,
-      document.documentElement.offsetWidth,
-      document.documentElement.clientWidth
+	return Math.max(
+		document.body.scrollWidth,
+		document.documentElement.scrollWidth,
+		document.body.offsetWidth,
+		document.documentElement.offsetWidth,
+		document.documentElement.clientWidth
     );
-  }
+}
   
-  function getHeight() {
+function getHeight() {
     return Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.documentElement.clientHeight
+		document.body.scrollHeight,
+		document.documentElement.scrollHeight,
+		document.body.offsetHeight,
+		document.documentElement.offsetHeight,
+		document.documentElement.clientHeight
     );
-  }
+}
+  
+// detects event when toggle name button is clicked
+var changeNameOpacity = d3.select("#toggleNames").on('click', toggleNameOpacity);
+
+// changes label text opacity to either 0 or 1, and changes text accordingly in toggle name button
+function toggleNameOpacity(event) {
+	var labelNames = d3.select("#toggleNames").node();
+	if (activeNameOpacity == 1) {
+		activeNameOpacity = 0;
+		labelNames.innerHTML = "Show Names";
+	}
+	else if (activeNameOpacity == 0) {
+		activeNameOpacity = 1;
+		labelNames.innerHTML = "Hide Names";
+	}
+
+	var labelText = d3.select("#viz").select(".labelnodes").selectAll("text")
+		.style("opacity", activeNameOpacity);
+	labelText.exit().remove()
+	console.log("Switched investigator label opacity to " + activeNameOpacity);		
+}
