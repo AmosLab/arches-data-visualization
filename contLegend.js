@@ -1,5 +1,5 @@
 // pulls JSON file containing funding values from local directory
-var graphFile = "ARCHES_connections7.json";
+var graphFile = "ARCHES_connections8.json";
 
 // define min and max values for legend, create color and axis scales
 d3.json(graphFile).then(function(graph) {
@@ -9,7 +9,7 @@ d3.json(graphFile).then(function(graph) {
 	.domain([0, 20]);
 	var legendLogScale = d3.scaleLog()
 		.domain([min,max]);
-//		.domain([min,max]).nice;	Powers of 10 for bounds
+//		.domain([min,max]).nice();	Powers of 10 for bounds
 	continuous("#colorLegend", colorScale, legendLogScale);
 });
 
@@ -58,7 +58,7 @@ function continuous(selector_id, colorscale, axisScale) {
 		.scale(axisScale)
 		.tickSize(6)
 //		.ticks(8);
-		.ticks(6, "~s");	// Uses k, M as display units
+		.ticks(8, "~s");	// Uses k, M as display units
 //		.ticks(10, formatPower);	// Exponential notation
 
 	//creates svg container for axis and title
@@ -78,7 +78,7 @@ function continuous(selector_id, colorscale, axisScale) {
 	//creates title
 	svg
 		.append("text")
-		.text("Total funding as Principal Investigator ($)")
+		.text("Total Funding as Principal Investigator ($)")
 		.attr("transform", "translate(" + ((legendwidth - margin.left - margin.right)/2 + 20) + " ," + (legendheight - margin.top - margin.bottom + 10) + ")")
 		.style("color", "black")
 		.style("text-anchor", "middle")

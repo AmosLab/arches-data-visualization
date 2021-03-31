@@ -2,7 +2,7 @@ var width = getWidth() - 40;
 var height = getHeight() - 30;
 
 // pulls JSON file containing nodes and links from local directory
-var graphFile = "ARCHES_connections7.json";
+var graphFile = "ARCHES_connections8.json";
 
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
@@ -133,7 +133,12 @@ d3.json(graphFile).then(function(graph) {
         .append("circle")
         .attr("r", 10)
         .attr("fill", function(d) {
-			return d3.color(d3.interpolatePlasma(d.fundingLogScaled)).formatHex();
+			if (d.fundingLogScaled == "-1") {
+				return "#000";
+			}
+			else {
+				return d3.color(d3.interpolatePlasma(d.fundingLogScaled)).formatHex();
+			}
 		}
 		)
         .attr("stroke", "#fff")
@@ -280,7 +285,7 @@ d3.json(graphFile).then(function(graph) {
               div.transition()        
                   .duration(200)      
                   .style("opacity", .9);      
-              div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags:</b>" + "<br/>" + l.tags + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency:</b>" + "<br/>" + l.radEff + "<br/>" + "<b>Genomics and Precision Medicine:</b>" + "<br/>" + l.genomics + "<br/>" + "<b>My data and the Internet of Medical Things:</b>" + "<br/>" + l.myData + "<br/>" + "<b>Simulation and Education:</b>" + "<br/>" + l.sim)
+              div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags + "<br/>" + "<b>Digital Health</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff + "<br/>" + "<b>Genomics and Precision Medicine</b>" + "<br/>" + l.genomics + "<br/>" + "<b>My data and the Internet of Medical Things</b>" + "<br/>" + l.myData + "<br/>" + "<b>Simulation and Education</b>" + "<br/>" + l.sim)
                   .style("left", (d3.event.pageX) + "px")
                   .style("padding", "7px")        
                   .style("top", (d3.event.pageY - 28) + "px")
@@ -439,7 +444,7 @@ d3.json(graphFile).then(function(graph) {
             div.transition()        
                 .duration(200)      
                 .style("opacity", .9);      
-            div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Total Funding Received</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)   
+            div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)   
                 .style("left", (d3.event.pageX) + "px")
                 .style("padding", "7px")        
                 .style("top", (d3.event.pageY - 28) + "px")
