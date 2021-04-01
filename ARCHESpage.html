@@ -119,7 +119,12 @@
 		display: none;
 		z-index: 2;
 	}
-
+    button.xbutton {
+        content: 'x';
+        color: #fff;
+        font-weight: 300;
+        font-family: Arial, sans-serif;
+    }
 	button.filterButton {
 		float: center;
 		font-size: 16px;
@@ -216,7 +221,8 @@
 		<button type="button" id="clear">Clear</button>
         <button type="button" id="download">Download Data</button>
 	</div>
-        <div class="infoBar" id="infoBar">
+    <div class="infoBar" id="infoBar">
+        <h5>To Close This Information Bar, Click on The Same Node Again</h5>
         <h4>Investigator:</h4>
         <p id="Investigator"></p>
         <h4>Total Funding Received:</h4>
