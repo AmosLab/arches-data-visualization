@@ -2,7 +2,7 @@ var width = getWidth() - 40;
 var height = getHeight() - 30;
 
 // pulls JSON file containing nodes and links from local directory
-var graphFile = "ARCHES_connections8.txt";
+var graphFile = "ARCHES_connections8.json";
 
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
