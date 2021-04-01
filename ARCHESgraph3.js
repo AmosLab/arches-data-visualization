@@ -230,7 +230,7 @@ d3.json(graphFile).then(function(graph) {
    $("#clear").click(
        function clearFocus() {
            //find the node
-           node.attr("opacity", 1);
+           node.style("opacity", 1);
            labelNode.attr("display", "block")
            searchedName = "None";
        }
