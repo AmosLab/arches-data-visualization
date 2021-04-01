@@ -1,15 +1,25 @@
 var width = getWidth() - 40;
-var height = getHeight() -30;
+var height = getHeight() - 30;
 
 // pulls JSON file containing nodes and links from local directory
-var graphFile = "ARCHES_connections6.json";
+var graphFile = "ARCHES_connections8.json";
 
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
 
+var activeNameOpacity = 1;
+
 function loadNetwork(graphFile){
 
 d3.json(graphFile).then(function(graph) {
+
+    var clickedID = 'None';
+
+    var searchedName = "None";
+
+    var infoBarOnName = "None";
+
+    var clickThrough = false;
 
     var svg = d3.select("svg");
     svg.selectAll("*").remove();
@@ -36,6 +46,7 @@ d3.json(graphFile).then(function(graph) {
         });
     }
 
+    // Delete all Nodes of PIs no longer in links after filtering
     var inLinks = false;
     possiblePIs.forEach(function(pi,index2) {
         inLinks = false;
@@ -125,13 +136,22 @@ d3.json(graphFile).then(function(graph) {
         .append("circle")
         .attr("r", 10)
         .attr("fill", function(d) {
-			return d3.color(d3.interpolateRdYlGn(d.fundingLogScaled)).formatHex();
+			if (d.fundingLogScaled == "-1") {
+				return "#000";
+			}
+			else {
+				return d3.color(d3.interpolatePlasma(d.fundingLogScaled)).formatHex();
+			}
 		}
 		)
         .attr("stroke", "#fff")
-        .attr("stroke-width", "2px")
+        .attr("stroke-width", "2px");
         
-    // Div Tooltip for Displaying info
+    // Div Tooltip for Displaying Node info
+    var divNode = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+    // Div Tooltip for Displaying Link info
     var div = d3.select("body").append("div")   
         .attr("class", "tooltip")               
         .style("opacity", 0);
@@ -157,24 +177,62 @@ d3.json(graphFile).then(function(graph) {
    
    $('#searchF').on('click',
        function searchNode() {
-           console.log(optArray);
            //find the node
            var selectedVal = document.getElementById('search').value;
-           console.log(selectedVal)
-           node.attr("opacity", function(o) {
+           node.style("opacity", function(o) {
                return (o.id==selectedVal) ? 1 : 0.1;
            });
            labelNode.attr("display", function(d) {
                return (d.node.id==selectedVal) ? "block" : "none";
            });
+           searchedName = selectedVal;
        }
    );
+
+	// Download function
+
+   $('#download').on('click',
+       function exportCSV() {
+           console.log('hi')
+            rows = [['id','totalFunding']]
+            graph.nodes.forEach(function(d,i) {
+                rows.push([d.id,d.funding]);
+            });
+            let csvContent = "data:text/csv;charset=utf-8," 
+                + rows.map(e => e.join(",")).join("\n");
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "investigators.csv");
+            document.body.appendChild(link); // Required for FF
+            link.click(); // This will download the data file named "my_data.csv".
+
+            rows = [['Project Name','Project Number', 'Year','Funding Amount','Investigators']]
+            projects = []
+            graph.links.forEach(function(l,i) {
+                if (!projects.includes(l.projectName)) {
+                    rows.push([l.projectName,l.projNum,l.year,l.amount,l.PIs + ", " + l.addInvestigators]);
+                    projects.push(l.projectName);
+                }
+            });
+            csvContent = "data:text/csv;charset=utf-8," 
+                + rows.map(e => e.join(",")).join("\n");
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "projects.csv");
+            document.body.appendChild(link); // Required for FF
+            link.click(); // This will download the data file named "my_data.csv".
+       }
+   );
+
+
    $("#clear").click(
        function clearFocus() {
-           console.log(optArray);
            //find the node
            node.attr("opacity", 1);
            labelNode.attr("display", "block")
+           searchedName = "None";
        }
    );
 
@@ -186,12 +244,11 @@ d3.json(graphFile).then(function(graph) {
             // Reset the filterIDs array
             filterIDs.splice(0,filterIDs.length);
 
-            // Check values of each radio buttons
-            var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff'];
+            // Check values of each filter checkbox
+            var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff', 'genomics', 'myData', 'sim'];
             for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
                 var filterName = filterLabels[filterIdx];
                 if ($('#' + filterName).is(":checked")) {
-                    console.log("Made it")
                     filterIDs.push(filterName);
                 }
                 // var filterValue = document.getElementsByName(filterName);
@@ -215,28 +272,100 @@ d3.json(graphFile).then(function(graph) {
     // Hovering over a link performs focusing and creates a popup with some relevant project info
 
     link.on('mouseover', function(l) {
-        node.style('opacity', function(d) {
-          return (d === l.source || d === l.target) ? 1 : 0.1;
-          });
-        labelNode.attr("display", function(d) {
-            return (d.node.index === l.source.index || d.node.index === l.target.index) ? "block" : "none";
-        });
-        link.style("opacity", function(l2) {
-            return (l2 == l) ? 1 : 0.1;
-        });
-        node.attr("r", function(d) {
-            return (d === l.source || d === l.target) ? 15 : 10;
-        });
-        div.transition()        
-            .duration(200)      
-            .style("opacity", .9);      
-        div .html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Digital Health:</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care:</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath:</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff)    
-            .style("left", (d3.event.pageX) + "px")
-            .style("padding", "7px")        
-            .style("top", (d3.event.pageY - 28) + "px");    
+        if (searchedName == "None" && infoBarOnName == "None") {
+            node.style('opacity', function(d) {
+                return (d === l.source || d === l.target) ? 1 : 0.1;
+                });
+              labelNode.attr("display", function(d) {
+                  return (d.node.index === l.source.index || d.node.index === l.target.index) ? "block" : "none";
+              });
+              link.style("opacity", function(l2) {
+                  return (l2 == l) ? 1 : 0.1;
+              });
+              node.attr("r", function(d) {
+                  return (d === l.source || d === l.target) ? 15 : 10;
+              });
+              div.transition()        
+                  .duration(200)      
+                  .style("opacity", .9);      
+              div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags + "<br/>" + "<b>Digital Health</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff + "<br/>" + "<b>Genomics and Precision Medicine</b>" + "<br/>" + l.genomics + "<br/>" + "<b>My data and the Internet of Medical Things</b>" + "<br/>" + l.myData + "<br/>" + "<b>Simulation and Education</b>" + "<br/>" + l.sim)
+                  .style("left", (d3.event.pageX) + "px")
+                  .style("padding", "7px")        
+                  .style("top", (d3.event.pageY - 28) + "px")
+                  .style("height","550px");
+        }
 
       });
     link.on("mouseout", unfocus);
+
+
+    // Creates an Info Bar
+    // We still need to add more detailed investigator information to this bar!!!!
+    // Clicking any node again closes the info bar.
+    node.on("click",function clickNode(d) {
+        clickThrough = true;
+        focus(d);
+        div.transition()        
+        .duration(200)      
+        .style("opacity", 0);
+        if (clickedID == 'None') {
+            clickedID = d.id;
+        } else {
+            clickedID = 'None'
+        }
+        numResearchers = 0;
+        if (infoBarOnName == "None") {
+            $('#infoBar').css("pointer-events","auto")
+            $('#infoBar').css("display","none")
+            $('#infoBar').fadeTo(500,1);
+            $('#Investigator').text(d.id);
+            $('#Funding').text("$"+numberWithCommas(d.funding));
+            $('#TotalProjects').text(getConnections(d));
+            $('#ProjectNames').html(getProjects(d));
+            [numResearchers, collabOutput] = getResearchers(d);
+            console.log(collabOutput)
+            console.log(numResearchers)
+            $('#Collab').html(collabOutput);
+            infoBarOnName = d.id;
+        } else if (infoBarOnName != d.id) {
+            $('#infoBar').css("pointer-events","auto")
+            $('#Investigator').text(d.id);
+            $('#Funding').text("$"+numberWithCommas(d.funding));
+            $('#TotalProjects').text(getConnections(d));
+            $('#ProjectNames').html(getProjects(d));
+            [numResearchers, collabOutput] = getResearchers(d);
+            $('#Collab').html(collabOutput);
+            infoBarOnName = d.id;
+        } else {
+            $('#infoBar').fadeTo(500,0);
+            $('#infoBar').css("display","block")
+            $('#infoBar').css("pointer-events","none")
+
+            infoBarOnName = "None";
+        }
+        // For loop this code for each link to work properly.
+        for (let totalR = 0; totalR < numResearchers; totalR++) {
+            rName = 'researcher' + totalR.toString();
+            $('#'+rName).on('click', {'idx':rName},
+            function (e) {
+                //find the node
+                var elem = document.getElementById(e.data.idx);
+                var selectedVal= elem.textContent || elem.innerText;
+                console.log(selectedVal)
+                node.style("opacity", function(d) {
+                    return (d.id==selectedVal) ? 1 : 0.1;
+                });
+                labelNode.attr("display", function(d) {
+                    return (d.node.id==selectedVal) ? "block" : "none";
+                });
+                searchedName = selectedVal;
+            }
+            );
+        }
+
+    });
+
+    // }
     
     // prevents mouse capture
     node.call(
@@ -259,7 +388,8 @@ d3.json(graphFile).then(function(graph) {
         .attr("font-weight", 700)
         .style("stroke", "#fff")
         .style("stroke-width", 0.6)
-        .style("pointer-events", "none"); // to prevent mouseover/drag capture
+        .style("pointer-events", "none") // to prevent mouseover/drag capture
+		.style("opacity", activeNameOpacity); // label visibility is toggled by button
     
     node.on("mouseover", focus).on("mouseout", unfocus);
     
@@ -299,37 +429,112 @@ d3.json(graphFile).then(function(graph) {
     
     // decreases opacity of nodes that are not linked to focused node
     function focus(d) {
-        var index = d3.select(d3.event.target).datum().index;
-        node.style("opacity", function(o) {
-            return neigh(index, o.index) ? 1 : 0.1;
-        });
-        labelNode.attr("display", function(o) {
-          return neigh(index, o.node.index) ? "block": "none";
-        });
-        link.style("opacity", function(o) {
-            return o.source.index == index || o.target.index == index ? 1 : 0.1;
-        });
-        node.attr("r", function(o) {
-            return neigh(index, o.index) ? 15 : 10;
-        });
+        console.log("clickedID")
+        if (((searchedName == "None" || searchedName == d.id) && infoBarOnName == "None") || clickThrough) {
+            var index = d3.select(d3.event.target).datum().index;
+            node.style("opacity", function(o) {
+                return neigh(index, o.index) ? 1 : 0.1;
+            });
+            labelNode.attr("display", function(o) {
+                return neigh(index, o.node.index) ? "block": "none";
+            });
+            link.style("opacity", function(o) {
+                return o.source.index == index || o.target.index == index ? 1 : 0.1;
+            });
+            node.attr("r", function(o) {
+                return neigh(index, o.index) ? 15 : 10;
+            });
+            searchedName = "None"
+            totalConnections = getConnections(d);
+            // Handle Making Pop Ups
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);      
+            div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)   
+                .style("left", (d3.event.pageX) + "px")
+                .style("padding", "7px")        
+                .style("top", (d3.event.pageY - 28) + "px")
+                .style("height","100px");
+            // Handle Name Focusing
+            if (activeNameOpacity == 0) {
+                var labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", function(o) {
+                    return neigh(index, o.node.index) ? 1 : 0;
+                });
+                labelText.exit().remove()
+            }
+        }
+        clickThrough = false;
     }
     
     // resets opacity to full once node is unfocused
     function unfocus() {
-       labelNode.attr("display", "block");
-       node.style("opacity", 1);
-       link.style("opacity", 1);
-       node.attr("r", 10);
-       div.transition()     
-       .duration(500)       
-       .style("opacity", 0);    
+        if ((searchedName == "None" || searchedName == d.id) && infoBarOnName == 'None') {
+            labelNode.attr("display", "block");
+            node.style("opacity", 1);
+            link.style("opacity", 1);
+            node.attr("r", 10);
+            div.transition()     
+            .duration(500)       
+            .style("opacity", 0);
+            if (activeNameOpacity == 0) {
+                labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", 0);
+            }  
+        }
+  
     }
 
     // Adds commas to the number to show funding a little prettier
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
+    // Get total connections from one node
+    function getConnections(d) {
+        connections = 0
+        projects = []
+        for (var indexL = 0; indexL < graph.links.length; indexL++) {
+            link1 = graph.links[indexL];
+            if (d.id == link1.source.id || d.id == link1.target.id) {
+                if (!projects.includes(link1.projectName)) {
+                    projects.push(link1.projectName);
+                    connections += 1; 
+                }
     
+            }
+        }
+        return connections;
+    }
+
+    // Gets the names of all the projects an invesitgator was a part of in a bulleted list
+    function getProjects(d) {
+        projectsString = "<ul>";
+        projects = []
+        for (var indexL = 0; indexL < graph.links.length; indexL++) {
+            link1 = graph.links[indexL];
+            if (d.id == link1.source.id || d.id == link1.target.id) {
+                if (!projects.includes(link1.projectName)) {
+                    projects.push(link1.projectName);
+                    projectsString += "<li>" + link1.projectName + "</li>";
+                }
+            }
+        }
+        return projectsString +=  '</ul>';
+    }
+
+    // Gets the names of all the projects an invesitgator was a part of in a bulleted list
+    function getResearchers(d) {
+        researcherString = "<ul>";
+        totalResearchers = 0;
+        graph.nodes.forEach(function(d2, index) {
+            if (neigh(index, d.index) && d != d2) {
+                researcherString += '<li><button id="researcher'+ totalResearchers.toString() + '" class="Investigator">' + d2.id + "</button></li>";
+                totalResearchers += 1;
+            }
+        });
+        return [totalResearchers, researcherString += "</ul>"];
+    }
+
+
     // redraws link endpoints per tick
     function updateLink(link) {
         link.attr("x1", function(d) { return fixna(d.source.x); })
@@ -362,44 +567,10 @@ d3.json(graphFile).then(function(graph) {
         d.fx = null;
         d.fy = null;
     }
-	
-	// divides legend scale into 5 colors, uses increments in log scale before converting back to normal values
-	var znumbering = [];
-	var numCells = 5
-	var zmin = Math.log(parseFloat(graph.values[0].minPITotal));
-	var zmax = Math.log(parseFloat(graph.values[0].maxPITotal));	
-	for (i = zmin; i <= zmax; i += (zmax - zmin)/(numCells - 1)) {
-		znumbering[znumbering.length]= "$" + numberWithCommas(Number(Math.exp(i).toPrecision(3)).toFixed().toString());
-	}
-
-	// legend values
-	var legendSequential = d3.legendColor()
-  		.shapeWidth(100)
-  		.cells(numCells)
-  		.orient('horizontal')
-		.title("Total funding as PI (log scale)")
-		.titleWidth(300)
-		.labels(znumbering)
-  		.scale(sequentialScale);
-
-	// legend styling
-	var container2 = svg.append("g")
-  		.attr("class", "legendSequential")
-  		.attr("transform", "translate("+(width/2+120)+","+(height-60)+")")
-        	.style("fill", "#000")
-		.style("font-size","15px")
-		.style("font-family", "Arial");
-
-	svg.select(".legendSequential")
-  		.call(legendSequential);
 }
 );
 }
 loadNetwork(graphFile);
-
-// creates scale for red-yellow-green color spectrum
-var sequentialScale = d3.scaleSequential(d3.interpolateRdYlGn)
-	.domain([0,1]);
 
 function togglePanel() {
     var x = document.getElementById("filterBar");
@@ -412,19 +583,42 @@ function togglePanel() {
 }
 
 function getWidth() {
-    return Math.max(
-      document.documentElement.scrollWidth,
-      document.body.offsetWidth,
-      document.documentElement.offsetWidth,
-      document.documentElement.clientWidth
+	return Math.max(
+		document.body.scrollWidth,
+		document.documentElement.scrollWidth,
+		document.body.offsetWidth,
+		document.documentElement.offsetWidth,
+		document.documentElement.clientWidth
     );
-  }
+}
   
-  function getHeight() {
+function getHeight() {
     return Math.max(
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.documentElement.clientHeight
+		document.body.scrollHeight,
+		document.documentElement.scrollHeight,
+		document.body.offsetHeight,
+		document.documentElement.offsetHeight,
+		document.documentElement.clientHeight
     );
-  }
+}
+  
+// detects event when toggle name button is clicked
+var changeNameOpacity = d3.select("#toggleNames").on('click', toggleNameOpacity);
+
+// changes label text opacity to either 0 or 1, and changes text accordingly in toggle name button
+function toggleNameOpacity(event) {
+	var labelNames = d3.select("#toggleNames").node();
+	if (activeNameOpacity == 1) {
+		activeNameOpacity = 0;
+		labelNames.innerHTML = "Show Names";
+	}
+	else if (activeNameOpacity == 0) {
+		activeNameOpacity = 1;
+		labelNames.innerHTML = "Hide Names";
+	}
+
+	var labelText = d3.select("#viz").select(".labelnodes").selectAll("text")
+		.style("opacity", activeNameOpacity);
+	labelText.exit().remove()
+	console.log("Switched investigator label opacity to " + activeNameOpacity);		
+}
