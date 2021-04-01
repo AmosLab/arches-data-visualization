@@ -19,6 +19,8 @@ d3.json(graphFile).then(function(graph) {
 
     var infoBarOnName = "None";
 
+    var clickThrough = false;
+
     var svg = d3.select("svg");
     svg.selectAll("*").remove();
     
@@ -44,6 +46,7 @@ d3.json(graphFile).then(function(graph) {
         });
     }
 
+    // Delete all Nodes of PIs no longer in links after filtering
     var inLinks = false;
     possiblePIs.forEach(function(pi,index2) {
         inLinks = false;
@@ -269,7 +272,7 @@ d3.json(graphFile).then(function(graph) {
     // Hovering over a link performs focusing and creates a popup with some relevant project info
 
     link.on('mouseover', function(l) {
-        if (searchedName == "None") {
+        if (searchedName == "None" && infoBarOnName == "None") {
             node.style('opacity', function(d) {
                 return (d === l.source || d === l.target) ? 1 : 0.1;
                 });
@@ -300,8 +303,8 @@ d3.json(graphFile).then(function(graph) {
     // We still need to add more detailed investigator information to this bar!!!!
     // Weird issue where when the div disappears, it still blocks nodes in that area from being interacted with
     // Clicking any node again closes the info bar.
-    node.on("click",function(d) {
-
+    node.on("click",function clickNode(d) {
+        clickThrough = true;
         focus(d);
         div.transition()        
         .duration(200)      
@@ -423,14 +426,14 @@ d3.json(graphFile).then(function(graph) {
     
     // decreases opacity of nodes that are not linked to focused node
     function focus(d) {
-        console.log(clickedID)
-        if ((searchedName == "None" || searchedName == d.id)) {
+        console.log("clickedID")
+        if (((searchedName == "None" || searchedName == d.id) && infoBarOnName == "None") || clickThrough) {
             var index = d3.select(d3.event.target).datum().index;
             node.style("opacity", function(o) {
                 return neigh(index, o.index) ? 1 : 0.1;
             });
             labelNode.attr("display", function(o) {
-              return neigh(index, o.node.index) ? "block": "none";
+                return neigh(index, o.node.index) ? "block": "none";
             });
             link.style("opacity", function(o) {
                 return o.source.index == index || o.target.index == index ? 1 : 0.1;
@@ -440,7 +443,7 @@ d3.json(graphFile).then(function(graph) {
             });
             searchedName = "None"
             totalConnections = getConnections(d);
-            
+            // Handle Making Pop Ups
             div.transition()        
                 .duration(200)      
                 .style("opacity", .9);      
@@ -449,23 +452,30 @@ d3.json(graphFile).then(function(graph) {
                 .style("padding", "7px")        
                 .style("top", (d3.event.pageY - 28) + "px")
                 .style("height","100px");
+            // Handle Name Focusing
+            if (activeNameOpacity == 0) {
+                var labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", function(o) {
+                    return neigh(index, o.node.index) ? 1 : 0;
+                });
+                labelText.exit().remove()
+            }
         }
-
+        clickThrough = false;
     }
-
-
-
     
     // resets opacity to full once node is unfocused
     function unfocus() {
-        if ((searchedName == "None" || searchedName == d.id) && clickedID == 'None') {
+        if ((searchedName == "None" || searchedName == d.id) && infoBarOnName == 'None') {
             labelNode.attr("display", "block");
             node.style("opacity", 1);
             link.style("opacity", 1);
             node.attr("r", 10);
             div.transition()     
             .duration(500)       
-            .style("opacity", 0);  
+            .style("opacity", 0);
+            if (activeNameOpacity == 0) {
+                labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", 0);
+            }  
         }
   
     }
