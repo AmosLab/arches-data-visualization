@@ -301,7 +301,6 @@ d3.json(graphFile).then(function(graph) {
 
     // Creates an Info Bar
     // We still need to add more detailed investigator information to this bar!!!!
-    // Weird issue where when the div disappears, it still blocks nodes in that area from being interacted with
     // Clicking any node again closes the info bar.
     node.on("click",function clickNode(d) {
         clickThrough = true;
@@ -316,6 +315,7 @@ d3.json(graphFile).then(function(graph) {
         }
         numResearchers = 0;
         if (infoBarOnName == "None") {
+            $('#infoBar').css("pointer-events","auto")
             $('#infoBar').css("display","none")
             $('#infoBar').fadeTo(500,1);
             $('#Investigator').text(d.id);
@@ -328,6 +328,7 @@ d3.json(graphFile).then(function(graph) {
             $('#Collab').html(collabOutput);
             infoBarOnName = d.id;
         } else if (infoBarOnName != d.id) {
+            $('#infoBar').css("pointer-events","auto")
             $('#Investigator').text(d.id);
             $('#Funding').text("$"+numberWithCommas(d.funding));
             $('#TotalProjects').text(getConnections(d));
@@ -338,6 +339,8 @@ d3.json(graphFile).then(function(graph) {
         } else {
             $('#infoBar').fadeTo(500,0);
             $('#infoBar').css("display","block")
+            $('#infoBar').css("pointer-events","none")
+
             infoBarOnName = "None";
         }
         // For loop this code for each link to work properly.
