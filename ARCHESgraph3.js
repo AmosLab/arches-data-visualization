@@ -572,15 +572,15 @@ d3.json(graphFile).then(function(graph) {
 }
 loadNetwork(graphFile);
 
-function togglePanel() {
-    var x = document.getElementById("filterBar");
-    if (x.style.display === "none") {
-        x.style.display = "block";
+$('#filterPanel').on('click', function() {
+    if ($('#filterBar').css("display") == "none") {
+        $('#filterBar').css("display","block");
+        $('#filterPanel').text("Hide Filters");
+    } else {
+        $('#filterBar').css("display","none");
+        $('#filterPanel').text("Show Filters");
     }
-    else {
-        x.style.display = "none";
-    }
-}
+});
 
 function getWidth() {
 	return Math.max(
