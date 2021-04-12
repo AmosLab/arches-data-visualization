@@ -77,7 +77,6 @@
         overflow-y: auto;
         overflow: scroll;
 		z-index:2;
-        pointer-events: none;  
     }
 
     div.ui-widget { 
@@ -119,12 +118,7 @@
 		display: none;
 		z-index: 2;
 	}
-    button.xbutton {
-        content: 'x';
-        color: #fff;
-        font-weight: 300;
-        font-family: Arial, sans-serif;
-    }
+
 	button.filterButton {
 		float: center;
 		font-size: 16px;
@@ -214,17 +208,18 @@
 <body>
 	<div class="ui-widget">
 		<p><b>JUMP ARCHES Data Visualizations</b></p>
-		<button onclick="togglePanel()" class="toggleButton" id="filterPanel">Add Filters</button>
+		<button onclick="togglePanel()" class="toggleButton">Add Filters</button>
 		<button type="button" id="toggleNames">Hide Names</button>
 		<input size="80" id="search" placeholder="Search for an Investigator...">
 		<button type="button" id="searchF">Search</button>
 		<button type="button" id="clear">Clear</button>
         <button type="button" id="download">Download Data</button>
 	</div>
-    <div class="infoBar" id="infoBar">
-        <h5>To Close This Information Bar, Click on The Same Node Again</h5>
+        <div class="infoBar" id="infoBar">
         <h4>Investigator:</h4>
         <p id="Investigator"></p>
+		<h4>Affiliation:</h4>
+        <p id="Affiliation"></p>
         <h4>Total Funding Received:</h4>
         <p id="Funding"></p>
         <h4>Total Projects:</h4>

@@ -2,7 +2,7 @@ var width = getWidth() - 40;
 var height = getHeight() - 30;
 
 // pulls JSON file containing nodes and links from local directory
-var graphFile = "ARCHES_connections8.json";
+var graphFile = "ARCHES_connections9.json";
 
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
@@ -18,8 +18,6 @@ d3.json(graphFile).then(function(graph) {
     var searchedName = "None";
 
     var infoBarOnName = "None";
-
-    var clickThrough = false;
 
     var svg = d3.select("svg");
     svg.selectAll("*").remove();
@@ -46,7 +44,6 @@ d3.json(graphFile).then(function(graph) {
         });
     }
 
-    // Delete all Nodes of PIs no longer in links after filtering
     var inLinks = false;
     possiblePIs.forEach(function(pi,index2) {
         inLinks = false;
@@ -144,7 +141,21 @@ d3.json(graphFile).then(function(graph) {
 			}
 		}
 		)
-        .attr("stroke", "#fff")
+        .attr("stroke", function(d) {
+			if (d.affiliation == "OSF") {
+				return "#70362a";
+			}
+			else if (d.affiliation == "UICOMP") {
+				return "#001E62";
+			}
+			else if (d.affiliation == "UIUC") {
+				return "#E84A27";
+			}
+			else {
+				return "#fff";
+			}
+		}
+		)
         .attr("stroke-width", "2px");
         
     // Div Tooltip for Displaying Node info
@@ -230,7 +241,7 @@ d3.json(graphFile).then(function(graph) {
    $("#clear").click(
        function clearFocus() {
            //find the node
-           node.style("opacity", 1);
+           node.attr("opacity", 1);
            labelNode.attr("display", "block")
            searchedName = "None";
        }
@@ -272,7 +283,7 @@ d3.json(graphFile).then(function(graph) {
     // Hovering over a link performs focusing and creates a popup with some relevant project info
 
     link.on('mouseover', function(l) {
-        if (searchedName == "None" && infoBarOnName == "None") {
+        if (searchedName == "None") {
             node.style('opacity', function(d) {
                 return (d === l.source || d === l.target) ? 1 : 0.1;
                 });
@@ -301,9 +312,10 @@ d3.json(graphFile).then(function(graph) {
 
     // Creates an Info Bar
     // We still need to add more detailed investigator information to this bar!!!!
+    // Weird issue where when the div disappears, it still blocks nodes in that area from being interacted with
     // Clicking any node again closes the info bar.
-    node.on("click",function clickNode(d) {
-        clickThrough = true;
+    node.on("click",function(d) {
+
         focus(d);
         div.transition()        
         .duration(200)      
@@ -315,10 +327,10 @@ d3.json(graphFile).then(function(graph) {
         }
         numResearchers = 0;
         if (infoBarOnName == "None") {
-            $('#infoBar').css("pointer-events","auto")
             $('#infoBar').css("display","none")
             $('#infoBar').fadeTo(500,1);
             $('#Investigator').text(d.id);
+			$('#Affiliation').text(d.affiliation);
             $('#Funding').text("$"+numberWithCommas(d.funding));
             $('#TotalProjects').text(getConnections(d));
             $('#ProjectNames').html(getProjects(d));
@@ -328,8 +340,8 @@ d3.json(graphFile).then(function(graph) {
             $('#Collab').html(collabOutput);
             infoBarOnName = d.id;
         } else if (infoBarOnName != d.id) {
-            $('#infoBar').css("pointer-events","auto")
             $('#Investigator').text(d.id);
+			$('#Affiliation').text(d.affiliation);
             $('#Funding').text("$"+numberWithCommas(d.funding));
             $('#TotalProjects').text(getConnections(d));
             $('#ProjectNames').html(getProjects(d));
@@ -339,8 +351,6 @@ d3.json(graphFile).then(function(graph) {
         } else {
             $('#infoBar').fadeTo(500,0);
             $('#infoBar').css("display","block")
-            $('#infoBar').css("pointer-events","none")
-
             infoBarOnName = "None";
         }
         // For loop this code for each link to work properly.
@@ -429,14 +439,14 @@ d3.json(graphFile).then(function(graph) {
     
     // decreases opacity of nodes that are not linked to focused node
     function focus(d) {
-        console.log("clickedID")
-        if (((searchedName == "None" || searchedName == d.id) && infoBarOnName == "None") || clickThrough) {
+        console.log(clickedID)
+        if ((searchedName == "None" || searchedName == d.id)) {
             var index = d3.select(d3.event.target).datum().index;
             node.style("opacity", function(o) {
                 return neigh(index, o.index) ? 1 : 0.1;
             });
             labelNode.attr("display", function(o) {
-                return neigh(index, o.node.index) ? "block": "none";
+              return neigh(index, o.node.index) ? "block": "none";
             });
             link.style("opacity", function(o) {
                 return o.source.index == index || o.target.index == index ? 1 : 0.1;
@@ -446,39 +456,30 @@ d3.json(graphFile).then(function(graph) {
             });
             searchedName = "None"
             totalConnections = getConnections(d);
-            // Handle Making Pop Ups
+            
             div.transition()        
                 .duration(200)      
                 .style("opacity", .9);      
-            div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)   
+            div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Affiliation</b>" + "<br/>" + d.affiliation + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)   
                 .style("left", (d3.event.pageX) + "px")
                 .style("padding", "7px")        
                 .style("top", (d3.event.pageY - 28) + "px")
-                .style("height","100px");
-            // Handle Name Focusing
-            if (activeNameOpacity == 0) {
-                var labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", function(o) {
-                    return neigh(index, o.node.index) ? 1 : 0;
-                });
-                labelText.exit().remove()
-            }
+                .style("height","140px");
         }
-        clickThrough = false;
+
     }
-    
+
+
     // resets opacity to full once node is unfocused
     function unfocus() {
-        if ((searchedName == "None" || searchedName == d.id) && infoBarOnName == 'None') {
+        if ((searchedName == "None" || searchedName == d.id) && clickedID == 'None') {
             labelNode.attr("display", "block");
             node.style("opacity", 1);
             link.style("opacity", 1);
             node.attr("r", 10);
             div.transition()     
             .duration(500)       
-            .style("opacity", 0);
-            if (activeNameOpacity == 0) {
-                labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", 0);
-            }  
+            .style("opacity", 0);  
         }
   
     }
@@ -567,20 +568,49 @@ d3.json(graphFile).then(function(graph) {
         d.fx = null;
         d.fy = null;
     }
+	
+	// creates circle stroke color legend for investigator nodes
+	var legendCircle = d3.symbol().type(d3.symbolCircle)();
+	// assigning circle shape to each organization
+	var symbolScale =  d3.scaleOrdinal()
+		.domain(["OSF", "UICOMP", "UIUC"])
+		.range([legendCircle, legendCircle, legendCircle] );
+	// assigning colors to each organization
+	var colorScale = d3.scaleOrdinal()
+		.domain(["OSF", "UICOMP", "UIUC"])
+		.range(["#70362a", "#001E62", "#E84A27"]);
+	// creating new container to hold node stroke color legend and placing in bottom right corner
+	var container2 = svg.append("g")
+		.attr("class", "legendSymbol")
+		.attr("transform", "translate(" + (width-100) + "," + (height-175) + ")")
+		.style("font-family", "sans-serif")
+		.style("font-size", "16px")
+	// using d3-legend
+	var legendPath = d3.legendSymbol()
+		.scale(symbolScale)
+		.orient("vertical")
+		.labelWrap(30)
+		.title("Affiliation:")
+	svg.select(".legendSymbol")
+		.call(legendPath);
+	// recalling circle paths to change style of stroke color to color domain and removing fill
+	svg.selectAll(".cell path").each(function(d) {
+	  d3.select(this).style("stroke", colorScale(d)).style("fill", "none").attr("transform", "scale(2 2)");
+})
 }
 );
 }
 loadNetwork(graphFile);
 
-$('#filterPanel').on('click', function() {
-    if ($('#filterBar').css("display") == "none") {
-        $('#filterBar').css("display","block");
-        $('#filterPanel').text("Hide Filters");
-    } else {
-        $('#filterBar').css("display","none");
-        $('#filterPanel').text("Show Filters");
+function togglePanel() {
+    var x = document.getElementById("filterBar");
+    if (x.style.display === "none") {
+        x.style.display = "block";
     }
-});
+    else {
+        x.style.display = "none";
+    }
+}
 
 function getWidth() {
 	return Math.max(
