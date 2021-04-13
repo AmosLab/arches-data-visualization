@@ -10255,3 +10255,25 @@ JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 206: S
 JavaScript note: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 189: Previously declared at line 189, column 16
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 602: TypeError: document.body is null
 JavaScript error: file:///Users/Alex/Desktop/ARCHES/ARCHESgraph3.js, line 602: TypeError: document.body is null
+1618279749734	geckodriver	INFO	Listening on 127.0.0.1:60609
+1618279750179	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/tq/rhqbc_vj7kvc3k2l_dp9tk2c0000gn/T/rust_mozprofile1jhIpG"
+2021-04-12 22:09:14.970 firefox-bin[10591:424256] Warning: Expected min height of view: (<NSButton: 0x144f61800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-12 22:09:14.970 firefox-bin[10591:424256] Warning: Expected min height of view: (<NSButton: 0x144f5b800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-12 22:09:14.971 firefox-bin[10591:424256] Warning: Expected min height of view: (<NSButton: 0x144f66c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-12 22:09:14.971 firefox-bin[10591:424256] Warning: Expected min height of view: (<NSButton: 0x144f67000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-12 22:09:14.971 firefox-bin[10591:424256] Warning: Expected min height of view: (<NSButton: 0x144f6a400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-12 22:09:14.972 firefox-bin[10591:424256] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x144f66400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-12 22:09:14.972 firefox-bin[10591:424256] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x145288800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1618279756309	Marionette	INFO	Listening on port 60622
+1618279756375	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 617: TypeError: document.body is null
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 617: TypeError: document.body is null
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 617: TypeError: document.body is null
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 619: TypeError: document.body is null
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 620: TypeError: document.body is null
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 626: TypeError: document.body is null
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 629: TypeError: document.body is null
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 484: ReferenceError: d is not defined
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph3.js, line 484: ReferenceError: d is not defined
