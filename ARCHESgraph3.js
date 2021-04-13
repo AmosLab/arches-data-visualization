@@ -247,6 +247,10 @@ d3.json(graphFile).then(function(graph) {
            labelNode.attr("display", "block")
            searchedName = "None";
            infoBarOnName = "None";
+            $('#infoBar').fadeTo(500,0);
+            $('#infoBar').css("display","block")
+            $('#infoBar').css("pointer-events","none")
+
            unfocus();
        }
    );
