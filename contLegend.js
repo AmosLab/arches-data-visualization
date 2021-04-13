@@ -1,5 +1,5 @@
 // pulls JSON file containing funding values from local directory
-var graphFile = "ARCHES_connections8.json";
+var graphFile = "ARCHES_connections.json";
 
 // define min and max values for legend, create color and axis scales
 d3.json(graphFile).then(function(graph) {

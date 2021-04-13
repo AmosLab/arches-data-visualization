@@ -1,5 +1,6 @@
 var width = getWidth() - 40;
 var height = getHeight() - 30;
+// const { getResearchers} = require('./graphIndexers.js')
 
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections.json";
@@ -496,6 +497,13 @@ d3.json(graphFile).then(function(graph) {
         }
   
     }
+
+
+
+
+
+
+    //
 
     // Adds commas to the number to show funding a little prettier
     function numberWithCommas(x) {
