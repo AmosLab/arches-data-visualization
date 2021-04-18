@@ -174,7 +174,7 @@ d3.json(graphFile).then(function(graph) {
     node.on("mouseover", focus).on("mouseout", unfocus);
 
 
-    // Search Bar Functionality
+    // Investigator Search Bar Functionality
 
    var optArray = [];
    for (var i = 0; i < graph.nodes.length - 1; i++) {
