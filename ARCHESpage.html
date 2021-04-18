@@ -42,23 +42,23 @@
     }
 
     div.tooltip {   
-        position: absolute;         
-        text-align: center;         
-        width: 300px;                   
-        height: 400px;                  
-        padding: 2px;               
-        font: 12px sans-serif;      
-        background: white;  
-        border: 1px;    
-        border-color: black;
-        border-style: solid;    
-        border-radius: 8px;         
-        pointer-events: none;       
-        padding: 2px;
+		position: absolute;
+		text-align: center;
+		width: 300px;
+		height: 400px;
+		padding: 2px;
+		font: 12px sans-serif;
+		background: white;
+		border: 1px;
+		border-color: black;
+		border-style: solid;
+		border-radius: 8px;
+		pointer-events: none;
+		padding: 2px;
 		z-index:2;
     }
 
-    div.infoBar {   
+    div.infoBar {
         position: absolute;         
         text-align: center;         
         width: 300px;                   
@@ -202,6 +202,11 @@
 		position:relative;
 	}
 	
+	.graphToolContainer {
+		position:relative;
+		overflow:hidden;
+	}
+
 	.legend {
 		position:absolute;
 		bottom:0;
@@ -209,7 +214,7 @@
 	}
 </style>
 <head>
-    <script src="ARCHESgraph3.js"></script>
+    <script src="ARCHESgraph.js"></script>
 </head>
 <body>
 	<div class="ui-widget">
@@ -267,11 +272,13 @@
 	<script src='https://d3js.org/d3.v5.min.js'></script>
     <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
     
-	<div class = "graphContainer">
-		<svg id='viz'></svg>
-		<div class = "legend" id="colorLegend"></div>
-		<script src="contLegend.js"></script>
-	</div>
+	<div class = "graphToolContainer">
+		<div class = "graphContainer">
+			<svg id='viz'></svg>
+			<div class = "legend" id="colorLegend"></div>
+			<script src="contLegend.js"></script>
+		</div>
+	</div>	
 	
     <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"

@@ -161,12 +161,12 @@ d3.json(graphFile).then(function(graph) {
         })
         .attr("stroke-width", "2px");
         
-    // Div Tooltip for Displaying Node info
-    var divNode = d3.select("body").append("div")   
-    .attr("class", "tooltip")               
-    .style("opacity", 0);
-    // Div Tooltip for Displaying Link info
-    var div = d3.select("body").append("div")   
+    // Div Tooltip for Displaying Node info, appended to .graphToolContainer to prevent overflow beyond page bounds
+    var divNode = d3.select(".graphToolContainer").append("div")   
+		.attr("class", "tooltip")               
+		.style("opacity", 0);
+    // Div Tooltip for Displaying Link info, appended to .graphToolContainer to prevent overflow beyond page bounds
+    var div = d3.select(".graphToolContainer").append("div")   
         .attr("class", "tooltip")               
         .style("opacity", 0);
 
