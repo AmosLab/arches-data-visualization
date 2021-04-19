@@ -1,6 +1,11 @@
+import { exportCSV } from './scripts/donwloadCSV.js';
+import {getProjects, getConnections, neigh, getResearchers} from './scripts/graphIndexers.js';
+// import {exportCSV} from './scripts/donwloadCSV.js';
+
 var width = getWidth() - 40;
 var height = getHeight() - 30;
-// const { getResearchers} = require('./graphIndexers.js')
+// const { getProjects} = require('./graphIndexers.js')
+
 
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections.json";
@@ -101,10 +106,6 @@ d3.json(graphFile).then(function(graph) {
         adjlist[d.target.index + "-" + d.source.index] = true;
     });
     
-    function neigh(a, b) {
-        return a == b || adjlist[a + "-" + b];
-    }
-    
     // creates svg container to draw elements
     var svg = d3.select("#viz").attr("width", width).attr("height", height);
     var container = svg.append("g");
@@ -160,11 +161,7 @@ d3.json(graphFile).then(function(graph) {
             }
         })
         .attr("stroke-width", "2px");
-        
-    // Div Tooltip for Displaying Node info, appended to .graphToolContainer to prevent overflow beyond page bounds
-    var divNode = d3.select(".graphToolContainer").append("div")   
-		.attr("class", "tooltip")               
-		.style("opacity", 0);
+
     // Div Tooltip for Displaying Link info, appended to .graphToolContainer to prevent overflow beyond page bounds
     var div = d3.select(".graphToolContainer").append("div")   
         .attr("class", "tooltip")               
@@ -206,39 +203,39 @@ d3.json(graphFile).then(function(graph) {
 	// Download function
 
    $('#download').on('click',
-       function exportCSV() {
-            rows = [['id','totalFunding']]
-            graph.nodes.forEach(function(d,i) {
-                rows.push([d.id,d.funding]);
-            });
-            let csvContent = "data:text/csv;charset=utf-8," 
-                + rows.map(e => e.join(",")).join("\n");
-            var encodedUri = encodeURI(csvContent);
-            var link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "investigators.csv");
-            document.body.appendChild(link); // Required for FF
-            link.click(); // This will download the data file named "my_data.csv".
+    function exportCSV() {
+        var rows = [['id','totalFunding']]
+        graph.nodes.forEach(function(d,i) {
+            rows.push([d.id,d.funding]);
+        });
+        let csvContent = "data:text/csv;charset=utf-8," 
+            + rows.map(e => e.join(",")).join("\n");
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "investigators.csv");
+        document.body.appendChild(link); // Required for FF
+        link.click(); // This will download the data file named "investigators.csv".
 
-            rows = [['Project Name','Project Number', 'Year','Funding Amount','Investigators']]
-            projects = []
-            graph.links.forEach(function(l,i) {
-                if (!projects.includes(l.projectName)) {
-                    rows.push([l.projectName,l.projNum,l.year,l.amount,l.PIs + ", " + l.addInvestigators]);
-                    projects.push(l.projectName);
-                }
-            });
-            csvContent = "data:text/csv;charset=utf-8," 
-                + rows.map(e => e.join(",")).join("\n");
-            var encodedUri = encodeURI(csvContent);
-            var link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "projects.csv");
-            document.body.appendChild(link); // Required for FF
-            link.click(); // This will download the data file named "my_data.csv".
-       }
+        rows = [['Project Name','Project Number', 'Year','Funding Amount','Investigators']]
+        var projects = []
+        graph.links.forEach(function(l,i) {
+            if (!projects.includes(l.projectName)) {
+                rows.push([l.projectName,l.projNum,l.year,l.amount,l.PIs + ", " + l.addInvestigators]);
+                projects.push(l.projectName);
+            }
+        });
+        csvContent = "data:text/csv;charset=utf-8," 
+            + rows.map(e => e.join(",")).join("\n");
+        encodedUri = encodeURI(csvContent);
+        link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "projects.csv");
+        document.body.appendChild(link); // Required for FF
+        link.click(); // This will download the data file named "projects.csv".
+    }
+   
    );
-
 
    $("#clear").click(
        function clearFocus() {
@@ -320,6 +317,7 @@ d3.json(graphFile).then(function(graph) {
     // Clicking any node again closes the info bar.
     node.on("click",function clickNode(d) {
         clickThrough = true;
+        var collabOutput = "";
         focus(d);
         div.transition()        
         .duration(200)      
@@ -329,7 +327,7 @@ d3.json(graphFile).then(function(graph) {
         } else {
             clickedID = 'None'
         }
-        numResearchers = 0;
+        var numResearchers = 0;
         if (infoBarOnName == "None") {
             $('#infoBar').css("pointer-events","auto")
             $('#infoBar').css("display","none")
@@ -337,9 +335,9 @@ d3.json(graphFile).then(function(graph) {
             $('#Investigator').text(d.id);
             $('#Affiliation').text(d.affiliation.toUpperCase());
             $('#Funding').text("$"+numberWithCommas(d.funding));
-            $('#TotalProjects').text(getConnections(d));
-            $('#ProjectNames').html(getProjects(d));
-            [numResearchers, collabOutput] = getResearchers(d);
+            $('#TotalProjects').text(getConnections(d, graph.links));
+            $('#ProjectNames').html(getProjects(d, graph.links));
+            [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
             $('#Collab').html(collabOutput);
             infoBarOnName = d.id;
         } else if (infoBarOnName != d.id) {
@@ -347,9 +345,9 @@ d3.json(graphFile).then(function(graph) {
             $('#Investigator').text(d.id);
             $('#Affiliation').text(d.affiliation.toUpperCase());
             $('#Funding').text("$"+numberWithCommas(d.funding));
-            $('#TotalProjects').text(getConnections(d));
-            $('#ProjectNames').html(getProjects(d));
-            [numResearchers, collabOutput] = getResearchers(d);
+            $('#TotalProjects').text(getConnections(d, graph.links));
+            $('#ProjectNames').html(getProjects(d, graph.links));
+            [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
             $('#Collab').html(collabOutput);
             infoBarOnName = d.id;
         } else {
@@ -361,7 +359,7 @@ d3.json(graphFile).then(function(graph) {
         }
         // For loop this code for each link to work properly.
         for (let totalR = 0; totalR < numResearchers; totalR++) {
-            rName = 'researcher' + totalR.toString();
+            const rName = 'researcher' + totalR.toString();
             $('#'+rName).on('click', {'idx':rName},
             function (e) {
                 //find the node
@@ -374,10 +372,8 @@ d3.json(graphFile).then(function(graph) {
                     return (d.node.id==selectedVal) ? "block" : "none";
                 });
                 searchedName = selectedVal;
-            }
-            );
+            });
         }
-
     });
 
     // }
@@ -447,19 +443,19 @@ d3.json(graphFile).then(function(graph) {
         if (((searchedName == "None" || searchedName == d.id) && infoBarOnName == "None") || clickThrough) {
             var index = d3.select(d3.event.target).datum().index;
             node.style("opacity", function(o) {
-                return neigh(index, o.index) ? 1 : 0.1;
+                return neigh(index, o.index, adjlist) ? 1 : 0.1;
             });
             labelNode.attr("display", function(o) {
-                return neigh(index, o.node.index) ? "block": "none";
+                return neigh(index, o.node.index, adjlist) ? "block": "none";
             });
             link.style("opacity", function(o) {
                 return o.source.index == index || o.target.index == index ? 1 : 0.1;
             });
             node.attr("r", function(o) {
-                return neigh(index, o.index) ? 15 : 10;
+                return neigh(index, o.index, adjlist) ? 15 : 10;
             });
             searchedName = "None"
-            totalConnections = getConnections(d);
+            var totalConnections = getConnections(d, graph.links);
             // Handle Making Pop Ups
             div.transition()        
                 .duration(200)      
@@ -472,7 +468,7 @@ d3.json(graphFile).then(function(graph) {
             // Handle Name Focusing
             if (activeNameOpacity == 0) {
                 var labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", function(o) {
-                    return neigh(index, o.node.index) ? 1 : 0;
+                    return neigh(index, o.node.index, adjlist) ? 1 : 0;
                 });
                 labelText.exit().remove()
             }
@@ -482,8 +478,7 @@ d3.json(graphFile).then(function(graph) {
     
     // resets opacity to full once node is unfocused
     function unfocus() {
-        if ((searchedName == "None" || searchedName == d.id) && infoBarOnName == 'None') {
-            console.log("hi")
+        if (searchedName == "None" && infoBarOnName == 'None') {
             labelNode.attr("display", "block");
             node.style("opacity", 1);
             link.style("opacity", 1);
@@ -498,63 +493,12 @@ d3.json(graphFile).then(function(graph) {
   
     }
 
-
-
-
-
-
-    //
-
     // Adds commas to the number to show funding a little prettier
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    // Get total connections from one node
-    function getConnections(d) {
-        connections = 0
-        projects = []
-        for (var indexL = 0; indexL < graph.links.length; indexL++) {
-            link1 = graph.links[indexL];
-            if (d.id == link1.source.id || d.id == link1.target.id) {
-                if (!projects.includes(link1.projectName)) {
-                    projects.push(link1.projectName);
-                    connections += 1; 
-                }
-    
-            }
-        }
-        return connections;
-    }
 
-    // Gets the names of all the projects an invesitgator was a part of in a bulleted list
-    function getProjects(d) {
-        projectsString = "<ul>";
-        projects = []
-        for (var indexL = 0; indexL < graph.links.length; indexL++) {
-            link1 = graph.links[indexL];
-            if (d.id == link1.source.id || d.id == link1.target.id) {
-                if (!projects.includes(link1.projectName)) {
-                    projects.push(link1.projectName);
-                    projectsString += "<li>" + link1.projectName + "</li>";
-                }
-            }
-        }
-        return projectsString +=  '</ul>';
-    }
-
-    // Gets the names of all the projects an invesitgator was a part of in a bulleted list
-    function getResearchers(d) {
-        researcherString = "<ul>";
-        totalResearchers = 0;
-        graph.nodes.forEach(function(d2, index) {
-            if (neigh(index, d.index) && d != d2) {
-                researcherString += '<li><button id="researcher'+ totalResearchers.toString() + '" class="Investigator">' + d2.id + "</button></li>";
-                totalResearchers += 1;
-            }
-        });
-        return [totalResearchers, researcherString += "</ul>"];
-    }
 
 
     // redraws link endpoints per tick
