@@ -136,7 +136,7 @@ d3.json(graphFile).then(function(graph) {
         .attr("r", 10)
         .attr("fill", function(d) {
 			if (d.fundingLogScaled == "-1") {
-				return "#000";
+				return "#696969";
 			}
 			else {
 				return d3.color(d3.interpolatePlasma(d.fundingLogScaled)).formatHex();
