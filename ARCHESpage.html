@@ -252,7 +252,6 @@
         <div id="ProjectNames"></div>
         <h4>Collaborating Investigators:</h4>
         <div id="Collab"></div>
-
     </div>
 	<div class = "filterBar" id="filterBar">
         <form class = "Filtering">
@@ -282,7 +281,7 @@
 			<button type="button" id="clearTag">Clear</button>
 			<br>
 			<div class = "tagListWindow" id ="tagListWindow">
-				<form class = "tagList">
+				<form class = "tagList" id ="tagList">
 					<input type="checkbox" id="pubHealth">
 					<label>Public Health</label>
 					<br>
@@ -314,6 +313,7 @@
             <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>
         </form>
 	</div>
+	
 	<script src='https://d3js.org/d3.v5.min.js'></script>
     <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
     
@@ -333,5 +333,6 @@
     <link type='text/css' href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script src="ARCHESgraph.js"></script>
+	<script src="addTagList.js"></script>
 </body>
 </html>
