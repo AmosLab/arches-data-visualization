@@ -11354,3 +11354,84 @@ JavaScript error: resource://devtools/client/debugger/src/components/Editor/Prev
 JavaScript error: resource:///modules/UrlbarInput.jsm, line 2902: TypeError: event.target.closest is not a function
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+2021-04-20 12:54:25.926 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x161281400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:25.926 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x161281800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:25.927 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x163185000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:25.927 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x16318ec00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:25.928 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x161289000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:25.928 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x161284c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:25.928 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x165be4c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:26.220 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x135b4b000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:26.221 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x14440d800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:26.221 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x1571f6000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:26.222 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x1571f0800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:26.222 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSButton: 0x1571f0c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:26.222 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x172fd9400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-20 12:54:26.223 firefox-bin[88464:1947349] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x1b4254400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript warning: https://d3js.org/d3.v5.min.js, line 2: Script terminated by timeout at:
+Ta.visit@https://d3js.org/d3.v5.min.js:2:74266
+c@https://d3js.org/d3.v5.min.js:2:203809
+l/<@https://d3js.org/d3.v5.min.js:2:205914
+each@https://d3js.org/d3.v5.min.js:2:62604
+l@https://d3js.org/d3.v5.min.js:2:205896
+s@https://d3js.org/d3.v5.min.js:2:205755
+dr@https://d3js.org/d3.v5.min.js:2:37780
+pr@https://d3js.org/d3.v5.min.js:2:37854
+
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module

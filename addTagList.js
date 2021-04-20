@@ -8,7 +8,7 @@ function createTagList() {
 	graph.tagNames.forEach(function(key, value) {
 		// create div for new tag
 		const newTag = document.createElement('div');
-		newTag.setAttribute("id", String(key));
+		newTag.setAttribute("id", String(value));
 		
 		// create a new checkbox element
 		const newCheckbox = document.createElement("INPUT");

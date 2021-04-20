@@ -1,4 +1,4 @@
-import { exportCSV } from './scripts/donwloadCSV.js';
+import { exportCSV } from './scripts/downloadCSV.js';
 import {getProjects, getConnections, neigh, getResearchers} from './scripts/graphIndexers.js';
 // import {exportCSV} from './scripts/donwloadCSV.js';
 
@@ -20,11 +20,8 @@ function loadNetwork(graphFile){
 d3.json(graphFile).then(function(graph) {
 
     var clickedID = 'None';
-
     var searchedName = "None";
-
     var infoBarOnName = "None";
-
     var clickThrough = false;
 
     var svg = d3.select("svg");
@@ -269,18 +266,17 @@ d3.json(graphFile).then(function(graph) {
                     filterIDs.push(filterName);
                 }
             }
-
             // Reload the network
             loadNetwork(graphFile);
         }
     );
 
     $('#clearFilter').on('click',
-    function ClearFilterNodes() {
-         filterIDs.splice(0,filterIDs.length);
-         loadNetwork(graphFile);
-     }
- );
+        function ClearFilterNodes() {
+            filterIDs.splice(0,filterIDs.length);
+            loadNetwork(graphFile);
+        }
+    );
 
     // Hovering over a link performs focusing and creates a popup with some relevant project info
 
@@ -288,20 +284,20 @@ d3.json(graphFile).then(function(graph) {
         if (searchedName == "None" && infoBarOnName == "None") {
             node.style('opacity', function(d) {
                 return (d === l.source || d === l.target) ? 1 : 0.1;
-                });
-              labelNode.attr("display", function(d) {
-                  return (d.node.index === l.source.index || d.node.index === l.target.index) ? "block" : "none";
-              });
-              link.style("opacity", function(l2) {
-                  return (l2 == l) ? 1 : 0.1;
-              });
-              node.attr("r", function(d) {
-                  return (d === l.source || d === l.target) ? 15 : 10;
-              });
-              div.transition()        
+            });
+            labelNode.attr("display", function(d) {
+                return (d.node.index === l.source.index || d.node.index === l.target.index) ? "block" : "none";
+            });
+            link.style("opacity", function(l2) {
+                return (l2 == l) ? 1 : 0.1;
+            });
+            node.attr("r", function(d) {
+                return (d === l.source || d === l.target) ? 15 : 10;
+            });
+            div.transition()        
                   .duration(200)      
                   .style("opacity", .9);      
-              div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags + "<br/>" + "<b>Digital Health</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff + "<br/>" + "<b>Genomics and Precision Medicine</b>" + "<br/>" + l.genomics + "<br/>" + "<b>My data and the Internet of Medical Things</b>" + "<br/>" + l.myData + "<br/>" + "<b>Simulation and Education</b>" + "<br/>" + l.sim)
+            div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags + "<br/>" + "<b>Digital Health</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff + "<br/>" + "<b>Genomics and Precision Medicine</b>" + "<br/>" + l.genomics + "<br/>" + "<b>My data and the Internet of Medical Things</b>" + "<br/>" + l.myData + "<br/>" + "<b>Simulation and Education</b>" + "<br/>" + l.sim)
                   .style("left", (d3.event.pageX) + "px")
                   .style("padding", "7px")        
                   .style("top", (d3.event.pageY - 28) + "px")
