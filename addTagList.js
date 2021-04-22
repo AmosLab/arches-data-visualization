@@ -5,23 +5,26 @@ var graphFile = "ARCHES_connections.json";
 d3.json(graphFile).then(function(graph) {
 
 function createTagList() {
-	graph.tagNames.forEach(function(key, value) {
-		// tag numbers start at 1, but JS array indexes start at 0
-		tagNumber = value+1;
+	for (var i = 0; i < graph.tagNames.length - 1; i++) {
+		// get tag name
+		var tagName = graph.tagNames[i].id;
+		
+		// remove spaces in tag name
+		tagName = tagName.replace(/\s+/g, '');
 		
 		// create div for new tag, assign the ID to be the same as the tag name
 		const newTag = document.createElement('div');
-		newTag.setAttribute("id", String(key[tagNumber]));
+		newTag.setAttribute("id", tagName.concat("_Div"));
 		
 		// create a new checkbox element
 		const newCheckbox = document.createElement("INPUT");
 		newCheckbox.setAttribute("type", "checkbox");
-		newCheckbox.setAttribute("id", String(key[tagNumber]));
+		newCheckbox.setAttribute("id", tagName);
 		newTag.appendChild(newCheckbox);
 		
-		// and give it a label with the tag name
+		// and give it a label with the tag name, keep spaces
 		const newLabel = document.createElement("Label");
-		newLabel.innerHTML = String(key[tagNumber]);
+		newLabel.innerHTML = graph.tagNames[i].id;
 		newTag.appendChild(newLabel);
 	
 		// add break
@@ -32,7 +35,6 @@ function createTagList() {
 		const tagListForm = document.getElementById("tagListWindow"); //need to add id tagList to form
 		tagListForm.appendChild(newTag);
 	}
-)
 };
 
 createTagList();

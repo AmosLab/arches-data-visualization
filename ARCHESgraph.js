@@ -197,6 +197,42 @@ d3.json(graphFile).then(function(graph) {
        }
    );
 
+	// Tag Search Bar Functionality
+	var tagArray = [];
+	for (var i = 0; i < graph.tagNames.length - 1; i++) {
+	   tagArray.push(graph.tagNames[i].id);
+	}
+	tagArray = tagArray.sort();
+	$(function () {
+	   $("#tagSearch").autocomplete({
+		   source: tagArray,
+	   });
+	});
+
+	// Add searched tag to selected tags
+	$('#addTag').on('click',
+		function addTag() {
+			//find the tag
+			var searchedTag = document.getElementById('tagSearch').value;
+			searchedTag = searchedTag.replace(/\s+/g, '');
+			$("#" + String(searchedTag)).prop("checked", true);
+		}
+	);
+	
+	// Clear all selected tags
+	$('#clearTags').on('click',
+		function clearAllTags() {
+			// Parse through all tags in the window
+			for (var i = 0; i < graph.tagNames.length - 1; i++) {
+				// get tag name
+				var tagName = graph.tagNames[i].id;
+				// remove spaces in tag name
+				tagName = tagName.replace(/\s+/g, '');
+				$("#" + tagName).prop("checked", false);
+			}			
+		}
+	);
+
 	// Download function
 
    $('#download').on('click',
