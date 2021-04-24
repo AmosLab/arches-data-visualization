@@ -5,12 +5,17 @@ var graphFile = "ARCHES_connections.json";
 d3.json(graphFile).then(function(graph) {
 
 function createTagList() {
-	for (var i = 0; i < graph.tagNames.length - 1; i++) {
+	for (var i = 0; i < graph.tagNames.length; i++) {
 		// get tag name
 		var tagName = graph.tagNames[i].id;
 		
 		// remove spaces in tag name
 		tagName = tagName.replace(/\s+/g, '');
+		// replace special characters with hyphen
+		tagName = tagName.replace('&', '-');
+		tagName = tagName.replace('/', '-');
+		tagName = tagName.replace('(', '-');
+		tagName = tagName.replace(')', '-');
 		
 		// create div for new tag, assign the ID to be the same as the tag name
 		const newTag = document.createElement('div');

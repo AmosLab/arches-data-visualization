@@ -13,6 +13,9 @@ var graphFile = "ARCHES_connections.json";
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
 
+// Keeps track of the IDs of tags for projects that should be removed
+var tagFilterIDs = [];
+
 var activeNameOpacity = 1;
 
 function loadNetwork(graphFile){
@@ -48,6 +51,31 @@ d3.json(graphFile).then(function(graph) {
             }
         });
     }
+	
+	// Check through the tagFilterIDs array and delete links that don't contain the selected tags
+	for (var idx = 0; idx < tagFilterIDs.length; idx++) {
+		var tagFilterName = tagFilterIDs[idx];
+		graph.links.forEach(function(link, index) {
+			// get list of tags for that project
+			var linkTags = link.tags;
+			// remove spaces in tag list
+			linkTags = linkTags.replace(/\s+/g, '');
+			// replace special characters with hyphen
+			linkTags = linkTags.replace('&', '-');
+			linkTags = linkTags.replace('/', '-');
+			linkTags = linkTags.replace('(', '-');
+			linkTags = linkTags.replace(')', '-');
+			if (!(linkTags.includes(tagFilterName))) { // If the link does not include the selected tags, delete it
+				graph.links.splice(index,1);
+				if (!possiblePIs.includes(link.source)) {
+					possiblePIs.push(link.source);
+				}
+				if (!possiblePIs.includes(link.target)) {
+					possiblePIs.push(link.target);
+				}
+			}
+		});
+	}
 
     // Delete all Nodes of PIs no longer in links after filtering
     var inLinks = false;
@@ -223,11 +251,16 @@ d3.json(graphFile).then(function(graph) {
 	$('#clearTags').on('click',
 		function clearAllTags() {
 			// Parse through all tags in the window
-			for (var i = 0; i < graph.tagNames.length - 1; i++) {
+			for (var i = 0; i < graph.tagNames.length; i++) {
 				// get tag name
 				var tagName = graph.tagNames[i].id;
 				// remove spaces in tag name
 				tagName = tagName.replace(/\s+/g, '');
+				// replace special characters with hyphen
+				tagName = tagName.replace('&', '-');
+				tagName = tagName.replace('/', '-');
+				tagName = tagName.replace('(', '-');
+				tagName = tagName.replace(')', '-');
 				$("#" + tagName).prop("checked", false);
 			}			
 		}
@@ -302,6 +335,26 @@ d3.json(graphFile).then(function(graph) {
                     filterIDs.push(filterName);
                 }
             }
+			
+			// Reset the tagFilterIDs array
+			tagFilterIDs.splice(0,tagFilterIDs.length);
+			
+			// Check values of each tag checkbox
+			for (var i = 0; i < graph.tagNames.length; i++) {
+				// get tag name
+				var tagName = graph.tagNames[i].id;
+				// remove spaces in tag name
+				tagName = tagName.replace(/\s+/g, '');
+				// replace special characters with hyphen
+				tagName = tagName.replace('&', '-');
+				tagName = tagName.replace('/', '-');
+				tagName = tagName.replace('(', '-');
+				tagName = tagName.replace(')', '-');
+				if ($('#' + tagName).is(":checked")) {
+                    tagFilterIDs.push(tagName);
+                }
+            }
+			
             // Reload the network
             loadNetwork(graphFile);
         }
@@ -310,6 +363,7 @@ d3.json(graphFile).then(function(graph) {
     $('#clearFilter').on('click',
         function ClearFilterNodes() {
             filterIDs.splice(0,filterIDs.length);
+			tagFilterIDs.splice(0,tagFilterIDs.length);
             loadNetwork(graphFile);
         }
     );
