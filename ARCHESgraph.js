@@ -29,65 +29,111 @@ d3.json(graphFile).then(function(graph) {
 		'nodes': [],
 		'links': [],
 	};
-	
-	function findCommonElements3(arr1, arr2) {
-		return arr1.some(item => arr2.includes(item))
-	}
 
-    // let a = ["a", "b", "c"];
-    // let b = ["c", "x", "x"];
-    // let c = ["d", "e", "f"];
+    /**
+     * 
+     * 
+     * ***************** FILTERING SECTION *********************
+     * 
+     * 
+     *  */ 
 
-    // console.log(findCommonElements3(a,b))
-    // console.log(findCommonElements3(a,c))
-    // console.log(tagIDs)
+
+    // This function initializes the filters by checking which boxes are checked, adding them to the filterIDs and tagIDs lists, and then restarting the graph
 	
+	$('#filter').on('click',
+        function filterNodes() {
+            // Reset the filterIDs array and tagIDs array
+            filterIDs.splice(0,filterIDs.length);
+            tagIDs.splice(0,tagIDs.length);
+            // Check values of each filter checkbox in the first section
+            var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff', 'genomics', 'myData', 'sim'];
+            for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
+                var filterName = filterLabels[filterIdx];
+                if ($('#' + filterName).is(":checked")) {
+                    filterIDs.push(filterName);
+                }
+            }
+            // Check values of each filter checkbox in the tags section
+            for (var i = 0; i < graph.tagNames.length; i++) {
+                // get tag name
+                var tagName = graph.tagNames[i].id;
+                tagName = reformatTagName(tagName);
+                // If the tag is checked, add it to the tadIDs to filter array
+                if ($('#' + tagName).is(":checked")) {
+                    tagIDs.push(tagName);
+                }
+            }
+            // Reload the network
+            loadNetwork(graphFile);
+        }
+    );
+
+    // Clicking the Clear button in the filter window resets the filters to all be unselected
+    $('#clearFilter').on('click',
+        function ClearFilterNodes() {
+            filterIDs.splice(0,filterIDs.length);
+            tagIDs.splice(0,tagIDs.length);
+            loadNetwork(graphFile);
+        }
+    );
+
+    // array of new links to keep if filtering needs to be applied
+    var newLinks = []
+    // array of possible PIs to delete when newLinks are applied
 	var possiblePIs = []
-	// Check through the filterIDs array and delete links that are projects that aren't in the tags
-	for (var idx = 0; idx < filterIDs.length; idx++) {
-		var filterName = filterIDs[idx];
-		graph.links.forEach(function(link, index) {
-			if (link[filterName] == "No") { // If the link with this filterName is not that type, delete it
-				graph.links.splice(index,1);
-				if (!possiblePIs.includes(link.source)) {
-					possiblePIs.push(link.source);
-				}
-				if (!possiblePIs.includes(link.target)) {
-					possiblePIs.push(link.target);
-				}
-			} 
-		});
-	}
+
+	// Every time the network is loaded, check through the filterIDs array and delete links that are projects that aren't in the tags
+    if (filterIDs.length >= 1) {
+        console.log("Filters nonzero")
+        console.log(filterIDs.length)
+        for (var idx = 0; idx < filterIDs.length; idx++) {
+            var filterName = filterIDs[idx];
+            graph.links.forEach(function(link, index) {
+                if (link[filterName] == "No" || link[filterName] == "NA") { // If the link with this filterName is not that type, delete it
+                    if (!possiblePIs.includes(link.source)) {
+                        possiblePIs.push(link.source);
+                    }
+                    if (!possiblePIs.includes(link.target)) {
+                        possiblePIs.push(link.target);
+                    }
+                } else {
+                    newLinks.push(link);
+                }
+            });
+        }
+    }
+
 	// Delete projects that that have tags that aren't correct.
-	if(!(tagIDs.length < 1 || tagIDs == undefined)) {
+	if(tagIDs.length >= 1) {
 		graph.links.forEach(function(link, index) {
 			var extraTags = link["tags"].split(",");
 			for (var index2 = 0; index2 < extraTags.length; index2++) {
 				var tagName = extraTags[index2]
-				// remove spaces in tag name (HTML id's can't have spaces)
-				tagName = tagName.replace(/\s+/g, '');
-				// replace special characters with hyphen (HTML id's can't have special characters)
-				tagName = tagName.replace('&', '-');
-				tagName = tagName.replace('/', '-');
-				tagName = tagName.replace('(', '-');
-				tagName = tagName.replace(')', '-');
                 // replace tag name with new processed tag name
-				extraTags[index2] = tagName;
-				console.log(extraTags);
+				extraTags[index2] = reformatTagName(tagName);
 				if (!findCommonElements3(extraTags,tagIDs)) { // If the link doesn't include any of the extra tags selected, delete it
-					graph.links.splice(index,1);
 					if (!possiblePIs.includes(link.source)) {
 						possiblePIs.push(link.source);
 					}
 					if (!possiblePIs.includes(link.target)) {
 						possiblePIs.push(link.target);
 					}
-				}
+				} else {
+                    newLinks.push(link)
+                }
 			}
 		});
 	}
 
-	// Delete all nodes of PIs no longer in links after filtering
+
+    // If filtering was performed, you need to replace the graph links
+    if (filterIDs.length >= 1 || tagIDs.length >= 1) {
+        console.log("replace")
+        graph.links = newLinks
+    }
+    
+	// Now delete all nodes of PIs no longer in links after filtering
 	var inLinks = false;
 	possiblePIs.forEach(function(pi,index2) {
 		inLinks = false;
@@ -110,6 +156,72 @@ d3.json(graphFile).then(function(graph) {
 			}
 		}
 	});
+
+    // Filter Tag Search Function using JQuery
+	$('#addTag').on('click',
+        function searchTags() {
+            // Get the tagName from the input box and reformat
+            var tagName = document.getElementById('tagSearch').value;
+            tagName = reformatTagName(tagName);
+            // Change checked state
+            if ($('#'+tagName).is(':checked')) {
+                $('#'+tagName).prop('checked',false);
+            }
+            else {
+                $('#'+tagName).prop('checked',true);
+            }
+        }
+    );
+
+    // Clear Tag Search Filters using JQuery
+    $('#clearTags').on('click',
+        function clearTags() {
+            for (var idx in tags) {
+                var tagName = tags[idx];
+                // Delete spaces
+                tagName = tagName.replace(/\s+/g, '');
+                // replace special characters with hyphen
+                tagName = tagName.replace('&', '-');
+                tagName = tagName.replace('/', '-');
+                tagName = tagName.replace('(', '-');
+                tagName = tagName.replace(')', '-');
+                // Change checked state to false
+                $('#'+tagName).prop('checked',false);
+            }
+        }
+    );
+
+
+    // FILTERING HELPER FUNCTIONS
+
+    // Reformat tag names to match the ids in the HTML
+    function reformatTagName(tagName) {
+        // remove spaces in tag name (HTML id's can't have spaces)
+        tagName = tagName.replace(/\s+/g, '');
+        // replace special characters with hyphen (HTML id's can't have special characters)
+        tagName = tagName.replace('&', '-');
+        tagName = tagName.replace('/', '-');
+        tagName = tagName.replace('(', '-');
+        tagName = tagName.replace(')', '-');
+        return tagName;
+    }
+
+    // See if two arrays share a common element
+    function findCommonElements3(arr1, arr2) {
+		return arr1.some(item => arr2.includes(item))
+	}
+
+    
+
+
+    /**
+     * 
+     * 
+     * ***************************************** GRAPH FORMATTING SECTION **************************************************
+     * 
+     * 
+     *  */ 
+
 
     graph.nodes.forEach(function(d, i) {
         label.nodes.push({node: d});
@@ -200,6 +312,9 @@ d3.json(graphFile).then(function(graph) {
         .attr("class", "tooltip")               
         .style("opacity", 0);
 
+
+    
+
     // hovering over a node with the cursor causes the network to focus on linked nodes
     node.on("mouseover", focus).on("mouseout", unfocus);
 
@@ -227,47 +342,6 @@ d3.json(graphFile).then(function(graph) {
 			source: tags,
 		});
 	});
-
-    // Filter Tag Search Function using JQuery
-	$('#addTag').on('click',
-		function searchTags() {
-			// Get the tagName from the input box
-			var tagName = document.getElementById('tagSearch').value;
-			// Delete spaces (HTML id's can't have spaces)
-			tagName = tagName.replace(/\s+/g, '');
-			// replace special characters with hyphen (HTML id's can't have special characters)
-			tagName = tagName.replace('&', '-');
-			tagName = tagName.replace('/', '-');
-			tagName = tagName.replace('(', '-');
-			tagName = tagName.replace(')', '-');
-			// Change checked state
-			if ($('#'+tagName).is(':checked')) {
-				$('#'+tagName).prop('checked',false);
-			}
-			else {
-				$('#'+tagName).prop('checked',true);
-			}
-		}
-	);
-
-	// Clear Tag Search Filters using JQuery
-    $('#clearTags').on('click',
-        function clearTags() {
-            for (var idx in tags) {
-                var tagName = tags[idx];
-                // Delete spaces
-                tagName = tagName.replace(/\s+/g, '');
-                // replace special characters with hyphen
-                tagName = tagName.replace('&', '-');
-                tagName = tagName.replace('/', '-');
-                tagName = tagName.replace('(', '-');
-                tagName = tagName.replace(')', '-');
-                // Change checked state to false
-                $('#'+tagName).prop('checked',false);
-            }
-        }
-    );
-
 
    // Search Function 
    
@@ -337,49 +411,7 @@ d3.json(graphFile).then(function(graph) {
 		}
 	);
 
-    //Filtering Work
-	
-	$('#filter').on('click',
-		function filterNodes() {
-			// Reset the filterIDs array
-			filterIDs.splice(0,filterIDs.length);
 
-			// Check values of each filter checkbox in the first section
-			var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff', 'genomics', 'myData', 'sim'];
-			for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
-				var filterName = filterLabels[filterIdx];
-				if ($('#' + filterName).is(":checked")) {
-					filterIDs.push(filterName);
-				}
-			}
-            // Check values of each filter checkbox in the tags section
-            for (var i = 0; i < graph.tagNames.length; i++) {
-                // get tag name
-                var tagName = graph.tagNames[i].id;
-                // remove spaces in tag name
-                tagName = tagName.replace(/\s+/g, '');
-                // replace special characters with hyphen
-                tagName = tagName.replace('&', '-');
-                tagName = tagName.replace('/', '-');
-                tagName = tagName.replace('(', '-');
-                tagName = tagName.replace(')', '-');
-                // If the tag is checked, add it to the tadIDs to filter array
-                if ($('#' + tagName).is(":checked")) {
-                    tagIDs.push(tagName);
-                }
-            }
-            // Reload the network
-            loadNetwork(graphFile);
-        }
-    );
-
-	// Clicking the Clear button in the filter window resets the filters to all be unselected
-    $('#clearFilter').on('click',
-        function ClearFilterNodes() {
-            filterIDs.splice(0,filterIDs.length);
-            loadNetwork(graphFile);
-        }
-    );
 
     // Hovering over a link performs focusing and creates a popup with some relevant project info
 

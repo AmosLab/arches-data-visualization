@@ -11552,3 +11552,85 @@ JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualizat
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 268: ReferenceError: assignment to undeclared variable tagName
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: resource://devtools/client/framework/devtools.js, line 734: TypeError: inspector is undefined
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 94: ReferenceError: tagID is not defined
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: resource:///modules/UrlbarInput.jsm, line 2902: TypeError: event.target.closest is not a function
+JavaScript error: resource:///modules/UrlbarInput.jsm, line 2902: TypeError: event.target.closest is not a function
+JavaScript error: resource:///modules/UrlbarInput.jsm, line 2902: TypeError: event.target.closest is not a function
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 608: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
