@@ -1,11 +1,8 @@
 import { exportCSV } from './scripts/downloadCSV.js';
 import {getProjects, getConnections, neigh, getResearchers} from './scripts/graphIndexers.js';
-// import {exportCSV} from './scripts/donwloadCSV.js';
 
 var width = getWidth() - 40;
 var height = getHeight() - 30;
-// const { getProjects} = require('./graphIndexers.js')
-
 
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections.json";
@@ -18,25 +15,24 @@ var activeNameOpacity = 1;
 
 function loadNetwork(graphFile){
 
+// Fetches JSON file using D3 tool
 d3.json(graphFile).then(function(graph) {
+	var clickedID = 'None';
+	var searchedName = "None";
+	var infoBarOnName = "None";
+	var clickThrough = false;
 
-    var clickedID = 'None';
-    var searchedName = "None";
-    var infoBarOnName = "None";
-    var clickThrough = false;
-
-    var svg = d3.select("svg");
-    svg.selectAll("*").remove();
-    
-    var label = {
-        'nodes': [],
-        'links': [],
-    };
-
-
-    function findCommonElements3(arr1, arr2) {
-        return arr1.some(item => arr2.includes(item))
-    }
+	var svg = d3.select("svg");
+	svg.selectAll("*").remove();
+	
+	var label = {
+		'nodes': [],
+		'links': [],
+	};
+	
+	function findCommonElements3(arr1, arr2) {
+		return arr1.some(item => arr2.includes(item))
+	}
 
     // let a = ["a", "b", "c"];
     // let b = ["c", "x", "x"];
@@ -45,80 +41,75 @@ d3.json(graphFile).then(function(graph) {
     // console.log(findCommonElements3(a,b))
     // console.log(findCommonElements3(a,c))
     // console.log(tagIDs)
-
-    var possiblePIs = []
-    // Check through the filterIDs array and delete links that are projects that aren't in the tags
-    for (var idx = 0; idx < filterIDs.length; idx++) {
-        var filterName = filterIDs[idx];
-        graph.links.forEach(function(link, index) {
-            
-            if (link[filterName] == "No") { // If the link with this filterName is not that type, delete it
-                graph.links.splice(index,1);
-                if (!possiblePIs.includes(link.source)) {
-                    possiblePIs.push(link.source);
-                }
-                if (!possiblePIs.includes(link.target)) {
-                    possiblePIs.push(link.target);
-                }
-            } 
-
-        });
-    }
-    // Delete projects that that have tags that aren't correct.
-    if(!(tagIDs.length < 1 || tagIDs == undefined)) {
-        graph.links.forEach(function(link, index) {
-            var extraTags = link["tags"].split(",");
-            for (var index2 = 0; index2 < extraTags.length; index2++) {
-                var tagName = extraTags[index2]
-                // remove spaces in tag name
-                tagName = tagName.replace(/\s+/g, '');
-                // replace special characters with hyphen
-                tagName = tagName.replace('&', '-');
-                tagName = tagName.replace('/', '-');
-                tagName = tagName.replace('(', '-');
-                tagName = tagName.replace(')', '-');
+	
+	var possiblePIs = []
+	// Check through the filterIDs array and delete links that are projects that aren't in the tags
+	for (var idx = 0; idx < filterIDs.length; idx++) {
+		var filterName = filterIDs[idx];
+		graph.links.forEach(function(link, index) {
+			if (link[filterName] == "No") { // If the link with this filterName is not that type, delete it
+				graph.links.splice(index,1);
+				if (!possiblePIs.includes(link.source)) {
+					possiblePIs.push(link.source);
+				}
+				if (!possiblePIs.includes(link.target)) {
+					possiblePIs.push(link.target);
+				}
+			} 
+		});
+	}
+	// Delete projects that that have tags that aren't correct.
+	if(!(tagIDs.length < 1 || tagIDs == undefined)) {
+		graph.links.forEach(function(link, index) {
+			var extraTags = link["tags"].split(",");
+			for (var index2 = 0; index2 < extraTags.length; index2++) {
+				var tagName = extraTags[index2]
+				// remove spaces in tag name (HTML id's can't have spaces)
+				tagName = tagName.replace(/\s+/g, '');
+				// replace special characters with hyphen (HTML id's can't have special characters)
+				tagName = tagName.replace('&', '-');
+				tagName = tagName.replace('/', '-');
+				tagName = tagName.replace('(', '-');
+				tagName = tagName.replace(')', '-');
                 // replace tag name with new processed tag name
-                extraTags[index2] = tagName;
-            console.log(extraTags);
-            if (!findCommonElements3(extraTags,tagIDs)) { // If the link doesn't include any of the extra tags selected, delete it
-                graph.links.splice(index,1);
-                if (!possiblePIs.includes(link.source)) {
-                    possiblePIs.push(link.source);
-                }
-                if (!possiblePIs.includes(link.target)) {
-                    possiblePIs.push(link.target);
-                }
-            }
-            }
-        });
-    }
+				extraTags[index2] = tagName;
+				console.log(extraTags);
+				if (!findCommonElements3(extraTags,tagIDs)) { // If the link doesn't include any of the extra tags selected, delete it
+					graph.links.splice(index,1);
+					if (!possiblePIs.includes(link.source)) {
+						possiblePIs.push(link.source);
+					}
+					if (!possiblePIs.includes(link.target)) {
+						possiblePIs.push(link.target);
+					}
+				}
+			}
+		});
+	}
 
-
-    // Delete all Nodes of PIs no longer in links after filtering
-    var inLinks = false;
-    possiblePIs.forEach(function(pi,index2) {
-        inLinks = false;
-        for (var indexL = 0; indexL < graph.links.length; indexL++) {
-            const link1 = graph.links[indexL];
-            if (pi == link1.source || pi == link1.target) {
-                inLinks = true;
-                break;            
-            }
-        }
-        if (!inLinks) {
-
-            var piIdx = -1;
-            for (var piIdx = 0; piIdx < graph.nodes.length; piIdx++) {
-                if (graph.nodes[piIdx].id == pi) {
-                    break;
-                }
-            }
-            if (piIdx > -1) {
-
-                graph.nodes.splice(piIdx, 1);
-            }
-        }
-    });
+	// Delete all nodes of PIs no longer in links after filtering
+	var inLinks = false;
+	possiblePIs.forEach(function(pi,index2) {
+		inLinks = false;
+		for (var indexL = 0; indexL < graph.links.length; indexL++) {
+			const link1 = graph.links[indexL];
+			if (pi == link1.source || pi == link1.target) {
+				inLinks = true;
+				break;            
+			}
+		}
+		if (!inLinks) {
+			var piIdx = -1;
+			for (var piIdx = 0; piIdx < graph.nodes.length; piIdx++) {
+				if (graph.nodes[piIdx].id == pi) {
+					break;
+				}
+			}
+			if (piIdx > -1) {
+				graph.nodes.splice(piIdx, 1);
+			}
+		}
+	});
 
     graph.nodes.forEach(function(d, i) {
         label.nodes.push({node: d});
@@ -148,7 +139,7 @@ d3.json(graphFile).then(function(graph) {
         adjlist[d.target.index + "-" + d.source.index] = true;
     });
     
-    // creates svg container to draw elements
+    // creates svg container in the viz svg element to draw menu and network visualization elements
     var svg = d3.select("#viz").attr("width", width).attr("height", height);
     var container = svg.append("g");
     
@@ -213,55 +204,53 @@ d3.json(graphFile).then(function(graph) {
     node.on("mouseover", focus).on("mouseout", unfocus);
 
 
-    // Investigator Search Bar Functionality
+    // Investigator Search Bar Functionality using JQuery
+	var optArray = [];
+	for (var i = 0; i < graph.nodes.length - 1; i++) {
+		optArray.push(graph.nodes[i].id);
+	}
+	optArray = optArray.sort();
+	$(function () {
+		$("#search").autocomplete({
+			source: optArray,
+		});
+	});
 
-   var optArray = [];
-   for (var i = 0; i < graph.nodes.length - 1; i++) {
-       optArray.push(graph.nodes[i].id);
-   }
-   optArray = optArray.sort();
-   $(function () {
-       $("#search").autocomplete({
-           source: optArray,
-       });
-   });
+	// Filter Search Bar using JQuery
+	var tags = [];
+	for (var key in graph.tagNames) {
+		tags.push(graph.tagNames[key].id);
+	}
+	tags.sort();
+	$(function () {
+		$("#tagSearch").autocomplete({
+			source: tags,
+		});
+	});
 
-   // Filter Search Bar
+    // Filter Tag Search Function using JQuery
+	$('#addTag').on('click',
+		function searchTags() {
+			// Get the tagName from the input box
+			var tagName = document.getElementById('tagSearch').value;
+			// Delete spaces (HTML id's can't have spaces)
+			tagName = tagName.replace(/\s+/g, '');
+			// replace special characters with hyphen (HTML id's can't have special characters)
+			tagName = tagName.replace('&', '-');
+			tagName = tagName.replace('/', '-');
+			tagName = tagName.replace('(', '-');
+			tagName = tagName.replace(')', '-');
+			// Change checked state
+			if ($('#'+tagName).is(':checked')) {
+				$('#'+tagName).prop('checked',false);
+			}
+			else {
+				$('#'+tagName).prop('checked',true);
+			}
+		}
+	);
 
-    var tags = [];
-    for (var key in graph.tagNames) {
-        tags.push(graph.tagNames[key].id);
-    }
-    tags.sort();
-    $(function () {
-        $("#tagSearch").autocomplete({
-            source: tags,
-        });
-    });
-
-    // Filter Tag Search Function
-    $('#addTag').on('click',
-        function searchTags() {
-            // Get the tagName from the input box
-            var tagName = document.getElementById('tagSearch').value;
-            // Delete spaces
-            tagName = tagName.replace(/\s+/g, '');
-            // replace special characters with hyphen
-            tagName = tagName.replace('&', '-');
-            tagName = tagName.replace('/', '-');
-            tagName = tagName.replace('(', '-');
-            tagName = tagName.replace(')', '-');
-            // Change checked state
-            if ($('#'+tagName).is(':checked')) {
-                $('#'+tagName).prop('checked',false);
-            } else {
-                $('#'+tagName).prop('checked',true);
-            }
-
-        }
-    );
-
-    // Clear Tag Search Filters 
+	// Clear Tag Search Filters using JQuery
     $('#clearTags').on('click',
         function clearTags() {
             for (var idx in tags) {
@@ -333,38 +322,36 @@ d3.json(graphFile).then(function(graph) {
    
    );
 
-   $("#clear").click(
-       function clearFocus() {
-           //find the node
-            node.style("opacity", 1);
-            link.style("opacity", 1);
-            labelNode.attr("display", "block")
-            searchedName = "None";
-            infoBarOnName = "None";
-            $('#infoBar').fadeTo(500,0);
+	$("#clear").click(
+		function clearFocus() {
+			//find the node
+			node.style("opacity", 1);
+			link.style("opacity", 1);
+			labelNode.attr("display", "block")
+			searchedName = "None";
+			infoBarOnName = "None";
+			$('#infoBar').fadeTo(500,0);
             $('#infoBar').css("display","block")
             $('#infoBar').css("pointer-events","none")
-
-           unfocus();
-       }
-   );
-
+			unfocus();
+		}
+	);
 
     //Filtering Work
+	
+	$('#filter').on('click',
+		function filterNodes() {
+			// Reset the filterIDs array
+			filterIDs.splice(0,filterIDs.length);
 
-   $('#filter').on('click',
-       function filterNodes() {
-            // Reset the filterIDs array
-            filterIDs.splice(0,filterIDs.length);
-
-            // Check values of each filter checkbox in the first section
-            var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff', 'genomics', 'myData', 'sim'];
-            for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
-                var filterName = filterLabels[filterIdx];
-                if ($('#' + filterName).is(":checked")) {
-                    filterIDs.push(filterName);
-                }
-            }
+			// Check values of each filter checkbox in the first section
+			var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff', 'genomics', 'myData', 'sim'];
+			for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
+				var filterName = filterLabels[filterIdx];
+				if ($('#' + filterName).is(":checked")) {
+					filterIDs.push(filterName);
+				}
+			}
             // Check values of each filter checkbox in the tags section
             for (var i = 0; i < graph.tagNames.length; i++) {
                 // get tag name
@@ -386,6 +373,7 @@ d3.json(graphFile).then(function(graph) {
         }
     );
 
+	// Clicking the Clear button in the filter window resets the filters to all be unselected
     $('#clearFilter').on('click',
         function ClearFilterNodes() {
             filterIDs.splice(0,filterIDs.length);
@@ -407,19 +395,18 @@ d3.json(graphFile).then(function(graph) {
                 return (l2 == l) ? 1 : 0.1;
             });
             node.attr("r", function(d) {
-                return (d === l.source || d === l.target) ? 15 : 10;
-            });
-            div.transition()        
-                  .duration(200)      
-                  .style("opacity", .9);      
+				return (d === l.source || d === l.target) ? 15 : 10;
+			});
+			div.transition()
+				.duration(200)
+				.style("opacity", .9);      
             div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags + "<br/>" + "<b>Digital Health</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff + "<br/>" + "<b>Genomics and Precision Medicine</b>" + "<br/>" + l.genomics + "<br/>" + "<b>My data and the Internet of Medical Things</b>" + "<br/>" + l.myData + "<br/>" + "<b>Simulation and Education</b>" + "<br/>" + l.sim)
-                  .style("left", (d3.event.pageX) + "px")
-                  .style("padding", "7px")        
-                  .style("top", (d3.event.pageY - 28) + "px")
-                  .style("height","550px");
-        }
-
-      });
+				.style("left", (d3.event.pageX) + "px")
+				.style("padding", "7px")        
+				.style("top", (d3.event.pageY - 28) + "px")
+				.style("height","550px");
+		}
+	});
     link.on("mouseout", unfocus);
 
 
@@ -517,7 +504,6 @@ d3.json(graphFile).then(function(graph) {
     
     // updates node and link position per tick
     function ticked() {
-    
         node.call(updateNode);
         link.call(updateLink);
     
@@ -586,109 +572,107 @@ d3.json(graphFile).then(function(graph) {
         }
         clickThrough = false;
     }
-    
-    // resets opacity to full once node is unfocused
-    function unfocus() {
-        if (searchedName == "None" && infoBarOnName == 'None') {
-            labelNode.attr("display", "block");
-            node.style("opacity", 1);
-            link.style("opacity", 1);
-            node.attr("r", 10);
-            div.transition()     
-            .duration(500)       
-            .style("opacity", 0);
-            if (activeNameOpacity == 0) {
-                labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", 0);
-            }  
-        }
-  
-    }
 
-    // Adds commas to the number to show funding a little prettier
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
+	// resets opacity to full once node is unfocused
+	function unfocus() {
+		if (searchedName == "None" && infoBarOnName == 'None') {
+			labelNode.attr("display", "block");
+			node.style("opacity", 1);
+			link.style("opacity", 1);
+			node.attr("r", 10);
+			div.transition()     
+			.duration(500)       
+			.style("opacity", 0);
+			if (activeNameOpacity == 0) {
+				labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", 0);
+			}  
+		}
+	}
 
+	// Adds commas to the number to show funding a little prettier
+	function numberWithCommas(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+	
+	// redraws link endpoints per tick
+	function updateLink(link) {
+		link.attr("x1", function(d) { return fixna(d.source.x); })
+			.attr("y1", function(d) { return fixna(d.source.y); })
+			.attr("x2", function(d) { return fixna(d.target.x); })
+			.attr("y2", function(d) { return fixna(d.target.y); });
+	}
 
+	// redraws nodes per tick
+	function updateNode(node) {
+		node.attr("transform", function(d) {
+			return "translate(" + fixna(d.x) + "," + fixna(d.y) + ")";
+		});
+	}
 
+	// Detects cursor drag event
+	function dragstarted(d) {
+		d3.event.sourceEvent.stopPropagation();
+		if (!d3.event.active) graphLayout.alphaTarget(0.3).restart();
+		d.fx = d.x;
+		d.fy = d.y;
+	}
 
-    // redraws link endpoints per tick
-    function updateLink(link) {
-        link.attr("x1", function(d) { return fixna(d.source.x); })
-            .attr("y1", function(d) { return fixna(d.source.y); })
-            .attr("x2", function(d) { return fixna(d.target.x); })
-            .attr("y2", function(d) { return fixna(d.target.y); });
-    }
-    
-    // redraws nodes per tick
-    function updateNode(node) {
-        node.attr("transform", function(d) {
-            return "translate(" + fixna(d.x) + "," + fixna(d.y) + ")";
-        });
-    }
-    
-    function dragstarted(d) {
-        d3.event.sourceEvent.stopPropagation();
-        if (!d3.event.active) graphLayout.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-    }
-    
-    function dragged(d) {
-        d.fx = d3.event.x;
-        d.fy = d3.event.y;
-    }
-    
-    function dragended(d) {
-        if (!d3.event.active) graphLayout.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
-    }
+	// Drag function allows svg element to follow cursor position
+	function dragged(d) {
+		d.fx = d3.event.x;
+		d.fy = d3.event.y;
+	}
 
- 	// creates circle stroke color legend for investigator nodes
- 	var legendCircle = d3.symbol().type(d3.symbolCircle)();
- 	// assigning circle shape to each organization
- 	var symbolScale =  d3.scaleOrdinal()
- 		.domain(["OSF", "UICOMP", "UIUC"])
- 		.range([legendCircle, legendCircle, legendCircle] );
- 	// assigning colors to each organization
- 	var colorScale = d3.scaleOrdinal()
- 		.domain(["OSF", "UICOMP", "UIUC"])
- 		.range(["#70362a", "#001E62", "#E84A27"]);
- 	// creating new container to hold node stroke color legend and placing in bottom right corner
- 	var container2 = svg.append("g")
- 		.attr("class", "legendSymbol")
- 		.attr("transform", "translate(" + (width-100) + "," + (height-175) + ")")
- 		.style("font-family", "sans-serif")
- 		.style("font-size", "16px")
- 	// using d3-legend
- 	var legendPath = d3.legendSymbol()
- 		.scale(symbolScale)
- 		.orient("vertical")
- 		.labelWrap(30)
- 		.title("Affiliation:")
- 	svg.select(".legendSymbol")
- 		.call(legendPath);
- 	// recalling circle paths to change style of stroke color to color domain and removing fill
- 	svg.selectAll(".cell path").each(function(d) {
- 	  d3.select(this).style("stroke", colorScale(d)).style("fill", "none").attr("transform", "scale(2 2)");
-    })
+	function dragended(d) {
+		if (!d3.event.active) graphLayout.alphaTarget(0);
+		d.fx = null;
+		d.fy = null;
+	}
+
+	// creates circle stroke color legend for investigator nodes
+	var legendCircle = d3.symbol().type(d3.symbolCircle)();
+	// assigning circle shape to each organization
+	var symbolScale =  d3.scaleOrdinal()
+		.domain(["OSF", "UICOMP", "UIUC"])
+		.range([legendCircle, legendCircle, legendCircle] );
+	// assigning colors to each organization, used official color scheme hex values
+	var colorScale = d3.scaleOrdinal()
+		.domain(["OSF", "UICOMP", "UIUC"])
+		.range(["#70362a", "#001E62", "#E84A27"]);
+	// creating new container to hold node stroke color legend and placing in bottom right corner of the visualization
+	var container2 = svg.append("g")
+		.attr("class", "legendSymbol")
+		.attr("transform", "translate(" + (width-100) + "," + (height-175) + ")")
+		.style("font-family", "sans-serif")
+		.style("font-size", "16px")
+	// using d3-legend to create ordinal legend
+	var legendPath = d3.legendSymbol()
+		.scale(symbolScale)
+		.orient("vertical")
+		.labelWrap(30)
+		.title("Affiliation:")
+	svg.select(".legendSymbol")
+		.call(legendPath);
+	// recalling circle paths to change style of stroke color to color domain and removing fill
+	svg.selectAll(".cell path").each(function(d) {
+	d3.select(this).style("stroke", colorScale(d)).style("fill", "none").attr("transform", "scale(2 2)");
+	})
 }
 );
 }
 loadNetwork(graphFile);
 
+// Detects event when Filter Panel button is clicked, either opens the panel if currently closed or vice versa
 $('#filterPanel').on('click', function() {
-    if ($('#filterBar').css("display") == "none") {
-        $('#filterBar').css("display","block");
-        $('#filterPanel').text("Hide Filters");
-    } else {
-        $('#filterBar').css("display","none");
-        $('#filterPanel').text("Show Filters");
-    }
+	if ($('#filterBar').css("display") == "none") {
+		$('#filterBar').css("display","block");
+		$('#filterPanel').text("Hide Filters");
+	}
+	else {
+		$('#filterBar').css("display","none");
+		$('#filterPanel').text("Show Filters");
+	}
 });
-
-
 
 function getWidth() {
 	return Math.max(
@@ -709,11 +693,11 @@ function getHeight() {
 		document.documentElement.clientHeight
     );
 }
-  
-// detects event when toggle name button is clicked
+
+// Detects event when toggle name button is clicked
 var changeNameOpacity = d3.select("#toggleNames").on('click', toggleNameOpacity);
 
-// changes label text opacity to either 0 or 1, and changes text accordingly in toggle name button
+// Changes label text opacity to either 0 (hidden) or 1 (visible), and changes text accordingly in toggle name button
 function toggleNameOpacity(event) {
 	var labelNames = d3.select("#toggleNames").node();
 	if (activeNameOpacity == 1) {
