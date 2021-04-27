@@ -11511,3 +11511,44 @@ JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualizat
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+1619530868861	geckodriver	INFO	Listening on 127.0.0.1:54516
+1619530869694	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/tq/rhqbc_vj7kvc3k2l_dp9tk2c0000gn/T/rust_mozprofileYPos8k"
+2021-04-27 09:41:12.211 firefox-bin[30165:4337613] Warning: Expected min height of view: (<NSButton: 0x1410e4800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-27 09:41:12.211 firefox-bin[30165:4337613] Warning: Expected min height of view: (<NSButton: 0x1410e9400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-27 09:41:12.212 firefox-bin[30165:4337613] Warning: Expected min height of view: (<NSButton: 0x1410e8000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-27 09:41:12.212 firefox-bin[30165:4337613] Warning: Expected min height of view: (<NSButton: 0x1410e9800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-27 09:41:12.212 firefox-bin[30165:4337613] Warning: Expected min height of view: (<NSButton: 0x1410ec800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-27 09:41:12.213 firefox-bin[30165:4337613] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x1410ed000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-27 09:41:12.213 firefox-bin[30165:4337613] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x141449800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1619530874024	Marionette	INFO	Listening on port 54527
+1619530874069	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 546: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 546: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 546: ReferenceError: assignment to undeclared variable labelText
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 546: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 546: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 231: SyntaxError: missing variable name
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 231: SyntaxError: missing variable name
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 268: ReferenceError: assignment to undeclared variable tagName
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module

@@ -38,13 +38,13 @@ d3.json(graphFile).then(function(graph) {
         return arr1.some(item => arr2.includes(item))
     }
 
-    let a = ["a", "b", "c"];
-    let b = ["c", "x", "x"];
-    let c = ["d", "e", "f"];
+    // let a = ["a", "b", "c"];
+    // let b = ["c", "x", "x"];
+    // let c = ["d", "e", "f"];
 
-    console.log(findCommonElements3(a,b))
-    console.log(findCommonElements3(a,c))
-    console.log(tagIDs)
+    // console.log(findCommonElements3(a,b))
+    // console.log(findCommonElements3(a,c))
+    // console.log(tagIDs)
 
     var possiblePIs = []
     // Check through the filterIDs array and delete links that are projects that aren't in the tags
@@ -64,6 +64,7 @@ d3.json(graphFile).then(function(graph) {
 
         });
     }
+    // Delete projects that that have tags that aren't correct.
     if(!(tagIDs.length < 1 || tagIDs == undefined)) {
         graph.links.forEach(function(link, index) {
             var extraTags = link["tags"].split(",");
@@ -224,6 +225,60 @@ d3.json(graphFile).then(function(graph) {
            source: optArray,
        });
    });
+
+   // Filter Search Bar
+
+    var tags = [];
+    for (var key in graph.tagNames) {
+        tags.push(graph.tagNames[key].id);
+    }
+    tags.sort();
+    $(function () {
+        $("#tagSearch").autocomplete({
+            source: tags,
+        });
+    });
+
+    // Filter Tag Search Function
+    $('#addTag').on('click',
+        function searchTags() {
+            // Get the tagName from the input box
+            var tagName = document.getElementById('tagSearch').value;
+            // Delete spaces
+            tagName = tagName.replace(/\s+/g, '');
+            // replace special characters with hyphen
+            tagName = tagName.replace('&', '-');
+            tagName = tagName.replace('/', '-');
+            tagName = tagName.replace('(', '-');
+            tagName = tagName.replace(')', '-');
+            // Change checked state
+            if ($('#'+tagName).is(':checked')) {
+                $('#'+tagName).prop('checked',false);
+            } else {
+                $('#'+tagName).prop('checked',true);
+            }
+
+        }
+    );
+
+    // Clear Tag Search Filters 
+    $('#clearTags').on('click',
+        function clearTags() {
+            for (var idx in tags) {
+                var tagName = tags[idx];
+                // Delete spaces
+                tagName = tagName.replace(/\s+/g, '');
+                // replace special characters with hyphen
+                tagName = tagName.replace('&', '-');
+                tagName = tagName.replace('/', '-');
+                tagName = tagName.replace('(', '-');
+                tagName = tagName.replace(')', '-');
+                // Change checked state to false
+                $('#'+tagName).prop('checked',false);
+            }
+        }
+    );
+
 
    // Search Function 
    
