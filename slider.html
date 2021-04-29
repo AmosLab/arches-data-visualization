@@ -1,0 +1,54 @@
+<html>
+<meta charset="utf-8">
+<link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css'>
+<style type="text/css">
+body {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+}
+</style>
+<body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	crossorigin="anonymous"></script>
+<form>
+    <div>
+        <div style="float: left">
+			<label>Minimum Year</label>
+			<input type="text" class="sliderValue" data-index="0" value="2015" />
+		</div>
+		<div style="float: right">
+			<label>Maximum Year</label>
+			<input type="text" class="sliderValue" data-index="1" value="2020" />
+		</div>
+    </div>
+    <br />
+	<br />
+    <div id="slider">
+		<script>
+			$(document).ready(function() {
+			  $("#slider").slider({
+				min: 2014,
+				max: 2021,
+				step: 1,
+				range: true,
+				values: [2015, 2020],
+				slide: function(event, ui) {
+				  for (var i = 0; i < ui.values.length; ++i) {
+					$("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
+				  }
+				}
+			  });
+
+			  $("input.sliderValue").change(function() {
+				var $this = $(this);
+				$("#slider").slider("values", $this.data("index"), $this.val());
+			  });
+			});
+		</script>
+	</div>
+</form>
+</html>
