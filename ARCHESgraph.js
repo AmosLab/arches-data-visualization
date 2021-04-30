@@ -46,14 +46,6 @@ d3.json(graphFile).then(function(graph) {
             // Reset the filterIDs array and tagIDs array
             filterIDs.splice(0,filterIDs.length);
             tagIDs.splice(0,tagIDs.length);
-            // Check values of each filter checkbox in the first section
-            var filterLabels = ['digHealth', 'nextGen', 'commHealth', 'radEff', 'genomics', 'myData', 'sim'];
-            for (var filterIdx = 0; filterIdx < filterLabels.length; filterIdx++) {
-                var filterName = filterLabels[filterIdx];
-                if ($('#' + filterName).is(":checked")) {
-                    filterIDs.push(filterName);
-                }
-            }
             // Check values of each filter checkbox in the tags section
             for (var i = 0; i < graph.tagNames.length; i++) {
                 // get tag name
@@ -190,7 +182,6 @@ d3.json(graphFile).then(function(graph) {
             }
         }
     );
-
 
     // FILTERING HELPER FUNCTIONS
 
@@ -432,11 +423,11 @@ d3.json(graphFile).then(function(graph) {
 			div.transition()
 				.duration(200)
 				.style("opacity", .9);      
-            div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags + "<br/>" + "<b>Digital Health</b>" + "<br/>" + l.digHealth + "<br/>" + "<b>Next Generation of Primary Care</b>" + "<br/>" + l.nextGen + "<br/>" + "<b>Community Health and Social Determinants of Heath</b>" + "<br/>" + l.commHealth + "<br/>" + "<b>Radical Efficiency</b>" + "<br/>" + l.radEff + "<br/>" + "<b>Genomics and Precision Medicine</b>" + "<br/>" + l.genomics + "<br/>" + "<b>My data and the Internet of Medical Things</b>" + "<br/>" + l.myData + "<br/>" + "<b>Simulation and Education</b>" + "<br/>" + l.sim)
+            div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags)
 				.style("left", (d3.event.pageX) + "px")
 				.style("padding", "7px")        
 				.style("top", (d3.event.pageY - 28) + "px")
-				.style("height","550px");
+				.style("height","300px");
 		}
 	});
     link.on("mouseout", unfocus);

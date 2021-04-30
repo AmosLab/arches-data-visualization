@@ -109,6 +109,7 @@ div.filterBar {
     border-width: 2px;
     border-style: solid;
     padding-left: 0%;
+    padding-top: 10px;
     margin-left: 20%;
     text-align: left;
     border-radius: 5px;
@@ -132,7 +133,7 @@ div.finalFilterButtons {
     text-align: center;
 }
 div.tagListWindow {
-    height: 40%;
+    height: 80%;
     margin-left: 10%;
     text-align: left;
     overflow-y:auto;
