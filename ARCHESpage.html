@@ -1,39 +1,224 @@
 <html>
+
 <meta charset="utf-8">
+<style type="text/css">
+    .ui-menu-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+    } 
+    
+	body, h1, h2, h3, h4, h5, h6 {
+		font-family: Arial, Helvetica, Arial, sans-serif;
+	}
+    
+	.button {
+        background-color: steelblue;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 20px;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        position: -webkit-sticky;
+        position: sticky;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    }
+	
+    .button1 {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    .button2:hover {
+        box-shadow: 0 8px 10px 0 rgba(0,0,0,0.24),0 3px 2px 0 rgba(0,0,0,0.19);
+    }
+
+    div.tooltip {   
+        position: absolute;         
+        text-align: center;         
+        width: 300px;                   
+        height: 400px;                  
+        padding: 2px;               
+        font: 12px sans-serif;      
+        background: white;  
+        border: 1px;    
+        border-color: black;
+        border-style: solid;    
+        border-radius: 8px;         
+        pointer-events: none;       
+        padding: 2px;
+		z-index:2;
+    }
+
+    div.infoBar {   
+        position: absolute;         
+        text-align: center;         
+        width: 300px;                   
+        height: 80%;                  
+        padding: 2px;               
+        font: 12px sans-serif;      
+        background: white;  
+        border: 1px;    
+        border-color: black;
+        border-style: solid;    
+        border-radius: 8px;         
+        padding: 5px;
+        left: 1%;
+        top: 15%;  
+        display: none; 
+        overflow-y: auto;
+        overflow: scroll;
+		z-index:2;
+    }
+
+    div.ui-widget { 
+        position: absolute;  
+		top: 0;
+		left: 0;              
+		width: 100%;
+		padding-bottom: 10;
+		text-align: center;                              
+        font: 12px ;    
+		font-family: t;
+		border-color: black;
+		border-bottom-style: solid;
+		border-bottom: 2px;   
+		background-color: cornflowerblue;   
+		z-index:2;
+    }
+
+    div.search {
+        z-index: 1;
+		text-align: center;
+		width: 100%;
+
+    }
+
+	div.filterBar {
+		float: left;
+		position:absolute;
+		margin-top: 7%;
+		width: 25%;
+		border-color: grey;
+		border-width: 2px;
+		border-style: solid;
+		padding-left: 0%;
+		margin-left: 0%;
+		text-align: left;
+		border-radius: 5px;
+		background-color: white;
+		display: none;
+		z-index: 2;
+	}
+
+	button.filterButton {
+		float: center;
+		font-size: 16px;
+		text-align: center;
+	}
+
+	button.toggleButton {
+		float: left;
+		font-size: 16px;
+	}
+    
+	button.Investigator {
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        /*optional*/
+        font-family: arial, sans-serif;
+        /*input has OS specific font-family*/
+        color: #069;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    br {
+        display: block;
+        margin: 2px;
+    }
+    
+    .node {
+        cursor: pointer;
+    }
+
+    .overlay{
+        background-color:#FFF;
+    }
+
+    .node circle {
+        fill: #fff;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+    .node text {
+        color:#808080;
+        font-size:22px; 
+        font-family:sans-serif;
+    }
+
+    .link {
+        fill: none;
+        stroke: #ccc;
+        stroke-width: 1.5px;
+    }
+
+    .templink {
+        fill: none;
+        stroke: red;
+        stroke-width: 3px;
+    }
+
+    .ghostCircle.show {
+        display:block;
+    }
+
+    .ghostCircle, .activeDrag .ghostCircle {
+        display: none;
+    }
+
+    form.Filtering {
+        float:left;
+		padding: 10px;
+    }
+	
+	.graphContainer {
+		position:relative;
+	}
+	
+	.legend {
+		position:absolute;
+		bottom:0;
+		right:0;
+	}
+</style>
 <head>
-    <script type="module" src="ARCHESgraph.js"></script>
-	<link rel="stylesheet" href="stylesheets/styles.css">
+    <script src="ARCHESgraph3.js"></script>
 </head>
 <body>
 	<div class="ui-widget">
 		<p><b>JUMP ARCHES Data Visualizations</b></p>
-		<button class="toggleButton" id="filterPanel">Add Filters</button>
+		<button onclick="togglePanel()" class="toggleButton">Add Filters</button>
 		<button type="button" id="toggleNames">Hide Names</button>
 		<input size="80" id="search" placeholder="Search for an Investigator...">
 		<button type="button" id="searchF">Search</button>
 		<button type="button" id="clear">Clear</button>
         <button type="button" id="download">Download Data</button>
 	</div>
-    <div class="infoBar" id="infoBar">
-        <h5>To Close This Information Bar, Click on The Same Node Again</h5>
+        <div class="infoBar" id="infoBar">
         <h4>Investigator:</h4>
         <p id="Investigator"></p>
-        <h4>Affiliation:</h4>
-        <p id="Affiliation"></p>
-        <h4>Total Funding Received:</h4>
-        <p id="Funding"></p>
-        <h4>Total Projects:</h4>
-        <p id="TotalProjects"></p>
-        <h4>Project Names:</h4>
-        <div id="ProjectNames"></div>
-        <h4>Collaborating Investigators:</h4>
-        <div id="Collab"></div>
-    </div>
-	<div class="infoBarL" id="infoBarL">
-        <h5>To Close This Information Bar, Click on The Same Node Again</h5>
-        <h4>Project Title:</h4>
-        <p id="ProjectName"></p>
-        <h4>Affiliation:</h4>
+		<h4>Affiliation:</h4>
         <p id="Affiliation"></p>
         <h4>Total Funding Received:</h4>
         <p id="Funding"></p>
@@ -45,36 +230,40 @@
         <div id="Collab"></div>
     </div>
 	<div class = "filterBar" id="filterBar">
-		<div class = tagFilters>
+        <form class = "Filtering">
+			<input type="checkbox" id="digHealth">
+			<label>Digital Health</label>
 			<br>
-			<input size="60" id="tagSearch" placeholder="Search for a Tag...">
-			<button type="button" id="addTag">Add Tag</button>
-			<button type="button" id="clearTags">Clear All Tags</button>
+			<input type="checkbox" id="nextGen">
+			<label>Next Generation of Primary Care</label>
 			<br>
-			<div class = "tagListWindow" id ="tagListWindow">
-				<form class = "tagList" id ="tagList">
-				</form>
-			</div>
-		</div>
-			
-		<div class= "finalFilterButtons">
+			<input type="checkbox" id="commHealth">
+			<label>Community Health</label>
+			<br>
+			<input type="checkbox" id="radEff">
+			<label>Radical Efficiecy</label>
+			<br>
+			<input type="checkbox" id="genomics">
+			<label>Genomics and Precision Medicine</label>
+			<br>
+			<input type="checkbox" id="myData">
+			<label>My data and the Internet of Medical Things</label>
+			<br>
+			<input type="checkbox" id="sim">
+			<label>Simulation and Education</label>
+			<br>			
             <button type="button" id="filter" class="filterButton">Set Filters</button>
-            <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>			
-		</div>
-
-        
+            <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>
+        </form>
 	</div>
-	
 	<script src='https://d3js.org/d3.v5.min.js'></script>
     <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
     
-	<div class = "graphToolContainer">
-		<div class = "graphContainer">
-			<svg id='viz'></svg>
-			<div class = "legend" id="colorLegend"></div>
-			<script src="scripts/contLegend.js"></script>
-		</div>
-	</div>	
+	<div class = "graphContainer">
+		<svg id='viz'></svg>
+		<div class = "legend" id="colorLegend"></div>
+		<script src="contLegend.js"></script>
+	</div>
 	
     <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -83,7 +272,6 @@
     <script type='text/javascript' src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"> </script>
     <link type='text/css' href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-    <script src="ARCHESgraph.js"></script>
-	<script src="scripts/addTagList.js"></script>
+    <script src="ARCHESgraph3.js"></script>
 </body>
 </html>
