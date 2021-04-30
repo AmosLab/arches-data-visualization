@@ -11685,3 +11685,114 @@ JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualizat
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
 JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+2021-04-30 14:44:59.368 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x10a719800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.368 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x11e3a5c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.368 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x11e62d800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.369 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x12f3c8800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.369 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x134f0d800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.369 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x13506e000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.370 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x14e7ac400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.559 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x12ab57400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.560 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x150e58400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.560 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x150e57800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.560 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x150e56c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.561 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x150e58c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.561 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x150e59c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:44:59.561 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x15c28d400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.019 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x12ae71000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.020 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x12f3c4400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.020 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x13507b800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.021 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x135291800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.021 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x135295800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.022 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x135296800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.022 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x199cda800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.164 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x12f3c5c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.165 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc06800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.165 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc09800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.165 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc03800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.166 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc09000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.166 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x14dc06c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.167 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x14dc0f000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.271 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x1363b2800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.271 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc2e000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.271 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc35000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.272 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14e5a0800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.272 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14e59f800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.272 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x14e5a0400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.273 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x14e5a6c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.386 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x135078800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.386 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc02800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.386 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc04800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.387 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc07c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.387 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSButton: 0x14dc05800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.387 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x14dc03000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:45:12.388 firefox-bin[64517:6385334] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x14e690400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+1619808429902	Marionette	INFO	Stopped listening on port 63688
+1619808434272	geckodriver	INFO	Listening on 127.0.0.1:64846
+1619808435294	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/tq/rhqbc_vj7kvc3k2l_dp9tk2c0000gn/T/rust_mozprofileYe5E30"
+2021-04-30 14:47:17.344 firefox-bin[65924:6424389] Warning: Expected min height of view: (<NSButton: 0x142ee1000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:17.345 firefox-bin[65924:6424389] Warning: Expected min height of view: (<NSButton: 0x142eddc00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:17.345 firefox-bin[65924:6424389] Warning: Expected min height of view: (<NSButton: 0x142ee0400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:17.345 firefox-bin[65924:6424389] Warning: Expected min height of view: (<NSButton: 0x142eda800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:17.345 firefox-bin[65924:6424389] Warning: Expected min height of view: (<NSButton: 0x142edb000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:17.346 firefox-bin[65924:6424389] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x142edb800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:17.346 firefox-bin[65924:6424389] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x14331f800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1619808438400	Marionette	INFO	Listening on port 64857
+1619808438445	Marionette	WARN	TLS certificate errors will be ignored for this session
+1619808464247	geckodriver	INFO	Listening on 127.0.0.1:64932
+1619808465269	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/tq/rhqbc_vj7kvc3k2l_dp9tk2c0000gn/T/rust_mozprofile1TjOkN"
+2021-04-30 14:47:47.093 firefox-bin[65945:6425273] Warning: Expected min height of view: (<NSButton: 0x1411e0800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:47.093 firefox-bin[65945:6425273] Warning: Expected min height of view: (<NSButton: 0x1411e4c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:47.094 firefox-bin[65945:6425273] Warning: Expected min height of view: (<NSButton: 0x1411e2800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:47.094 firefox-bin[65945:6425273] Warning: Expected min height of view: (<NSButton: 0x1411e8400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:47.094 firefox-bin[65945:6425273] Warning: Expected min height of view: (<NSButton: 0x1411e4000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:47.095 firefox-bin[65945:6425273] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x1411e2400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-04-30 14:47:47.095 firefox-bin[65945:6425273] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x141543800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1619808468122	Marionette	INFO	Listening on port 64943
+1619808468208	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 610: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 610: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 610: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 610: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 610: ReferenceError: assignment to undeclared variable labelText
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 508: ReferenceError: d is not defined
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 508: ReferenceError: d is not defined
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 508: ReferenceError: d is not defined
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 508: ReferenceError: d is not defined
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 508: ReferenceError: d is not defined
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 24: ReferenceError: assignment to undeclared variable linkClicked
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:358:10
+
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module
+JavaScript error: file:///Users/alexandermorain/Documents/arches-data-visualization/ARCHESgraph.js, line 1: SyntaxError: import declarations may only appear at top level of a module

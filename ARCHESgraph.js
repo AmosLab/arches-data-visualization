@@ -21,6 +21,8 @@ d3.json(graphFile).then(function(graph) {
 	var searchedName = "None";
 	var infoBarOnName = "None";
 	var clickThrough = false;
+    var linkClicked = false;
+    var nodeClicked = false;
 
 	var svg = d3.select("svg");
 	svg.selectAll("*").remove();
@@ -406,7 +408,9 @@ d3.json(graphFile).then(function(graph) {
 
     // Hovering over a link performs focusing and creates a popup with some relevant project info
 
-    link.on('mouseover', function(l) {
+    link.on('mouseover', focusLink);
+
+    function focusLink(l) {
         if (searchedName == "None" && infoBarOnName == "None") {
             node.style('opacity', function(d) {
                 return (d === l.source || d === l.target) ? 1 : 0.1;
@@ -429,7 +433,7 @@ d3.json(graphFile).then(function(graph) {
 				.style("top", (d3.event.pageY - 28) + "px")
 				.style("height","300px");
 		}
-	});
+	}
     link.on("mouseout", unfocus);
 
 
@@ -437,17 +441,20 @@ d3.json(graphFile).then(function(graph) {
     // We still need to add more detailed investigator information to this bar!!!!
     // Clicking any node again closes the info bar.
     node.on("click",function clickNode(d) {
+        if (linkClicked) {
+            $('#infoBarL').fadeTo(500,0);
+            $('#infoBarL').css("display","block")
+            $('#infoBarL').css("pointer-events","none")
+            infoBarOnName = "None";
+            linkClicked = false;
+        }
         clickThrough = true;
         var collabOutput = "";
         focus(d);
+        clickThrough = false;
         div.transition()        
         .duration(200)      
         .style("opacity", 0);
-        if (clickedID == 'None') {
-            clickedID = d.id;
-        } else {
-            clickedID = 'None'
-        }
         var numResearchers = 0;
         if (infoBarOnName == "None") {
             $('#infoBar').css("pointer-events","auto")
@@ -461,6 +468,7 @@ d3.json(graphFile).then(function(graph) {
             [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
             $('#Collab').html(collabOutput);
             infoBarOnName = d.id;
+            nodeClicked = true;
         } else if (infoBarOnName != d.id) {
             $('#infoBar').css("pointer-events","auto")
             $('#Investigator').text(d.id);
@@ -471,12 +479,13 @@ d3.json(graphFile).then(function(graph) {
             [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
             $('#Collab').html(collabOutput);
             infoBarOnName = d.id;
+            nodeClicked = true;
         } else {
             $('#infoBar').fadeTo(500,0);
             $('#infoBar').css("display","block")
             $('#infoBar').css("pointer-events","none")
-
             infoBarOnName = "None";
+            nodeClicked = false;
         }
         // For loop this code for each link to work properly.
         for (let totalR = 0; totalR < numResearchers; totalR++) {
@@ -496,6 +505,61 @@ d3.json(graphFile).then(function(graph) {
             });
         }
     });
+
+    // Creates an Info Bar
+    // We still need to add more detailed investigator information to this bar!!!!
+    // Clicking any node again closes the info bar.
+    link.on("click",clickLink);
+
+    function clickLink(l) {
+        if (nodeClicked) {
+            $('#infoBar').fadeTo(500,0);
+            $('#infoBar').css("display","block")
+            $('#infoBar').css("pointer-events","none")
+            infoBarOnName = "None";
+            nodeClicked = false;
+        }
+        clickThrough = true;
+        var collabOutput = "";
+        focusLink(l);
+        clickThrough = false;
+        div.transition()        
+        .duration(200)      
+        .style("opacity", 0);
+        var numResearchers = 0;
+        if (infoBarOnName == "None") {
+            $('#infoBarL').css("pointer-events","auto")
+            $('#infoBarL').css("display","none")
+            $('#infoBarL').fadeTo(500,1);
+            $('#ProjectName').text(l.projectName);
+            // $('#Affiliation').text(d.affiliation.toUpperCase());
+            // $('#Funding').text("$"+numberWithCommas(d.funding));
+            // $('#TotalProjects').text(getConnections(d, graph.links));
+            // $('#ProjectNames').html(getProjects(d, graph.links));
+            // [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
+            // $('#Collab').html(collabOutput);
+            infoBarOnName = l.source+l.target;
+            linkClicked = true;
+        } else if (infoBarOnName != l.source+l.target) {
+            $('#infoBarL').css("pointer-events","auto")
+            $('#ProjectName').text(l.projectName);
+            // $('#Affiliation').text(d.affiliation.toUpperCase());
+            // $('#Funding').text("$"+numberWithCommas(d.funding));
+            // $('#TotalProjects').text(getConnections(d, graph.links));
+            // $('#ProjectNames').html(getProjects(d, graph.links));
+            // [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
+            // $('#Collab').html(collabOutput);
+            infoBarOnName = l.source+l.target;
+            linkClicked = true;
+        } else {
+            $('#infoBarL').fadeTo(500,0);
+            $('#infoBarL').css("display","block")
+            $('#infoBarL').css("pointer-events","none")
+
+            infoBarOnName = "None";
+            linkClicked = false;
+        }
+    }
 
     // }
     
