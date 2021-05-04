@@ -35,7 +35,7 @@ d3.json(graphFile).then(function(graph) {
     /**
      * 
      * 
-     * ***************** FILTERING SECTION *********************
+     * ***************************************** FILTERING SECTION **************************************************
      * 
      * 
      *  */ 
@@ -324,6 +324,16 @@ d3.json(graphFile).then(function(graph) {
 		});
 	});
 
+
+
+    /**
+     * 
+     * 
+     * ***************************************** FOCUSING SECTION **************************************************
+     * 
+     * 
+     *  */ 
+
 	// Filter Search Bar using JQuery
 	var tags = [];
 	for (var key in graph.tagNames) {
@@ -412,6 +422,8 @@ d3.json(graphFile).then(function(graph) {
 
     function focusLink(l) {
         if (searchedName == "None" && infoBarOnName == "None") {
+
+            // Changes styling of nodes and links to focus only on the current link at hand.
             node.style('opacity', function(d) {
                 return (d === l.source || d === l.target) ? 1 : 0.1;
             });
@@ -424,6 +436,8 @@ d3.json(graphFile).then(function(graph) {
             node.attr("r", function(d) {
 				return (d === l.source || d === l.target) ? 15 : 10;
 			});
+
+            // Creates a pop up with some simple information on the projects involved
 			div.transition()
 				.duration(200)
 				.style("opacity", .9);      
@@ -438,9 +452,9 @@ d3.json(graphFile).then(function(graph) {
 
 
     // Creates an Info Bar
-    // We still need to add more detailed investigator information to this bar!!!!
     // Clicking any node again closes the info bar.
     node.on("click",function clickNode(d) {
+        // If a link has been clicked, fade it's info bar
         if (linkClicked) {
             $('#infoBarL').fadeTo(500,0);
             $('#infoBarL').css("display","block")
@@ -448,15 +462,20 @@ d3.json(graphFile).then(function(graph) {
             infoBarOnName = "None";
             linkClicked = false;
         }
+        // Focus on current node
         clickThrough = true;
-        var collabOutput = "";
         focus(d);
         clickThrough = false;
+        // Get rid of pop up
         div.transition()        
         .duration(200)      
         .style("opacity", 0);
+        // Variables for the collaborators names and the total number of researchers worked with
+        var collabOutput = "";
         var numResearchers = 0;
+
         if (infoBarOnName == "None") {
+            // Initialize all relevant sections to the right information from the graph
             $('#infoBar').css("pointer-events","auto")
             $('#infoBar').css("display","none")
             $('#infoBar').fadeTo(500,1);
@@ -467,9 +486,11 @@ d3.json(graphFile).then(function(graph) {
             $('#ProjectNames').html(getProjects(d, graph.links));
             [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
             $('#Collab').html(collabOutput);
+            // Set the infoBarOnName to the current node and nodeClicked to true
             infoBarOnName = d.id;
             nodeClicked = true;
         } else if (infoBarOnName != d.id) {
+            // Initialize all relevant sections to the right information from the graph
             $('#infoBar').css("pointer-events","auto")
             $('#Investigator').text(d.id);
             $('#Affiliation').text(d.affiliation.toUpperCase());
@@ -478,16 +499,19 @@ d3.json(graphFile).then(function(graph) {
             $('#ProjectNames').html(getProjects(d, graph.links));
             [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
             $('#Collab').html(collabOutput);
+            // Set the infoBarOnName to the current node and nodeClicked to true
             infoBarOnName = d.id;
             nodeClicked = true;
         } else {
+            // Fade out info bar
             $('#infoBar').fadeTo(500,0);
             $('#infoBar').css("display","block")
             $('#infoBar').css("pointer-events","none")
+            // Reset infoBarOn and nodeClicked
             infoBarOnName = "None";
             nodeClicked = false;
         }
-        // For loop this code for each link to work properly.
+        // For loop this code for each link to highlight other nodes of investigators to work properly.
         for (let totalR = 0; totalR < numResearchers; totalR++) {
             const rName = 'researcher' + totalR.toString();
             $('#'+rName).on('click', {'idx':rName},
@@ -506,12 +530,14 @@ d3.json(graphFile).then(function(graph) {
         }
     });
 
-    // Creates an Info Bar
-    // We still need to add more detailed investigator information to this bar!!!!
-    // Clicking any node again closes the info bar.
+    // Creates an Info Bar for Links
+    // Clicking any link again closes this bar
     link.on("click",clickLink);
 
+    // Creates an Info Bar for Links
+    // Clicking any link again closes this bar
     function clickLink(l) {
+        // If a node was previously clicked, fade put it's info bar
         if (nodeClicked) {
             $('#infoBar').fadeTo(500,0);
             $('#infoBar').css("display","block")
@@ -520,42 +546,46 @@ d3.json(graphFile).then(function(graph) {
             nodeClicked = false;
         }
         clickThrough = true;
-        var collabOutput = "";
         focusLink(l);
         clickThrough = false;
+        // Fade out the Pop up for the link
         div.transition()        
         .duration(200)      
         .style("opacity", 0);
-        var numResearchers = 0;
+        // Names of sectionIDs to change and their corresponding JSON IDs
+        var sectionIDs = ["#ProjectName", "#ProjectNumber", "#ProjectYear", "#ProjectFunding", "#PrincipleInvest", "#AddlInvest", "#Tags"];
+        var linkJSON_IDs = ["projectName","projNum","year", "amount","PIs","addInvestigators", "tags"];
+
         if (infoBarOnName == "None") {
+            // Show the Info Bar and all pointer events
             $('#infoBarL').css("pointer-events","auto")
             $('#infoBarL').css("display","none")
             $('#infoBarL').fadeTo(500,1);
-            $('#ProjectName').text(l.projectName);
-            // $('#Affiliation').text(d.affiliation.toUpperCase());
-            // $('#Funding').text("$"+numberWithCommas(d.funding));
-            // $('#TotalProjects').text(getConnections(d, graph.links));
-            // $('#ProjectNames').html(getProjects(d, graph.links));
-            // [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
-            // $('#Collab').html(collabOutput);
+            // Fill in all relevant sections
+            for (var index= 0; index < sectionIDs.length; index++) {
+                console.log(sectionIDs[index])
+                $(sectionIDs[index]).text(l[linkJSON_IDs[index]])
+            }
+            // Set infoBarOnName to the current link ID
             infoBarOnName = l.source+l.target;
+            // Set linkClicked to be true
             linkClicked = true;
         } else if (infoBarOnName != l.source+l.target) {
             $('#infoBarL').css("pointer-events","auto")
-            $('#ProjectName').text(l.projectName);
-            // $('#Affiliation').text(d.affiliation.toUpperCase());
-            // $('#Funding').text("$"+numberWithCommas(d.funding));
-            // $('#TotalProjects').text(getConnections(d, graph.links));
-            // $('#ProjectNames').html(getProjects(d, graph.links));
-            // [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
-            // $('#Collab').html(collabOutput);
+            for (var index= 0; index < sectionIDs.length; index++) {
+                console.log(sectionIDs[index])
+                $(sectionIDs[index]).text(l[linkJSON_IDs[index]])
+            }
+            // Set infoBarOnName to the current link ID
             infoBarOnName = l.source+l.target;
+            // Set linkClicked to be true
             linkClicked = true;
         } else {
+            // Fade out the Info Bar
             $('#infoBarL').fadeTo(500,0);
             $('#infoBarL').css("display","block")
             $('#infoBarL').css("pointer-events","none")
-
+            // Reset values for infoBarOnName and linkClicked
             infoBarOnName = "None";
             linkClicked = false;
         }
