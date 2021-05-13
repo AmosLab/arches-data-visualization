@@ -9,6 +9,7 @@ var graphFile = "ARCHES_connections.json";
 
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
+var filterYears = [];
 var tagIDs =[];
 
 var activeNameOpacity = 1;
@@ -58,6 +59,12 @@ d3.json(graphFile).then(function(graph) {
                     tagIDs.push(tagName);
                 }
             }
+			// Reset the filterYears array
+			filterYears[0] = parseInt(graph.values[0].minYear);
+			filterYears[1] = parseInt(graph.values[0].maxYear);
+			// Check values of each year slider handle
+			filterYears[0] = $("#slider").slider("values",0);
+			filterYears[1] = $("#slider").slider("values",1);
             // Reload the network
             loadNetwork(graphFile);
         }
@@ -68,6 +75,8 @@ d3.json(graphFile).then(function(graph) {
         function ClearFilterNodes() {
             filterIDs.splice(0,filterIDs.length);
             tagIDs.splice(0,tagIDs.length);
+			filterYears[0] = parseInt(graph.values[0].minYear);
+			filterYears[1] = parseInt(graph.values[0].maxYear);
             loadNetwork(graphFile);
         }
     );
@@ -77,14 +86,14 @@ d3.json(graphFile).then(function(graph) {
     // array of possible PIs to delete when newLinks are applied
 	var possiblePIs = []
 
-	// Every time the network is loaded, check through the filterIDs array and delete links that are projects that aren't in the tags
+	// Every time the network is loaded, check through the filterIDs array and delete links that are projects that aren't in the tags or have a project year outside the year filter range
     if (filterIDs.length >= 1) {
         console.log("Filters nonzero")
         console.log(filterIDs.length)
         for (var idx = 0; idx < filterIDs.length; idx++) {
             var filterName = filterIDs[idx];
             graph.links.forEach(function(link, index) {
-                if (link[filterName] == "No" || link[filterName] == "NA") { // If the link with this filterName is not that type, delete it
+                if (link[filterName] == "No" || link[filterName] == "NA" || parseInt(link[year]) < filterYears[0] || parseInt(link[year]) > filterYears[1]) { // If the link with this filterName is not that type or if link has year outside of year filter range, delete it
                     if (!possiblePIs.includes(link.source)) {
                         possiblePIs.push(link.source);
                     }

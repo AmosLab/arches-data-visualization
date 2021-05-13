@@ -58,27 +58,32 @@
 				</form>
 			</div>
 		</div>
-		<form id = "yearSlider">
+		<form id = "yearSlider">		
 			<div>
-				<div style="float: left">
+				<div class = "minYear">
 					<label>Minimum Year</label>
-					<input type="text" class="sliderValue" data-index="0" value="2015" />
+					<input type="text" class="sliderValue" data-index="0" value="2014" />
 				</div>
-				<div style="float: right">
+				<div class = "maxYear">
 					<label>Maximum Year</label>
-					<input type="text" class="sliderValue" data-index="1" value="2020" />
+					<input type="text" class="sliderValue" data-index="1" value="2021" />
 				</div>
 			</div>
 			<br />
-			<div id="slider">
+			<div class = "sliderDiv">
+				<style>
+					.ui-slider-horizontal {
+						height: unset !important;
+					}
+				</style>
+				<div id="slider">	
+				</div>
 			</div>
 		</form>
 		<div class= "finalFilterButtons">
             <button type="button" id="filter" class="filterButton">Set Filters</button>
             <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>			
 		</div>
-
-        
 	</div>
 	
 	<script src='https://d3js.org/d3.v5.min.js'></script>
