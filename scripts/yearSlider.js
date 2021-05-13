@@ -11,7 +11,7 @@ d3.json(graphFile).then(function(graph) {
 			max: maxYearValue,
 			step: 1,
 			range: true,
-			values: [2015, 2020],
+			values: [2014, 2021],
 			slide: function(event, ui) {
 			  for (var i = 0; i < ui.values.length; ++i) {
 				$("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
