@@ -10,7 +10,8 @@ var graphFile = "ARCHES_connections.json";
 // Keeps track of the IDs of specific project types that should be removed
 var filterIDs = [];
 var filterYears = [];
-var tagIDs =[];
+var tagIDs = [];
+var yearFilteredYet = false;
 
 var activeNameOpacity = 1;
 
@@ -59,12 +60,10 @@ d3.json(graphFile).then(function(graph) {
                     tagIDs.push(tagName);
                 }
             }
-			// Reset the filterYears array
-			filterYears[0] = parseInt(graph.values[0].minYear);
-			filterYears[1] = parseInt(graph.values[0].maxYear);
 			// Check values of each year slider handle
 			filterYears[0] = $("#slider").slider("values",0);
 			filterYears[1] = $("#slider").slider("values",1);
+			console.log("Year filter range: " + filterYears);
             // Reload the network
             loadNetwork(graphFile);
         }
@@ -77,6 +76,7 @@ d3.json(graphFile).then(function(graph) {
             tagIDs.splice(0,tagIDs.length);
 			filterYears[0] = parseInt(graph.values[0].minYear);
 			filterYears[1] = parseInt(graph.values[0].maxYear);
+			yearFilteredYet = false;
             loadNetwork(graphFile);
         }
     );
@@ -86,14 +86,14 @@ d3.json(graphFile).then(function(graph) {
     // array of possible PIs to delete when newLinks are applied
 	var possiblePIs = []
 
-	// Every time the network is loaded, check through the filterIDs array and delete links that are projects that aren't in the tags or have a project year outside the year filter range
-    if (filterIDs.length >= 1) {
-        console.log("Filters nonzero")
-        console.log(filterIDs.length)
+	// Every time the network is loaded, check through the filterIDs array and delete links that are projects that don't have the selected filters or have a project year outside the year filter range
+    if (filterIDs.length >= 1 && yearFilteredYet == false) {
+        console.log("Filters nonzero: " + filterIDs.length);
+		yearFilteredYet = true;
         for (var idx = 0; idx < filterIDs.length; idx++) {
             var filterName = filterIDs[idx];
             graph.links.forEach(function(link, index) {
-                if (link[filterName] == "No" || link[filterName] == "NA" || parseInt(link[year]) < filterYears[0] || parseInt(link[year]) > filterYears[1]) { // If the link with this filterName is not that type or if link has year outside of year filter range, delete it
+                if ((link[filterName] == "No" || link[filterName] == "NA") && (parseInt(link["year"]) < filterYears[0] || parseInt(link["year"]) > filterYears[1])) { // If the link with this filterName is not that type or if link has year outside of year filter range, delete it
                     if (!possiblePIs.includes(link.source)) {
                         possiblePIs.push(link.source);
                     }
@@ -107,15 +107,18 @@ d3.json(graphFile).then(function(graph) {
         }
     }
 
-	// Delete projects that that have tags that aren't correct.
-	if(tagIDs.length >= 1) {
+
+	// Delete projects that that have tags that aren't correct or have a project year outside the year filter range
+	if(tagIDs.length >= 1 && yearFilteredYet == false) {
+		console.log("Tags nonzero:" + tagIDs.length);
+		yearFilteredYet = true;
 		graph.links.forEach(function(link, index) {
 			var extraTags = link["tags"].split(",");
 			for (var index2 = 0; index2 < extraTags.length; index2++) {
 				var tagName = extraTags[index2]
                 // replace tag name with new processed tag name
 				extraTags[index2] = reformatTagName(tagName);
-				if (!findCommonElements3(extraTags,tagIDs)) { // If the link doesn't include any of the extra tags selected, delete it
+				if (!findCommonElements3(extraTags,tagIDs) && (parseInt(link["year"]) < filterYears[0] || parseInt(link["year"]) > filterYears[1])) { // If the link doesn't include any of the extra tags selected or outside the year filter range, delete it
 					if (!possiblePIs.includes(link.source)) {
 						possiblePIs.push(link.source);
 					}
@@ -129,11 +132,29 @@ d3.json(graphFile).then(function(graph) {
 		});
 	}
 
+	// If no tags are selected, only push projects within filtering year range
+	else if (yearFilteredYet == false) {
+		console.log("Tags zero");
+		yearFilteredYet = true;
+		graph.links.forEach(function(link, index) {
+			if (parseInt(link["year"]) < filterYears[0] || parseInt(link["year"]) > filterYears[1]) { // If link has year outside of year filter range, delete it
+                    if (!possiblePIs.includes(link.source)) {
+                        possiblePIs.push(link.source);
+                    }
+                    if (!possiblePIs.includes(link.target)) {
+                        possiblePIs.push(link.target);
+                    }
+                } else {
+                    newLinks.push(link);
+                }
+            });
+	}
 
     // If filtering was performed, you need to replace the graph links
-    if (filterIDs.length >= 1 || tagIDs.length >= 1) {
-        console.log("replace")
-        graph.links = newLinks
+    if (filterIDs.length >= 1 || tagIDs.length >= 1 || yearFilteredYet == true) {
+        console.log("replace");
+		yearFilteredYet = false;
+        graph.links = newLinks;
     }
     
 	// Now delete all nodes of PIs no longer in links after filtering
@@ -181,13 +202,7 @@ d3.json(graphFile).then(function(graph) {
         function clearTags() {
             for (var idx in tags) {
                 var tagName = tags[idx];
-                // Delete spaces
-                tagName = tagName.replace(/\s+/g, '');
-                // replace special characters with hyphen
-                tagName = tagName.replace('&', '-');
-                tagName = tagName.replace('/', '-');
-                tagName = tagName.replace('(', '-');
-                tagName = tagName.replace(')', '-');
+				tagName = reformatTagName(tagName);
                 // Change checked state to false
                 $('#'+tagName).prop('checked',false);
             }
