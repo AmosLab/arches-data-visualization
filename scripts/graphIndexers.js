@@ -50,4 +50,3 @@ function neigh(node1, node2, adjlist) {
 }
 
 export {getProjects, getConnections, neigh, getResearchers}
-

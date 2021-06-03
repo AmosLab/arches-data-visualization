@@ -86,11 +86,13 @@
 	
 	<script src='https://d3js.org/d3.v5.min.js'></script>
     <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
-    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
 	<div class = "graphToolContainer">
 		<div class = "graphContainer">
 			<svg id='viz'></svg>
-			<div class = "legend" id="colorLegend"></div>
+			<svg class = "orgLegend" id="orgLegend"></svg>
+			<script src="scripts/orgLegend.js"></script>
+			<div class = "contLegend" id="colorLegend"></div>
 			<script src="scripts/contLegend.js"></script>
 		</div>
 	</div>	

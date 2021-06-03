@@ -1,4 +1,4 @@
-import { exportCSV } from './scripts/downloadCSV.js';
+import {exportCSV} from './scripts/downloadCSV.js';
 import {getProjects, getConnections, neigh, getResearchers} from './scripts/graphIndexers.js';
 
 var width = getWidth() - 40;
@@ -8,7 +8,6 @@ var height = getHeight() - 30;
 var graphFile = "ARCHES_connections.json";
 
 // Keeps track of the IDs of specific project types that should be removed
-var filterIDs = [];
 var filterYears = [];
 var tagIDs = [];
 var yearFilteredYet = false;
@@ -43,12 +42,11 @@ d3.json(graphFile).then(function(graph) {
      *  */ 
 
 
-    // This function initializes the filters by checking which boxes are checked, adding them to the filterIDs and tagIDs lists, and then restarting the graph
+    // This function initializes the filters by checking which boxes are checked, adding them to the tagIDs list and then restarting the graph
 	
 	$('#filter').on('click',
         function filterNodes() {
-            // Reset the filterIDs array and tagIDs array
-            filterIDs.splice(0,filterIDs.length);
+            // Reset the tagIDs array
             tagIDs.splice(0,tagIDs.length);
             // Check values of each filter checkbox in the tags section
             for (var i = 0; i < graph.tagNames.length; i++) {
@@ -72,7 +70,6 @@ d3.json(graphFile).then(function(graph) {
     // Clicking the Clear button in the filter window resets the filters to all be unselected
     $('#clearFilter').on('click',
         function ClearFilterNodes() {
-            filterIDs.splice(0,filterIDs.length);
             tagIDs.splice(0,tagIDs.length);
 			filterYears[0] = parseInt(graph.values[0].minYear);
 			filterYears[1] = parseInt(graph.values[0].maxYear);
@@ -85,28 +82,6 @@ d3.json(graphFile).then(function(graph) {
     var newLinks = []
     // array of possible PIs to delete when newLinks are applied
 	var possiblePIs = []
-
-	// Every time the network is loaded, check through the filterIDs array and delete links that are projects that don't have the selected filters or have a project year outside the year filter range
-    if (filterIDs.length >= 1 && yearFilteredYet == false) {
-        console.log("Filters nonzero: " + filterIDs.length);
-		yearFilteredYet = true;
-        for (var idx = 0; idx < filterIDs.length; idx++) {
-            var filterName = filterIDs[idx];
-            graph.links.forEach(function(link, index) {
-                if ((link[filterName] == "No" || link[filterName] == "NA") && (parseInt(link["year"]) < filterYears[0] || parseInt(link["year"]) > filterYears[1])) { // If the link with this filterName is not that type or if link has year outside of year filter range, delete it
-                    if (!possiblePIs.includes(link.source)) {
-                        possiblePIs.push(link.source);
-                    }
-                    if (!possiblePIs.includes(link.target)) {
-                        possiblePIs.push(link.target);
-                    }
-                } else {
-                    newLinks.push(link);
-                }
-            });
-        }
-    }
-
 
 	// Delete projects that that have tags that aren't correct or have a project year outside the year filter range
 	if(tagIDs.length >= 1 && yearFilteredYet == false) {
@@ -151,7 +126,7 @@ d3.json(graphFile).then(function(graph) {
 	}
 
     // If filtering was performed, you need to replace the graph links
-    if (filterIDs.length >= 1 || tagIDs.length >= 1 || yearFilteredYet == true) {
+    if (tagIDs.length >= 1 || yearFilteredYet == true) {
         console.log("replace");
 		yearFilteredYet = false;
         graph.links = newLinks;
@@ -208,27 +183,6 @@ d3.json(graphFile).then(function(graph) {
             }
         }
     );
-
-    // FILTERING HELPER FUNCTIONS
-
-    // Reformat tag names to match the ids in the HTML
-    function reformatTagName(tagName) {
-        // remove spaces in tag name (HTML id's can't have spaces)
-        tagName = tagName.replace(/\s+/g, '');
-        // replace special characters with hyphen (HTML id's can't have special characters)
-        tagName = tagName.replace('&', '-');
-        tagName = tagName.replace('/', '-');
-        tagName = tagName.replace('(', '-');
-        tagName = tagName.replace(')', '-');
-        return tagName;
-    }
-
-    // See if two arrays share a common element
-    function findCommonElements3(arr1, arr2) {
-		return arr1.some(item => arr2.includes(item))
-	}
-
-    
 
 
     /**
@@ -329,8 +283,6 @@ d3.json(graphFile).then(function(graph) {
         .attr("class", "tooltip")               
         .style("opacity", 0);
 
-
-    
 
     // hovering over a node with the cursor causes the network to focus on linked nodes
     node.on("mouseover", focus).on("mouseout", unfocus);
@@ -769,39 +721,29 @@ d3.json(graphFile).then(function(graph) {
 		d.fx = null;
 		d.fy = null;
 	}
-
-	// creates circle stroke color legend for investigator nodes
-	var legendCircle = d3.symbol().type(d3.symbolCircle)();
-	// assigning circle shape to each organization
-	var symbolScale =  d3.scaleOrdinal()
-		.domain(["OSF", "UICOMP", "UIUC"])
-		.range([legendCircle, legendCircle, legendCircle] );
-	// assigning colors to each organization, used official color scheme hex values
-	var colorScale = d3.scaleOrdinal()
-		.domain(["OSF", "UICOMP", "UIUC"])
-		.range(["#70362a", "#001E62", "#E84A27"]);
-	// creating new container to hold node stroke color legend and placing in bottom right corner of the visualization
-	var container2 = svg.append("g")
-		.attr("class", "legendSymbol")
-		.attr("transform", "translate(" + (width-100) + "," + (height-175) + ")")
-		.style("font-family", "sans-serif")
-		.style("font-size", "16px")
-	// using d3-legend to create ordinal legend
-	var legendPath = d3.legendSymbol()
-		.scale(symbolScale)
-		.orient("vertical")
-		.labelWrap(30)
-		.title("Affiliation:")
-	svg.select(".legendSymbol")
-		.call(legendPath);
-	// recalling circle paths to change style of stroke color to color domain and removing fill
-	svg.selectAll(".cell path").each(function(d) {
-	d3.select(this).style("stroke", colorScale(d)).style("fill", "none").attr("transform", "scale(2 2)");
-	})
 }
 );
 }
 loadNetwork(graphFile);
+
+// FILTERING HELPER FUNCTIONS
+
+// Reformat tag names to match the ids in the HTML
+function reformatTagName(tagName) {
+	// remove spaces in tag name (HTML id's can't have spaces)
+	tagName = tagName.replace(/\s+/g, '');
+	// replace special characters with hyphen (HTML id's can't have special characters)
+	tagName = tagName.replace('&', '-');
+	tagName = tagName.replace('/', '-');
+	tagName = tagName.replace('(', '-');
+	tagName = tagName.replace(')', '-');
+	return tagName;
+}
+
+// See if two arrays share a common element
+function findCommonElements3(arr1, arr2) {
+	return arr1.some(item => arr2.includes(item))
+}
 
 // Detects event when Filter Panel button is clicked, either opens the panel if currently closed or vice versa
 $('#filterPanel').on('click', function() {
@@ -815,25 +757,7 @@ $('#filterPanel').on('click', function() {
 	}
 });
 
-function getWidth() {
-	return Math.max(
-		document.body.scrollWidth,
-		document.documentElement.scrollWidth,
-		document.body.offsetWidth,
-		document.documentElement.offsetWidth,
-		document.documentElement.clientWidth
-    );
-}
-  
-function getHeight() {
-    return Math.max(
-		document.body.scrollHeight,
-		document.documentElement.scrollHeight,
-		document.body.offsetHeight,
-		document.documentElement.offsetHeight,
-		document.documentElement.clientHeight
-    );
-}
+//INVESTIGATOR LABEL TOGGLE
 
 // Detects event when toggle name button is clicked
 var changeNameOpacity = d3.select("#toggleNames").on('click', toggleNameOpacity);
@@ -853,4 +777,24 @@ function toggleNameOpacity(event) {
 	var labelText = d3.select("#viz").select(".labelnodes").selectAll("text")
 		.style("opacity", activeNameOpacity);
 	labelText.exit().remove()	
+}
+
+function getWidth() {
+	return Math.max(
+		document.body.scrollWidth,
+		document.documentElement.scrollWidth,
+		document.body.offsetWidth,
+		document.documentElement.offsetWidth,
+		document.documentElement.clientWidth
+    );
+}
+  
+function getHeight() {
+    return Math.max(
+		document.body.scrollHeight,
+		document.documentElement.scrollHeight,
+		document.body.offsetHeight,
+		document.documentElement.offsetHeight,
+		document.documentElement.clientHeight
+    );
 }

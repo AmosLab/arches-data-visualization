@@ -182,6 +182,12 @@ div.sliderDiv {
 	margin-right: auto;
 }
 
+div.contLegend {
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+
 button.xbutton {
     content: 'x';
     color: #fff;
@@ -274,8 +280,10 @@ form.tagList {
     overflow:hidden;
 }
 
-.legend {
-    position:absolute;
-    bottom:0;
-    right:0;
+.orgLegend {
+	position: absolute;
+	right:10;
+	bottom:80;
+	width:100;
+	height:100;
 }

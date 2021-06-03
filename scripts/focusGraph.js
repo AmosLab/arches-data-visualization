@@ -27,4 +27,3 @@ function unfocus(searchedName, infoBarOnName, labelNode, node, link, div, active
 }
 
 export {clearFocus, unfocus}
-
