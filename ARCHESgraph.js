@@ -156,35 +156,6 @@ d3.json(graphFile).then(function(graph) {
 		}
 	});
 
-    // Filter Tag Search Function using JQuery
-	$('#addTag').on('click',
-        function searchTags() {
-            // Get the tagName from the input box and reformat
-            var tagName = document.getElementById('tagSearch').value;
-            tagName = reformatTagName(tagName);
-            // Change checked state
-            if ($('#'+tagName).is(':checked')) {
-                $('#'+tagName).prop('checked',false);
-            }
-            else {
-                $('#'+tagName).prop('checked',true);
-            }
-        }
-    );
-
-    // Clear Tag Search Filters using JQuery
-    $('#clearTags').on('click',
-        function clearTags() {
-            for (var idx in tags) {
-                var tagName = tags[idx];
-				tagName = reformatTagName(tagName);
-                // Change checked state to false
-                $('#'+tagName).prop('checked',false);
-            }
-        }
-    );
-
-
     /**
      * 
      * 
@@ -309,18 +280,6 @@ d3.json(graphFile).then(function(graph) {
      * 
      * 
      *  */ 
-
-	// Filter Search Bar using JQuery
-	var tags = [];
-	for (var key in graph.tagNames) {
-		tags.push(graph.tagNames[key].id);
-	}
-	tags.sort();
-	$(function () {
-		$("#tagSearch").autocomplete({
-			source: tags,
-		});
-	});
 
    // Search Function 
    
@@ -681,11 +640,6 @@ d3.json(graphFile).then(function(graph) {
 			}  
 		}
 	}
-
-	// Adds commas to the number to show funding a little prettier
-	function numberWithCommas(x) {
-		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	}
 	
 	// redraws link endpoints per tick
 	function updateLink(link) {
@@ -738,6 +692,11 @@ function reformatTagName(tagName) {
 	tagName = tagName.replace('(', '-');
 	tagName = tagName.replace(')', '-');
 	return tagName;
+}
+
+// Adds commas to the number to show funding a little prettier
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 // See if two arrays share a common element
