@@ -280,10 +280,10 @@ form.tagList {
     overflow:hidden;
 }
 
-.orgLegend {
-	position: absolute;
-	right:10;
-	bottom:80;
-	width:100;
-	height:100;
+.orgLegendSVG {
+	position:absolute;
+	right:10px;
+	bottom:80px;
+	width:100px;
+	height:100px;
 }

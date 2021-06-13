@@ -1,4 +1,4 @@
-var svg = d3.select("#orgLegend");
+var svg = d3.select("#orgLegendSVG");
 	svg.selectAll("*").remove();
 
 // creates circle stroke color legend for investigator nodes

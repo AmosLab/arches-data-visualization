@@ -1,4 +1,3 @@
-import {exportCSV} from './scripts/downloadCSV.js';
 import {getProjects, getConnections, neigh, getResearchers} from './scripts/graphIndexers.js';
 
 var width = getWidth() - 40;
@@ -87,13 +86,44 @@ d3.json(graphFile).then(function(graph) {
 	if(tagIDs.length >= 1 && yearFilteredYet == false) {
 		console.log("Tags nonzero:" + tagIDs.length);
 		yearFilteredYet = true;
+		
+		// clean up tag names
+		var toKeep = tagIDs.map(reformatTagName);
+		console.log(toKeep);
+		
+		// Get all graph link tags
+		var gLinks = graph.links;
+		var allLinks = gLinks.map(a => a.tags);				
+		allLinks = allLinks.map(reformatTagName);
+		console.log(allLinks);
+		
+		// loop over each tag to filter and find the indexes of all links with that tag.
+		var matchedLinks = [];
+		toKeep.forEach(function(tag, index){
+			var matchIndexes = getAllIndexes(allLinks, tag);
+			matchedLinks.push.apply(matchedLinks,matchIndexes);
+		}
+		);
+		
+		// Get the actual links from the matches for the tags to keep.
+		graph.links.forEach(function(link, index){
+			if ( parseInt(link["year"]) < filterYears[0] || parseInt(link["year"]) > filterYears[1]){
+					link
+				}
+			if (matchedLinks.includes(index)){
+				newLinks.push(link);
+			}
+			
+		});
+		console.log(newLinks);
+	}
+
+	// If no tags are selected, only push projects within filtering year range
+	if (tagIDs.length < 1 && yearFilteredYet == false) {
+		console.log("Tags zero");
+		yearFilteredYet = true;
 		graph.links.forEach(function(link, index) {
-			var extraTags = link["tags"].split(",");
-			for (var index2 = 0; index2 < extraTags.length; index2++) {
-				var tagName = extraTags[index2]
-                // replace tag name with new processed tag name
-				extraTags[index2] = reformatTagName(tagName);
-				if (!findCommonElements3(extraTags,tagIDs) && (parseInt(link["year"]) < filterYears[0] || parseInt(link["year"]) > filterYears[1])) { // If the link doesn't include any of the extra tags selected or outside the year filter range, delete it
+			if (parseInt(link["year"]) < filterYears[0] || parseInt(link["year"]) > filterYears[1]) { // If link has year outside of year filter range, delete it
 					if (!possiblePIs.includes(link.source)) {
 						possiblePIs.push(link.source);
 					}
@@ -101,33 +131,14 @@ d3.json(graphFile).then(function(graph) {
 						possiblePIs.push(link.target);
 					}
 				} else {
-                    newLinks.push(link)
-                }
-			}
-		});
-	}
-
-	// If no tags are selected, only push projects within filtering year range
-	else if (yearFilteredYet == false) {
-		console.log("Tags zero");
-		yearFilteredYet = true;
-		graph.links.forEach(function(link, index) {
-			if (parseInt(link["year"]) < filterYears[0] || parseInt(link["year"]) > filterYears[1]) { // If link has year outside of year filter range, delete it
-                    if (!possiblePIs.includes(link.source)) {
-                        possiblePIs.push(link.source);
-                    }
-                    if (!possiblePIs.includes(link.target)) {
-                        possiblePIs.push(link.target);
-                    }
-                } else {
-                    newLinks.push(link);
-                }
-            });
+					newLinks.push(link);
+				}
+			});
 	}
 
     // If filtering was performed, you need to replace the graph links
     if (tagIDs.length >= 1 || yearFilteredYet == true) {
-        console.log("replace");
+        console.log("replaced links");
 		yearFilteredYet = false;
         graph.links = newLinks;
     }
@@ -299,40 +310,39 @@ d3.json(graphFile).then(function(graph) {
 
 	// Download function
 
-   $('#download').on('click',
-    function exportCSV() {
-        var rows = [['id','totalFunding']]
-        graph.nodes.forEach(function(d,i) {
-            rows.push([d.id,d.funding]);
-        });
-        let csvContent = "data:text/csv;charset=utf-8," 
-            + rows.map(e => e.join(",")).join("\n");
-        var encodedUri = encodeURI(csvContent);
-        var link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "investigators.csv");
-        document.body.appendChild(link); // Required for FF
-        link.click(); // This will download the data file named "investigators.csv".
+	$('#download').on('click', 
+	function exportCSV() {
+		var rows = [['id','totalFunding']]
+		graph.nodes.forEach(function(d,i) {
+			rows.push([d.id,d.funding]);
+		});
+		let csvContent = "data:text/csv;charset=utf-8," 
+			+ rows.map(e => e.join(",")).join("\n");
+		var encodedUri = encodeURI(csvContent);
+		var link = document.createElement("a");
+		link.setAttribute("href", encodedUri);
+		link.setAttribute("download", "investigators.csv");
+		document.body.appendChild(link); // Required for FF
+		link.click(); // This will download the data file named "investigators.csv".
 
-        rows = [['Project Name','Project Number', 'Year','Funding Amount','Investigators']]
-        var projects = []
-        graph.links.forEach(function(l,i) {
-            if (!projects.includes(l.projectName)) {
-                rows.push([l.projectName,l.projNum,l.year,l.amount,l.PIs + ", " + l.addInvestigators]);
-                projects.push(l.projectName);
-            }
-        });
-        csvContent = "data:text/csv;charset=utf-8," 
-            + rows.map(e => e.join(",")).join("\n");
-        encodedUri = encodeURI(csvContent);
-        link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "projects.csv");
-        document.body.appendChild(link); // Required for FF
-        link.click(); // This will download the data file named "projects.csv".
-    }
-   
-   );
+		rows = [['Project Name','Project Number', 'Year','Funding Amount','Investigators']]
+		var projects = []
+		graph.links.forEach(function(l,i) {
+			if (!projects.includes(l.projectName)) {
+				rows.push([l.projectName,l.projNum,l.year,l.amount,l.PIs + ", " + l.addInvestigators]);
+				projects.push(l.projectName);
+			}
+		});
+		csvContent = "data:text/csv;charset=utf-8," 
+			+ rows.map(e => e.join(",")).join("\n");
+		encodedUri = encodeURI(csvContent);
+		link = document.createElement("a");
+		link.setAttribute("href", encodedUri);
+		link.setAttribute("download", "projects.csv");
+		document.body.appendChild(link); // Required for FF
+		link.click(); // This will download the data file named "projects.csv".
+	}
+	);
 
 	$("#clear").click(
 		function clearFocus() {
@@ -402,8 +412,8 @@ d3.json(graphFile).then(function(graph) {
         focus(d);
         clickThrough = false;
         // Get rid of pop up
-        div.transition()        
-        .duration(200)      
+        div.transition()
+        .duration(200)
         .style("opacity", 0);
         // Variables for the collaborators names and the total number of researchers worked with
         var collabOutput = "";
@@ -616,7 +626,7 @@ d3.json(graphFile).then(function(graph) {
                 .style("height","140px");
             // Handle Name Focusing
             if (activeNameOpacity == 0) {
-                var labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", function(o) {
+                var labelText = d3.select("#viz").select(".labelNodes").selectAll("text").style("opacity", function(o) {
                     return neigh(index, o.node.index, adjlist) ? 1 : 0;
                 });
                 labelText.exit().remove()
@@ -636,7 +646,7 @@ d3.json(graphFile).then(function(graph) {
 			.duration(500)       
 			.style("opacity", 0);
 			if (activeNameOpacity == 0) {
-				labelText = d3.select("#viz").select(".labelnodes").selectAll("text").style("opacity", 0);
+				labelText = d3.select("#viz").select(".labelNodes").selectAll("text").style("opacity", 0);
 			}  
 		}
 	}
@@ -704,6 +714,16 @@ function findCommonElements3(arr1, arr2) {
 	return arr1.some(item => arr2.includes(item))
 }
 
+// Get indexes of array that contain an element
+function getAllIndexes(arr, val) {
+		var indexes = []
+		for(var i = 0; i < arr.length; i++){
+			if (arr[i].includes(val)){
+			indexes.push(i);}
+		}
+		return indexes;
+	}
+
 // Detects event when Filter Panel button is clicked, either opens the panel if currently closed or vice versa
 $('#filterPanel').on('click', function() {
 	if ($('#filterBar').css("display") == "none") {
@@ -733,7 +753,7 @@ function toggleNameOpacity(event) {
 		labelNames.innerHTML = "Hide Names";
 	}
 
-	var labelText = d3.select("#viz").select(".labelnodes").selectAll("text")
+	var labelText = d3.select("#viz").select(".labelNodes").selectAll("text")
 		.style("opacity", activeNameOpacity);
 	labelText.exit().remove()	
 }
