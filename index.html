@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <meta charset="utf-8">
 <head>
@@ -67,13 +68,14 @@
 					<input type="text" class="sliderValue" data-index="1" value="2021" />
 				</div>
 			</div>
-			<br />
 			<div class = "sliderDiv">
+				<!--
 				<style>
 					.ui-slider-horizontal {
 						height: unset !important;
 					}
 				</style>
+				-->
 				<div id="slider">	
 				</div>
 			</div>
@@ -86,11 +88,13 @@
 	
 	<script src='https://d3js.org/d3.v5.min.js'></script>
     <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
-    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
 	<div class = "graphToolContainer">
 		<div class = "graphContainer">
 			<svg id='viz'></svg>
-			<div class = "legend" id="colorLegend"></div>
+			<svg class = "orgLegendSVG" id="orgLegendSVG"></svg>
+			<script src="scripts/orgLegend.js"></script>
+			<div class = "contLegend" id="colorLegend"></div>
 			<script src="scripts/contLegend.js"></script>
 		</div>
 	</div>	
