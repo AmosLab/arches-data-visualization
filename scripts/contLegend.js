@@ -72,7 +72,7 @@ function continuous(selector_id, colorscale, axisScale) {
 		.append("g")
 		.attr("class", "axis")
 		.style("font", "12px sans-serif")	
-		.attr("transform", "translate(20," + (legendheight - margin.top - margin.bottom + 33) + ")")
+		.attr("transform", "translate(20," + (legendheight - margin.top - margin.bottom + 30) + ")")
 		.call(legendaxis);
 		
 	//creates title

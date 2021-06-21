@@ -498,9 +498,9 @@ d3.json(graphFile).then(function(graph) {
         .duration(200)      
         .style("opacity", 0);
         // Names of sectionIDs to change and their corresponding JSON IDs
-        var sectionIDs = ["#ProjectName", "#ProjectNumber", "#ProjectYear", "#ProjectFunding", "#PrincipleInvest", "#AddlInvest", "#Tags"];
-        var linkJSON_IDs = ["projectName","projNum","year", "amount","PIs","addInvestigators", "tags"];
-
+        var sectionIDs = ["#ProjectName", "#ProjectNumber", "#ProjectYear", "#CloseDate", "#ProjectFunding", "#PrincipleInvest", "#AddlInvest", "#Tags", "#BoxLink"];
+        var linkJSON_IDs = ["projectName","projNum","year", "closeDate", "amount", "PIs","addInvestigators", "tags", "boxLink"];
+		var boxURL = "none";
         if (infoBarOnName == "None") {
             // Show the Info Bar and all pointer events
             $('#infoBarL').css("pointer-events","auto")
@@ -508,8 +508,11 @@ d3.json(graphFile).then(function(graph) {
             $('#infoBarL').fadeTo(500,1);
             // Fill in all relevant sections
             for (var index= 0; index < sectionIDs.length; index++) {
-                console.log(sectionIDs[index])
-                $(sectionIDs[index]).text(l[linkJSON_IDs[index]])
+                console.log(sectionIDs[index]);
+                $(sectionIDs[index]).text(l[linkJSON_IDs[index]]);
+				if (index == sectionIDs.length - 1) {
+					boxURL = l[linkJSON_IDs[index]];
+				}
             }
             // Set infoBarOnName to the current link ID
             infoBarOnName = l.source+l.target;
@@ -518,8 +521,11 @@ d3.json(graphFile).then(function(graph) {
         } else if (infoBarOnName != l.source+l.target) {
             $('#infoBarL').css("pointer-events","auto")
             for (var index= 0; index < sectionIDs.length; index++) {
-                console.log(sectionIDs[index])
-                $(sectionIDs[index]).text(l[linkJSON_IDs[index]])
+                console.log(sectionIDs[index]);
+                $(sectionIDs[index]).text(l[linkJSON_IDs[index]]);
+				if (index == sectionIDs.length - 1) {
+					boxURL = l[linkJSON_IDs[index]];
+				}
             }
             // Set infoBarOnName to the current link ID
             infoBarOnName = l.source+l.target;
@@ -534,6 +540,7 @@ d3.json(graphFile).then(function(graph) {
             infoBarOnName = "None";
             linkClicked = false;
         }
+		$('#BoxLink').replaceWith('<a href="' + boxURL + '">Link to File</a>');
     }
 
     // }
