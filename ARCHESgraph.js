@@ -518,6 +518,7 @@ d3.json(graphFile).then(function(graph) {
             infoBarOnName = l.source+l.target;
             // Set linkClicked to be true
             linkClicked = true;
+			$('#BoxLink').replaceWith('<a href="' + boxURL + '">Link to File</a>');
         } else if (infoBarOnName != l.source+l.target) {
             $('#infoBarL').css("pointer-events","auto")
             for (var index= 0; index < sectionIDs.length; index++) {
@@ -531,6 +532,7 @@ d3.json(graphFile).then(function(graph) {
             infoBarOnName = l.source+l.target;
             // Set linkClicked to be true
             linkClicked = true;
+			$('#BoxLink').replaceWith('<a href="' + boxURL + '">Link to File</a>');
         } else {
             // Fade out the Info Bar
             $('#infoBarL').fadeTo(500,0);
@@ -539,8 +541,8 @@ d3.json(graphFile).then(function(graph) {
             // Reset values for infoBarOnName and linkClicked
             infoBarOnName = "None";
             linkClicked = false;
+			$('#BoxLink').replaceWith('<p>None</p>');
         }
-		$('#BoxLink').replaceWith('<a href="' + boxURL + '">Link to File</a>');
     }
 
     // }
