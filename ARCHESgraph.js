@@ -512,14 +512,17 @@ d3.json(graphFile).then(function(graph) {
                 $(sectionIDs[index]).text(l[linkJSON_IDs[index]]);
 				if (index == sectionIDs.length - 1) {
 					boxURL = l[linkJSON_IDs[index]];
+					console.log(boxURL);
 				}
             }
+			// Replace URL with hyperlink to Box file
+			$("#BoxLink").prop("href", boxURL);
+			$('#BoxLink').text('Link to File');
+			//$("#BoxLink").attr("href", boxURL);
             // Set infoBarOnName to the current link ID
             infoBarOnName = l.source+l.target;
             // Set linkClicked to be true
             linkClicked = true;
-			// Replace URL with hyperlink to Box file
-			$('#BoxLink').replaceWith('<a href="' + boxURL + '">Link to File</a>');
         } else if (infoBarOnName != l.source+l.target) {
             $('#infoBarL').css("pointer-events","auto")
             for (var index= 0; index < sectionIDs.length; index++) {
@@ -527,14 +530,16 @@ d3.json(graphFile).then(function(graph) {
                 $(sectionIDs[index]).text(l[linkJSON_IDs[index]]);
 				if (index == sectionIDs.length - 1) {
 					boxURL = l[linkJSON_IDs[index]];
+					console.log(boxURL);
 				}
             }
+			// Replace URL with hyperlink to Box file
+			$("#BoxLink").prop("href", boxURL);
+			$('#BoxLink').text('Link to File');
             // Set infoBarOnName to the current link ID
             infoBarOnName = l.source+l.target;
             // Set linkClicked to be true
             linkClicked = true;
-			// Replace URL with hyperlink to Box file
-			$('#BoxLink').replaceWith('<a href="' + boxURL + '">Link to File</a>');
         } else {
             // Fade out the Info Bar
             $('#infoBarL').fadeTo(500,0);
@@ -543,8 +548,6 @@ d3.json(graphFile).then(function(graph) {
             // Reset values for infoBarOnName and linkClicked
             infoBarOnName = "None";
             linkClicked = false;
-			// Replace Box file hyperlink
-			$('#BoxLink').replaceWith('<p>None</p>');
         }
     }
 
