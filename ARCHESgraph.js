@@ -390,7 +390,7 @@ d3.json(graphFile).then(function(graph) {
 				.style("left", (d3.event.pageX) + "px")
 				.style("padding", "7px")        
 				.style("top", (d3.event.pageY - 28) + "px")
-				.style("height","300px");
+			//	.style("height","300px");
 		}
 	}
     link.on("mouseout", unfocus);
@@ -518,7 +518,6 @@ d3.json(graphFile).then(function(graph) {
 			// Replace URL with hyperlink to Box file
 			$("#BoxLink").prop("href", boxURL);
 			$('#BoxLink').text('Link to File');
-			//$("#BoxLink").attr("href", boxURL);
             // Set infoBarOnName to the current link ID
             infoBarOnName = l.source+l.target;
             // Set linkClicked to be true
@@ -638,7 +637,7 @@ d3.json(graphFile).then(function(graph) {
                 .style("left", (d3.event.pageX) + "px")
                 .style("padding", "7px")        
                 .style("top", (d3.event.pageY - 28) + "px")
-                .style("height","140px");
+            //    .style("height","140px");
             // Handle Name Focusing
             if (activeNameOpacity == 0) {
                 var labelText = d3.select("#viz").select(".labelNodes").selectAll("text").style("opacity", function(o) {
