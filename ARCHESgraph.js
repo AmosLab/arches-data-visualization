@@ -12,6 +12,7 @@ var tagIDs = [];
 var yearFilteredYet = false;
 
 var activeNameOpacity = 1;
+var activeFundingVis = 1;
 
 function loadNetwork(graphFile){
 
@@ -385,12 +386,11 @@ d3.json(graphFile).then(function(graph) {
             // Creates a pop up with some simple information on the projects involved
 			div.transition()
 				.duration(200)
-				.style("opacity", .9);      
+				.style("opacity", .9);
             div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags)
 				.style("left", (d3.event.pageX) + "px")
-				.style("padding", "7px")        
-				.style("top", (d3.event.pageY - 28) + "px")
-			//	.style("height","300px");
+				.style("padding", "7px")
+				.style("top", (d3.event.pageY - 28) + "px");
 		}
 	}
     link.on("mouseout", unfocus);
@@ -426,7 +426,13 @@ d3.json(graphFile).then(function(graph) {
             $('#infoBar').fadeTo(500,1);
             $('#Investigator').text(d.id);
             $('#Affiliation').text(d.affiliation.toUpperCase());
-            $('#Funding').text("$"+numberWithCommas(d.funding));
+            // Check toggleFunding button if investigator funding needs to be hidden
+			if (activeFundingVis == 1) {
+				$('#Funding').text("$"+numberWithCommas(d.funding));
+			}
+			else {
+				$('#Funding').text("");
+			}
             $('#TotalProjects').text(getConnections(d, graph.links));
             $('#ProjectNames').html(getProjects(d, graph.links));
             [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
@@ -439,7 +445,13 @@ d3.json(graphFile).then(function(graph) {
             $('#infoBar').css("pointer-events","auto")
             $('#Investigator').text(d.id);
             $('#Affiliation').text(d.affiliation.toUpperCase());
-            $('#Funding').text("$"+numberWithCommas(d.funding));
+			// Check toggleFunding button if investigator funding needs to be hidden
+            if (activeFundingVis == 1) {
+				$('#Funding').text("$"+numberWithCommas(d.funding));
+			}
+			else {
+				$('#Funding').text("");
+			}
             $('#TotalProjects').text(getConnections(d, graph.links));
             $('#ProjectNames').html(getProjects(d, graph.links));
             [numResearchers, collabOutput] = getResearchers(d, graph, adjlist);
@@ -632,12 +644,20 @@ d3.json(graphFile).then(function(graph) {
             // Handle Making Pop Ups
             div.transition()        
                 .duration(200)      
-                .style("opacity", .9);      
-                div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Affiliation</b>" + "<br/>" + d.affiliation.toUpperCase() + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)
-                .style("left", (d3.event.pageX) + "px")
-                .style("padding", "7px")        
-                .style("top", (d3.event.pageY - 28) + "px")
-            //    .style("height","140px");
+                .style("opacity", .9);
+				// Check toggleFunding button if investigator funding needs to be hidden
+                if (activeFundingVis == 1) {
+					div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Affiliation</b>" + "<br/>" + d.affiliation.toUpperCase() + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)
+					.style("left", (d3.event.pageX) + "px")
+					.style("padding", "7px")
+					.style("top", (d3.event.pageY - 28) + "px");
+				}
+				else {
+					div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Affiliation</b>" + "<br/>" + d.affiliation.toUpperCase() + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "" + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)
+					.style("left", (d3.event.pageX) + "px")
+					.style("padding", "7px")
+					.style("top", (d3.event.pageY - 28) + "px");
+				}
             // Handle Name Focusing
             if (activeNameOpacity == 0) {
                 var labelText = d3.select("#viz").select(".labelNodes").selectAll("text").style("opacity", function(o) {
@@ -770,6 +790,24 @@ function toggleNameOpacity(event) {
 	var labelText = d3.select("#viz").select(".labelNodes").selectAll("text")
 		.style("opacity", activeNameOpacity);
 	labelText.exit().remove()	
+}
+
+//INVESTIGATOR FUNDING TOGGLE
+
+// Detects event when toggle funding button is clicked
+var changeFundingVis = d3.select("#toggleFunding").on('click', toggleFundingVis);
+
+// Changes investigator funding in popup to either 0 (hidden) or 1 (visible), and changes text accordingly in toggleFunding button
+function toggleFundingVis(event) {
+	var labelFunding = d3.select("#toggleFunding").node();
+	if (activeFundingVis == 1) {
+		activeFundingVis = 0;
+		labelFunding.innerHTML = "Show Funding";
+	}
+	else if (activeFundingVis == 0) {
+		activeFundingVis = 1;
+		labelFunding.innerHTML = "Hide Funding";
+	}
 }
 
 function getWidth() {
