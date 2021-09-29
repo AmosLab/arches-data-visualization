@@ -255,6 +255,9 @@ d3.json(graphFile).then(function(graph) {
             else if (d.affiliation == "UIUC") {
                 return "#E84A27";
             }
+			else if (d.affiliation == "Other") {
+				return "#FFCE30";
+			}
             else {
                 return "#fff";
             }
