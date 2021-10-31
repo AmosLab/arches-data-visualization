@@ -1124,9 +1124,9 @@
   ],
   "orgNames": [
     {"id": "OSF"},
-    {"id": "UIUC"},
     {"id": "Other"},
+    {"id": "UIC"},
     {"id": "UICOMP"},
-    {"id": "UIC"}
+    {"id": "UIUC"}
   ]
 }

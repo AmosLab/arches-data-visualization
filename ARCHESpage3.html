@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
-<style>
-/*	style definitions	*/
-button {
-  position: absolute;
-}
-
-#orgOSF {
-  top: 1em;
-  left: 1em;
-}
-
-#orgUICOMP {
-  top: 1em;
-  left: 8em;
-}
-
-#orgUIUC {
-  top: 1em;
-  left: 16em;
-}
-
-.node {
-}
-
-.link {
-	stroke: gray;
-}
-
-</style>
+<head>
+	<link rel="stylesheet" href="stylesheets/styles3.css">
+</head>
 <body>
-	<input type="checkbox" id="OSF">OSF</input>
-	<input type="checkbox" id="UICOMP">UICOMP</input>
-	<input type="checkbox" id="UIUC">UIUC</input>
-	<button type="button" class="filter-btn" id="filterOrgs">Filter</button>
-	<svg id="viz"></svg>
+	<div class="ui-widget">
+		<p><b>JUMP ARCHES Data Visualizations</b></p>
+		<button class="toggleButton" id="filterPanel">Add Filters</button>
+		<button type="button" id="toggleNames">Hide Names</button>
+		<button type="button" id="toggleFunding">Hide Funding</button>
+		<input size="80" id="search" placeholder="Search for an Investigator...">
+		<button type="button" id="searchF">Search</button>
+		<button type="button" id="clear">Clear</button>
+        <button type="button" id="download">Download Data</button>
+	</div>
+    <div class="infoBar" id="infoBar">
+        <h5>To Close This Information Bar, Click on The Same Node Again</h5>
+        <h4>Investigator:</h4>
+        <p id="Investigator"></p>
+        <h4>Affiliation:</h4>
+        <p id="Affiliation"></p>
+        <h4>Total Funding Received:</h4>
+        <p id="Funding"></p>
+        <h4>Total Projects:</h4>
+        <p id="TotalProjects"></p>
+        <h4>Project Names:</h4>
+        <div id="ProjectNames"></div>
+        <h4>Collaborating Investigators:</h4>
+        <div id="Collab"></div>
+    </div>
+	<div class="infoBarL" id="infoBarL">
+        <h5>To Close This Information Bar, Click on The Same Node Again</h5>
+        <h4>Project Title:</h4>
+        <p id="ProjectName"></p>
+        <h4>Project Number:</h4>
+        <p id="ProjectNumber"></p>
+        <h4>Project Year:</h4>
+        <p id="ProjectYear"></p>
+		<h4>Close Date:</h4>
+		<p id="CloseDate"></p>
+        <h4>Project Funding:</h4>
+        <p id="ProjectFunding"></p>
+        <h4>Principle Investigators:</h4>
+        <div id="PrincipleInvest"></div>
+        <h4>Additional Investigators:</h4>
+        <div id="AddlInvest"></div>
+		<h4>Tags:</h4>
+        <div id="Tags"></div>
+		<h4>Box:</h4>
+        <a id="BoxLink" href="none">Link to File</a>
+    </div>
+	<div class = "filterBar" id="filterBar">
+		<div class = "orgFilters">
+			<form>
+				<div>
+				<input type="checkbox" id="OSF"/>OSF
+				<input type="checkbox" id="UICOMP"/>UICOMP
+				<input type="checkbox" id="UIUC"/>UIUC
+				<input type="checkbox" id="Other"/>Other
+				</div>
+			</form>
+		</div>
+		<div class= "finalFilterButtons">
+            <button type="button" class="filterButton" id="filter">Set Filters</button>
+            <button type="button" class="filterButton" id="clearFilter">Clear Filters</button>			
+		</div>
+	</div>
+
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+	<div class = "graphToolContainer">
+		<div class = "graphContainer">
+			<svg id="viz"></svg>
+			<svg class = "orgLegendSVG" id="orgLegendSVG"></svg>
+			<script src="scripts/orgLegend.js"></script>
+			<div class = "contLegend" id="colorLegend"></div>
+			<script src="scripts/contLegend.js"></script>
+		</div>
+	</div>	
+	
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -47,7 +90,6 @@ button {
 		integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
 		crossorigin="anonymous"></script>
     <link type='text/css' href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
 	<script src="ARCHESgraph3.js"></script>
 </body>
 </html>

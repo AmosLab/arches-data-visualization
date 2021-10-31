@@ -1,14 +1,17 @@
 //	data stores
 var graph;
 var store;
+var label;
 
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections3.json";
 
-//	sizing
+//	window sizing
 var width = getWidth() - 40,
-	height = getHeight() - 30,
-    radius = 10;
+	height = getHeight() - 30;
+
+var activeNameOpacity = 1;
+var activeFundingVis = 1;
 
 // creates svg container in the viz svg element to draw menu and network visualization elements
     var svg = d3.select("#viz").attr("width", width).attr("height", height);
@@ -21,21 +24,28 @@ svg.call(
 		.on("zoom", function() { container.attr("transform", d3.event.transform); })
 );
 
+// creates g elements to group link and node SVG elements
 var link = container.append("g").selectAll(".link"),
-	node = container.append("g").selectAll(".node");
+	node = container.append("g").selectAll(".node"),
+	labelNode = container.append("g").selectAll("text");
 
-//	force simulation initialization
+//	force simulation initialization for node and link interactions
 var simulation = d3.forceSimulation()
         .force("charge", d3.forceManyBody().strength(-250))
         .force("center", d3.forceCenter(width / 2, height / 2))
         .force("link", d3.forceLink().id(function(d) {return d.id; }).distance(50).strength(0.2))
         .on("tick", ticked);
 
+// sets force of repulsion (negative value) between labels, and very strong force of attraction between labels and their respective nodes
+var labelLayout = d3.forceSimulation()
+        .force("charge", d3.forceManyBody().strength(-200))
+        .force("link", d3.forceLink().distance(0).strength(3));
+
 //	filtered types
 var typeFilterList = [];
 
 //	filter button event handler
-$(".filter-btn").on("click", function() {
+$(".filterButton").on("click", function() {
 	// Reset the typeFilterList array
 	typeFilterList.splice(0,typeFilterList.length);
 	// Use data in JSON file to find orgs
@@ -59,19 +69,10 @@ $(".filter-btn").on("click", function() {
 //	data read and store
 d3.json(graphFile)
 	.then(function(g) {
-
-		var nodeByID = {};
-		g.nodes.forEach(function(n) {
-			nodeByID[n.id] = n;
-		});
-
-		var linkByID = {};
-		g.links.forEach(function(l) {
-			linkByID[l.id] = l;
-		});
-
+					
 		graph = g;
 		store = $.extend(true, {}, g);
+		label = $.extend(true, {}, g);
 
 		store.nodes.forEach(function(n) {
 			n.visible = true;
@@ -83,13 +84,36 @@ d3.json(graphFile)
 			l.targetVisible = true;
 		});
 
+		g.nodes.forEach(function(d, i) {
+			label.nodes.push({node: d});
+			label.nodes.push({node: d});
+			label.links.push({
+				source: i * 2,
+				target: i * 2 + 1
+			});
+		});	
+		
 		update();
+	
 	}).catch(function(error){ 
 		throw error;
 	});
 
 //	general update pattern for updating the graph
 function update() {
+	
+	// Investigator Search Bar Functionality using JQuery
+	var optArray = [];
+	for (var i = 0; i < graph.nodes.length - 1; i++) {
+		optArray.push(graph.nodes[i].id);
+	}
+	optArray = optArray.sort();
+	$(function () {
+		$("#search").autocomplete({
+			source: optArray,
+		});
+	});
+	
 	//	UPDATE
 	node = node.data(graph.nodes, function(d) { return d.id;});
 	//	EXIT
@@ -97,7 +121,7 @@ function update() {
 	//	ENTER
 	var newNode = node.enter().append("circle")
 		.attr("class", "node")
-		.attr("r", radius)
+		.attr("r", 10)
 		.attr("fill", function(d) {
 			if (d.fundingLogScaled == "-1") {
 				return "#696969";
@@ -125,6 +149,7 @@ function update() {
             };
         })
         .attr("stroke-width", "2px")
+		// prevents mouse capture
 		.call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
@@ -132,7 +157,7 @@ function update() {
         )
 
     newNode.append("title")
-      .text(function(d) { return "group: " + d.affiliation + "\n" + "id: " + d.id; });
+      .text(function(d) { return "id: " + d.id + "\n" + "affiliation: " + d.affiliation; });
 	//	ENTER + UPDATE
 	node = node.merge(newNode);
 
@@ -172,12 +197,10 @@ function dragstarted(d) {
 	d.fx = d.x;
 	d.fy = d.y;
 }
-
 function dragged(d) {
 	d.fx = d3.event.x;
 	d.fy = d3.event.y;
 }
-
 function dragended(d) {
 	if (!d3.event.active) simulation.alphaTarget(0);
 	d.fx = null;
@@ -275,6 +298,28 @@ function reformatTagName(tagName) {
 	tagName = tagName.replace(')', '-');
 	return tagName;
 }
+
+// Adds commas to the number to show funding with better formatting
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// See if two arrays share a common element
+function findCommonElements3(arr1, arr2) {
+	return arr1.some(item => arr2.includes(item))
+}
+
+// Detects event when Filter Panel button is clicked, either opens the panel if currently closed or vice versa
+$('#filterPanel').on('click', function() {
+	if ($('#filterBar').css("display") == "none") {
+		$('#filterBar').css("display","block");
+		$('#filterPanel').text("Hide Filters");
+	}
+	else {
+		$('#filterBar').css("display","none");
+		$('#filterPanel').text("Show Filters");
+	}
+});
 
 function getWidth() {
 	return Math.max(
