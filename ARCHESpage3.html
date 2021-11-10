@@ -52,16 +52,48 @@
         <a id="BoxLink" href="none">Link to File</a>
     </div>
 	<div class = "filterBar" id="filterBar">
+		<div class = "tagFilters">
+			<br>
+			<input size="60" id="tagSearch" placeholder="Search for a Tag...">
+			<button type="button" id="addTag">Add Tag</button>
+			<button type="button" id="clearTags">Clear All Tags</button>
+			<br>
+			<div class = "tagListWindow" id ="tagListWindow">
+			</div>
+		</div>
 		<div class = "orgFilters">
 			<form>
 				<div>
-				<input type="checkbox" id="OSF"/>OSF
-				<input type="checkbox" id="UICOMP"/>UICOMP
-				<input type="checkbox" id="UIUC"/>UIUC
-				<input type="checkbox" id="Other"/>Other
+				<input type="checkbox" id="orgOSF"/>OSF
+				<input type="checkbox" id="orgUICOMP"/>UICOMP
+				<input type="checkbox" id="orgUIUC"/>UIUC
+				<input type="checkbox" id="orgOther"/>Other
 				</div>
 			</form>
 		</div>
+		<form id = "yearSlider">		
+			<div>
+				<div class = "minYear">
+					<label>Minimum Year</label>
+					<input type="text" class="sliderValue" data-index="0" value="2014" />
+				</div>
+				<div class = "maxYear">
+					<label>Maximum Year</label>
+					<input type="text" class="sliderValue" data-index="1" value="2021" />
+				</div>
+			</div>
+			<div class = "sliderDiv">
+				<!--
+				<style>
+					.ui-slider-horizontal {
+						height: unset !important;
+					}
+				</style>
+				-->
+				<div id="slider">	
+				</div>
+			</div>
+		</form>
 		<div class= "finalFilterButtons">
             <button type="button" class="filterButton" id="filter">Set Filters</button>
             <button type="button" class="filterButton" id="clearFilter">Clear Filters</button>			
@@ -91,5 +123,7 @@
 		crossorigin="anonymous"></script>
     <link type='text/css' href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
 	<script src="ARCHESgraph3.js"></script>
+	<script src="scripts/addTagList3.js"></script>
+	<script src="scripts/yearSlider3.js"></script>
 </body>
 </html>

@@ -1,7 +1,11 @@
 //	data stores
 var graph;
 var store;
-var label;
+var labelGraph = {
+	'nodes': [],
+	'links': [],
+};
+var labelStore;
 
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections3.json";
@@ -14,8 +18,13 @@ var activeNameOpacity = 1;
 var activeFundingVis = 1;
 
 // creates svg container in the viz svg element to draw menu and network visualization elements
-    var svg = d3.select("#viz").attr("width", width).attr("height", height);
-    var container = svg.append("g");
+var svg = d3.select("#viz").attr("width", width).attr("height", height);
+var container = svg.append("g");
+
+// Div Tooltip for Displaying Link info, appended to .graphToolContainer to prevent overflow beyond page bounds
+var div = d3.select(".graphToolContainer").append("div")   
+	.attr("class", "tooltip")               
+	.style("opacity", 0);
     
 // uses mouse scroll wheel as zoom function to scale the svg container
 svg.call(
@@ -39,7 +48,8 @@ var simulation = d3.forceSimulation()
 // sets force of repulsion (negative value) between labels, and very strong force of attraction between labels and their respective nodes
 var labelLayout = d3.forceSimulation()
         .force("charge", d3.forceManyBody().strength(-200))
-        .force("link", d3.forceLink().distance(0).strength(3));
+        .force("link", d3.forceLink().distance(0).strength(3))
+		.on("tick", ticked);
 
 //	filtered types
 var typeFilterList = [];
@@ -50,13 +60,13 @@ $(".filterButton").on("click", function() {
 	typeFilterList.splice(0,typeFilterList.length);
 	// Use data in JSON file to find orgs
 	d3.json(graphFile).then(function(g) {
-		// Check values of each filter checkbox in the tags section
+		// Check values of each filter checkbox in the organization affiliation section
 		for (var i = 0; i < g.orgNames.length; i++) {
 			// get org name
 			var orgName = g.orgNames[i].id;
 			orgName = reformatTagName(orgName);
 			// If the org is checked, add it to the typeFilterList
-			if ($('#' + orgName).is(":checked")) {
+			if ($('#org' + orgName).is(":checked")) {
 				typeFilterList.push(orgName);
 			}
 		}
@@ -69,15 +79,12 @@ $(".filterButton").on("click", function() {
 //	data read and store
 d3.json(graphFile)
 	.then(function(g) {
-					
 		graph = g;
+		
 		store = $.extend(true, {}, g);
-		label = $.extend(true, {}, g);
-
 		store.nodes.forEach(function(n) {
 			n.visible = true;
 		});
-		
 		store.links.forEach(function(l) {
 			l.visible = true;
 			l.sourceVisible = true;
@@ -85,14 +92,24 @@ d3.json(graphFile)
 		});
 
 		g.nodes.forEach(function(d, i) {
-			label.nodes.push({node: d});
-			label.nodes.push({node: d});
-			label.links.push({
+			var investigatorName = d.id;
+			labelGraph.nodes.push({node: d});
+			labelGraph.nodes.push({node: d});
+			labelGraph.links.push({
 				source: i * 2,
-				target: i * 2 + 1
+				target: i * 2 + 1,
+				id: investigatorName
 			});
-		});	
-		
+		});
+
+		labelStore = $.extend(true, {}, labelGraph);
+		labelStore.nodes.forEach(function(n) {
+			n.visible = true;
+		});
+		labelStore.links.forEach(function(l) {
+			l.visible = true;
+			l.sourceVisible = true;
+		});
 		update();
 	
 	}).catch(function(error){ 
@@ -189,6 +206,36 @@ function update() {
   		.links(graph.links);
 
   	simulation.alpha(1).alphaTarget(0).restart();
+	
+	//	UPDATE
+	labelNode = labelNode.data(labelGraph.nodes, function(d) { return d.id;});
+	//	EXIT
+	labelNode.exit().remove();
+	//	ENTER
+	var newLabelNode = labelNode.enter().append("g")
+		.attr("class", "labelNodes")
+		.append("text")
+        .text(function(d, i) { return i % 2 == 0 ? "" : d.node.id; }) // only odd-numbered nodes are labeled
+        .style("fill", "#000")
+        .style("font-family", "Arial")
+        .style("font-size", 18)
+        .attr("font-weight", 700)
+        .style("stroke", "#fff")
+        .style("stroke-width", 0.6)
+        .style("pointer-events", "none") // to prevent mouseover/drag capture
+		.style("opacity", activeNameOpacity); // label visibility is toggled by button	
+	//	ENTER + UPDATE
+	labelNode = labelNode.merge(newLabelNode);
+
+	//  update label simulation nodes and alpha
+	labelLayout
+		.nodes(labelGraph.nodes)
+		.on("tick", ticked);
+	
+	labelLayout.force("link")
+  		.links(labelGraph.links);
+	
+	labelLayout.alpha(1).alphaTarget(0).restart();
 }
 
 //	drag event handlers
@@ -211,6 +258,27 @@ function dragended(d) {
 function ticked() {
 	node.call(updateNode);
 	link.call(updateLink);
+	
+	labelLayout.alphaTarget(0.3).restart();
+        labelNode.each(function(d, i) {
+            if(i % 2 == 0) {
+                d.x = d.node.x;
+                d.y = d.node.y;
+            } else {
+                var b = this.getBBox();
+    
+                var diffX = d.x - d.node.x;
+                var diffY = d.y - d.node.y;
+    
+                var dist = Math.sqrt(diffX * diffX + diffY * diffY);
+    
+                var shiftX = b.width * (diffX - dist) / (dist * 2);
+                shiftX = Math.max(-b.width, Math.min(0, shiftX));
+                var shiftY = 16;
+                this.setAttribute("transform", "translate(" + shiftX + "," + shiftY + ")");
+            }
+        });
+        labelNode.call(updateNode);
 }
 
 function fixna(x) {
@@ -243,8 +311,9 @@ function filter() {
 			// add the node to the graph
 			graph.nodes.push($.extend(true, {}, n));
 			console.log("Added " + n.id);
+		}
 		// if node doesn't contain affiliation and is present on graph
-		} else if (!(typeFilterList.includes(n.affiliation)) && n.visible) {
+		else if (!(typeFilterList.includes(n.affiliation)) && n.visible) {
 			n.visible = false;
 			// remove the node from the graph
 			graph.nodes.forEach(function(d, i) {
@@ -252,7 +321,7 @@ function filter() {
 					graph.nodes.splice(i, 1);
 					console.log("Removed " + n.id);
 				}
-			});
+			});	
 		}
 	});
 	//	add and remove links from data based on availability of nodes
@@ -271,7 +340,7 @@ function filter() {
 			l.visible = false;
 			graph.links.forEach(function(d, i) {
 				if (l.id === d.id) {
-					// add the link to the graph
+					// remove the link from the graph
 					graph.links.splice(i, 1);
 					console.log("Removed " + l.id);
 				}
@@ -283,6 +352,54 @@ function filter() {
 			// add the link to the graph
 			graph.links.push($.extend(true, {}, l));
 			console.log("Added " + l.id);
+		}
+	});
+
+	//	add and remove label nodes from data based on type filters
+	labelStore.nodes.forEach(function(n,k) {
+		// if node contains affiliation and isn't present on graph
+		if (typeFilterList.includes(n.node.affiliation) && !(n.visible)) {
+			n.visible = true; // makes visible
+			// add the node to the label graph
+			console.log(n);
+			// ERROR OCCURS HERE:
+			labelGraph.nodes.push($.extend(true, {}, n));
+			console.log(labelGraph.nodes);
+		}
+		// if node doesn't contain affiliation and is present on graph
+		else if (!(typeFilterList.includes(n.node.affiliation)) && n.visible) {
+			n.visible = false;
+			// remove the node from the label graph
+			labelGraph.nodes.forEach(function(d, i) {
+				if (n.node.id === d.node.id) {
+					labelGraph.nodes.splice(i, 1);
+				}
+			});	
+		}
+	});
+	//	add and remove label links from data based on availability of nodes
+	labelStore.links.forEach(function(l) {
+		labelStore.nodes.forEach(function(n) {
+			// find node visibilities at ends of link
+			if (l.id == n.node.id) {
+				l.sourceVisible = n.visible;
+			}
+		})
+		// if source label node is not visible and link is visible
+		if (!l.sourceVisible && l.visible) {
+			l.visible = false;
+			labelGraph.links.forEach(function(d, i) {
+				if (l.id === d.id) {
+					// remove the link from the graph
+					labelGraph.links.splice(i, 1);
+				}
+			})
+		}
+		// if source label node is visible and link is not visible
+		else if (l.sourceVisible && !l.visible) {
+			l.visible = true;
+			// add the link to the graph
+			labelGraph.links.push($.extend(true, {}, l));
 		}
 	});
 }
@@ -320,6 +437,57 @@ $('#filterPanel').on('click', function() {
 		$('#filterPanel').text("Show Filters");
 	}
 });
+
+//INVESTIGATOR LABEL TOGGLE
+
+// Detects event when toggle name button is clicked
+var changeNameOpacity = d3.select("#toggleNames").on('click', toggleNameOpacity);
+
+// Changes label text opacity to either 0 (hidden) or 1 (visible), and changes text accordingly in toggle name button
+function toggleNameOpacity(event) {
+	var labelNames = d3.select("#toggleNames").node();
+	if (activeNameOpacity == 1) {
+		activeNameOpacity = 0;
+		labelNames.innerHTML = "Show Names";
+	}
+	else if (activeNameOpacity == 0) {
+		activeNameOpacity = 1;
+		labelNames.innerHTML = "Hide Names";
+	}
+
+	var labelText = d3.select("#viz").selectAll(".labelNodes").selectAll("text")
+		.style("opacity", activeNameOpacity);
+	labelText.exit().remove()	
+}
+
+// Search Function 
+$('#searchF').on('click',
+   function searchNode() {
+	   //find the node
+	   var selectedVal = document.getElementById('search').value;
+	   node.style("opacity", function(o) {
+		   return (o.id==selectedVal) ? 1 : 0.1;
+	   });
+	   labelNode.attr("display", function(d) {
+		   return (d.node.id==selectedVal) ? "block" : "none";
+	   });
+	   searchedName = selectedVal;
+   }
+);
+$("#clear").click(
+	function clearFocus() {
+		//find the node
+		node.style("opacity", 1);
+		link.style("opacity", 1);
+		labelNode.attr("display", "block")
+		searchedName = "None";
+		infoBarOnName = "None";
+		$('#infoBar').fadeTo(500,0);
+		$('#infoBar').css("display","block")
+		$('#infoBar').css("pointer-events","none")
+		unfocus();
+	}
+);
 
 function getWidth() {
 	return Math.max(
