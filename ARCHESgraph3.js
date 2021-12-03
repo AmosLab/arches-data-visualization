@@ -7,6 +7,24 @@ var store;
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections3.json";
 
+//	data read and store
+d3.json(graphFile)
+	.then(function(g) {
+		store = $.extend(true, {}, g);
+		store.nodes.forEach(function(n) {
+			n.visible = true;
+		});
+		store.links.forEach(function(l) {
+			l.visible = true;
+			l.sourceVisible = true;
+			l.targetVisible = true;
+		});
+		graph = g;
+		update();
+	}).catch(function(error){ 
+		throw error;
+		});
+
 //	window sizing
 var width = getWidth() - 40,
 	height = getHeight() - 30;
@@ -26,11 +44,13 @@ var activeFundingVis = 1;
 // values for hovering and clicking
 var clickedID = 'None';
 var searchedName = "None";
-var infoBarOnName = "None";
+var infoPanelOnName = "None";
 var clickThrough = false;
 var linkClicked = false;
 var nodeClicked = false;
 var adjlist = [];
+
+// CONTAINER FORMATTING
 
 // creates svg container in the viz svg element to draw menu and network visualization elements
 var svg = d3.select("#viz").attr("width", width).attr("height", height);
@@ -48,30 +68,13 @@ svg.call(
 		.on("zoom", function() { container.attr("transform", d3.event.transform); })
 );
 
-//	data read and store
-d3.json(graphFile)
-	.then(function(g) {
-		store = $.extend(true, {}, g);
-		store.nodes.forEach(function(n) {
-			n.visible = true;
-		});
-		store.links.forEach(function(l) {
-			l.visible = true;
-			l.sourceVisible = true;
-			l.targetVisible = true;
-		});
-		graph = g;
-		update();
-	}).catch(function(error){ 
-		throw error;
-		});
-
 // creates g elements to group link and node SVG elements
 var link = container.append("g").attr("class", "linkGroup").selectAll(".link"),
 	node = container.append("g").attr("class", "nodeGroup").selectAll(".node");
 
 // GRAPH SIMULATION
 
+// Create D3 force-directed graph
 var graphLayout = d3.forceSimulation()
     .force("charge", d3.forceManyBody().strength(-3000))
     .force("center", d3.forceCenter(width / 2, height / 2))
@@ -212,8 +215,6 @@ function update() {
 		.style("opacity", activeNameOpacity) // label visibility is toggled by button	
 		.attr('dy', 1);
 		
-    newNode.append("title")
-      .text(function(d) { return "id: " + d.id + "\n" + "affiliation: " + d.affiliation; });
 	//	ENTER + UPDATE
 	node = node.merge(newNode);
 
@@ -241,19 +242,22 @@ function update() {
   		.links(graph.links);
 
 	// update adjlist
+	adjlist = [];
 	graph.links.forEach(function(l) {
 		var sourceIndex;
 		var targetIndex;
 		graph.nodes.forEach(function(n, i) {
-			if (l.source == n.id) {
+			if (l.source.id == n.id) {
 				sourceIndex = i;
 			}
-			if (l.target == n.id) {
+			if (l.target.id == n.id) {
 				targetIndex = i;
 			}
 		})
-		adjlist[sourceIndex + "-" + targetIndex] = true;
-		adjlist[targetIndex + "-" + sourceIndex] = true;
+		if (sourceIndex !== null & targetIndex !== null) {
+			adjlist[sourceIndex + "-" + targetIndex] = true;
+			adjlist[targetIndex + "-" + sourceIndex] = true;
+		}
 	});
 	// restart simulation
   	graphLayout.alpha(1).alphaTarget(0).restart();
@@ -279,105 +283,16 @@ function dragended(d) {
 function ticked() {
 	node.call(updateNode);
 	link.call(updateLink);
-	/*
-	link.transition()
-		.duration(100)
-		.attr("x1", function(d) { return fixna(d.source.x); })
-		.attr("y1", function(d) { return fixna(d.source.y); })
-		.attr("x2", function(d) { return fixna(d.target.x); })
-		.attr("y2", function(d) { return fixna(d.target.y); });
-	
-	node.transition()
-		.duration(100)
-		.attr("transform", function(d) {
-		return "translate(" + fixna(d.x) + "," + fixna(d.y) + ")";
-		})	
-	*/
-
-    // hovering over a node with the cursor causes the network to focus on linked nodes
+    // hovering over a node with the cursor causes the network to focus on linked nodes creates a popup with some investigator info
     node.on("mouseover", focus).on("mouseout", unfocus);
-
-	// decreases opacity of nodes that are not linked to focused node
-    function focus(d) {
-        if (((searchedName == "None" || searchedName == d.id) && infoBarOnName == "None") || clickThrough) {
-            var index = d3.select(d3.event.target).datum().index;
-            node.style("opacity", function(o) {
-                return neigh(index, o.index, adjlist) ? 1 : 0.1;
-            });
-            node.attr("r", function(o) {
-                return neigh(index, o.index, adjlist) ? 15 : 10;
-            });
-			link.style("opacity", function(o) {
-                return o.source.index == index || o.target.index == index ? 1 : 0.1;
-            });
-            searchedName = "None";
-            var totalConnections = getConnections(d, store);
-            // Handle Making Pop Ups
-            div.transition()        
-                .duration(200)      
-                .style("opacity", .9);
-				// Check toggleFunding button if investigator funding needs to be hidden
-                if (activeFundingVis == 1) {
-					div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Affiliation</b>" + "<br/>" + d.affiliation.toUpperCase() + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)
-					.style("left", (d3.event.pageX) + "px")
-					.style("padding", "7px")
-					.style("top", (d3.event.pageY - 28) + "px");
-				}
-				else {
-					div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Affiliation</b>" + "<br/>" + d.affiliation.toUpperCase() + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "" + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)
-					.style("left", (d3.event.pageX) + "px")
-					.style("padding", "7px")
-					.style("top", (d3.event.pageY - 28) + "px");
-				}
-            // Handle Name Focusing
-            if (activeNameOpacity == 0) {
-                var labelText = node.selectAll("text").style("opacity", function(o) {
-                    return neigh(index, o.node.index, adjlist) ? 1 : 0;
-                });
-                labelText.exit().remove()	
-            }
-        }
-        clickThrough = false;
-    }
-
-	// Hovering over a link performs focusing and creates a popup with some relevant project info
+	// Hovering over a link performs focusing and creates a popup with some project info
 	link.on("mouseover", focusLink);
-	function focusLink(l) {
-		if (searchedName == "None" && infoBarOnName == "None") {
-
-			// Changes styling of nodes and links to focus only on the current link at hand.
-			node.style('opacity', function(d) {
-				return (d === l.source || d === l.target) ? 1 : 0.1;
-			});
-			link.style("opacity", function(l2) {
-				return (l2 == l) ? 1 : 0.1;
-			});
-			node.attr("r", function(d) {
-				return (d === l.source || d === l.target) ? 15 : 10;
-			});
-
-			// Creates a pop up with some simple information on the projects involved
-			div.transition()
-				.duration(200)
-				.style("opacity", .9);
-			div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags)
-				.style("left", (d3.event.pageX) + "px")
-				.style("padding", "7px")
-				.style("top", (d3.event.pageY - 28) + "px");
-		}
-	}
+	// Moving away from node or links resets attributes and styles
 	link.on("mouseout", unfocus);
-	// resets opacity to full once node is unfocused
-	function unfocus() {
-		if (searchedName == "None" && infoBarOnName == 'None') {
-			node.style("opacity", 1);
-			link.style("opacity", 1);
-			node.attr("r", 10);
-			div.transition()     
-			.duration(500)       
-			.style("opacity", 0);
-		}
-	}
+	// Clicking any node opens or closes the node info panel.
+    node.on("click", clickNode);
+	// Clicking any link opens or closes the link info panel.
+	link.on("click",clickLink);
 }
 
 function fixna(x) {
@@ -419,6 +334,274 @@ function updateLink(link) {
 		.attr("x2", function(d) { return fixna(d.target.x); })
 		.attr("y2", function(d) { return fixna(d.target.y); });
 }
+
+// upon node mouseover, decreases opacity of nodes and links that are not linked to focused node
+function focus(d) {
+	if (((searchedName == "None" || searchedName == d.id) && infoPanelOnName == "None") || clickThrough) {
+		var index = d3.select(d3.event.target).datum().index;
+		node.style("opacity", function(o) {
+			return neigh(index, o.index, adjlist) ? 1 : 0.1;
+		});
+		node.attr("r", function(o) {
+			return neigh(index, o.index, adjlist) ? 15 : 10;
+		});
+		link.style("opacity", function(o) {
+			return o.source.index == index || o.target.index == index ? 1 : 0.1;
+		});
+		searchedName = "None";
+		var totalConnections = getConnections(d, store);
+		// Handle Making Pop Ups
+		div.transition()        
+			.duration(200)      
+			.style("opacity", .9);
+			// Check toggleFunding button if investigator funding needs to be hidden
+			if (activeFundingVis == 1) {
+				div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Affiliation</b>" + "<br/>" + d.affiliation.toUpperCase() + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "$" + numberWithCommas(d.funding) + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)
+				.style("left", (d3.event.pageX) + "px")
+				.style("padding", "7px")
+				.style("top", (d3.event.pageY - 28) + "px");
+			}
+			else {
+				div.html("<b>Investigator Name</b>" + "<br/>" + d.id + "<br/>" + "<b>Affiliation</b>" + "<br/>" + d.affiliation.toUpperCase() + "<br/>" + "<b>Total Funding Received as PI</b>" + "<br/>" + "" + "<br/>" + "<b>Total Funded Projects</b>" + "<br/>" + totalConnections)
+				.style("left", (d3.event.pageX) + "px")
+				.style("padding", "7px")
+				.style("top", (d3.event.pageY - 28) + "px");
+			}
+		// Handle Name Focusing
+		if (activeNameOpacity == 0) {
+			var labelText = node.selectAll("text").style("opacity", function(o) {
+				return neigh(index, o.node.index, adjlist) ? 1 : 0;
+			});
+			labelText.exit().remove()	
+		}
+	}
+	clickThrough = false;
+}
+
+// upon link mouseover, decreases opacity of all other nodes and links except the 2 nodes the end of the focused link
+function focusLink(l) {
+	if (searchedName == "None" && infoPanelOnName == "None") {
+		// Changes styling of nodes and links to focus only on the current link at hand.
+		node.style('opacity', function(d) {
+			return (d === l.source || d === l.target) ? 1 : 0.1;
+		});
+		node.attr("r", function(d) {
+			return (d === l.source || d === l.target) ? 15 : 10;
+		});
+		link.style("opacity", function(l2) {
+			return (l2 == l) ? 1 : 0.1;
+		});
+
+		// Creates a pop up with some simple information on the projects involved
+		div.transition()
+			.duration(200)
+			.style("opacity", .9);
+		div.html("<b>Project Number</b>" + "<br/>" + l.projNum + "<br/>" + "<b>Project Name</b>" + "<br/>" + l.projectName + "<br/>" + "<b>Year</b>" + "<br/>" + l.year + "<br/>" + "<b>Project Funding</b>" + "<br/>" + "$" + numberWithCommas(l.amount) + "<br/>" + "<b>Principal Investigators</b>" + "<br/>" + l.PIs + "<br/>" + "<b>Other Investigators</b>" + "<br/>" + l.addInvestigators + "<br/>" + "<b>Tags</b>" + "<br/>" + l.tags)
+			.style("left", (d3.event.pageX) + "px")
+			.style("padding", "7px")
+			.style("top", (d3.event.pageY - 28) + "px");
+	}
+}
+
+// resets opacity to full once node or link is unfocused
+function unfocus() {
+	if (searchedName == "None" && infoPanelOnName == 'None') {
+		node.style("opacity", 1);
+		link.style("opacity", 1);
+		node.attr("r", 10);
+		div.transition()     
+		.duration(500)       
+		.style("opacity", 0);
+	}
+}
+
+// Creates a node info panel
+function clickNode(d) {
+	// If a link has been clicked, fade out its info panel
+	if (linkClicked) {
+		$('#infoPanelL').fadeTo(500,0);
+		$('#infoPanelL').css("display","block")
+		$('#infoPanelL').css("pointer-events","none")
+		infoPanelOnName = "None";
+		linkClicked = false;
+	}
+	// Focus on current node
+	clickThrough = true;
+	focus(d);
+	clickThrough = false;
+	// Get rid of pop up
+	div.transition()
+	.duration(200)
+	.style("opacity", 0);
+	// Variables for the collaborators names and the total number of researchers worked with
+	var collabOutput = "";
+	var numResearchers = 0;
+
+	if (infoPanelOnName == "None") {
+		// Initialize all relevant sections to the right information from the graph
+		$('#infoPanel').css("pointer-events","auto")
+		$('#infoPanel').css("display","none")
+		$('#infoPanel').fadeTo(500,1);
+		$('#Investigator').text(d.id);
+		$('#Affiliation').text(d.affiliation.toUpperCase());
+		// Check toggleFunding button if investigator funding needs to be hidden
+		if (activeFundingVis == 1) {
+			$('#Funding').text("$"+numberWithCommas(d.funding));
+		}
+		else {
+			$('#Funding').text("");
+		}
+		$('#TotalProjects').text(getConnections(d, store));
+		$('#ProjectNames').html(getProjects(d, store));
+		[numResearchers, collabOutput] = getResearchers(d, store, adjlist);
+		$('#Collab').html(collabOutput);
+		// Set the infoPanelOnName to the current node and nodeClicked to true
+		infoPanelOnName = d.id;
+		nodeClicked = true;
+	}
+	else if (infoPanelOnName != d.id) {
+		// Initialize all relevant sections to the right information from the graph
+		$('#infoPanel').css("pointer-events","auto")
+		$('#Investigator').text(d.id);
+		$('#Affiliation').text(d.affiliation.toUpperCase());
+		// Check toggleFunding button if investigator funding needs to be hidden
+		if (activeFundingVis == 1) {
+			$('#Funding').text("$"+numberWithCommas(d.funding));
+		}
+		else {
+			$('#Funding').text("");
+		}
+		$('#TotalProjects').text(getConnections(d, store));
+		$('#ProjectNames').html(getProjects(d, store));
+		[numResearchers, collabOutput] = getResearchers(d, store, adjlist);
+		$('#Collab').html(collabOutput);
+		// Set the infoPanelOnName to the current node and nodeClicked to true
+		infoPanelOnName = d.id;
+		nodeClicked = true;
+	}
+	else {
+		// Fade out node info panel
+		$('#infoPanel').fadeTo(500,0);
+		$('#infoPanel').css("display","block")
+		$('#infoPanel').css("pointer-events","none")
+		// Reset infoPanelOn and nodeClicked
+		infoPanelOnName = "None";
+		nodeClicked = false;
+		searchedName = "None";
+	}
+	// For loop this code for each link to highlight other nodes of investigators to work properly.
+	for (let totalR = 0; totalR < numResearchers; totalR++) {
+		const rName = 'researcher' + totalR.toString();
+		$('#'+rName).on('click', {'idx':rName},
+		function (e) {
+			//find the node
+			var elem = document.getElementById(e.data.idx);
+			var selectedVal= elem.textContent || elem.innerText;
+			node.style("opacity", function(d) {
+				return (d.id==selectedVal) ? 1 : 0.1;
+			});
+			searchedName = selectedVal;
+		});
+	}
+}
+
+// Creates a link info panel
+function clickLink(l) {
+	// If a node was previously clicked, fade out its info panel
+	if (nodeClicked) {
+		$('#infoPanel').fadeTo(500,0);
+		$('#infoPanel').css("display","block")
+		$('#infoPanel').css("pointer-events","none")
+		infoPanelOnName = "None";
+		nodeClicked = false;
+	}
+	clickThrough = true;
+	focusLink(l);
+	clickThrough = false;
+	// Fade out the Pop up for the link
+	div.transition()        
+	.duration(200)      
+	.style("opacity", 0);
+	// Names of sectionIDs to change and their corresponding JSON IDs
+	var sectionIDs = ["#ProjectName", "#ProjectNumber", "#ProjectYear", "#CloseDate", "#ProjectFunding", "#PrincipleInvest", "#AddlInvest", "#Tags", "#BoxLink"];
+	var linkJSON_IDs = ["projectName","projNum","year", "closeDate", "amount", "PIs","addInvestigators", "tags", "boxLink"];
+	var boxURL = "none";
+	if (infoPanelOnName == "None") {
+		// Show the Info Panel and all pointer events
+		$('#infoPanelL').css("pointer-events","auto")
+		$('#infoPanelL').css("display","none")
+		$('#infoPanelL').fadeTo(500,1);
+		// Fill in all relevant sections
+		for (var index= 0; index < sectionIDs.length; index++) {
+			$(sectionIDs[index]).text(l[linkJSON_IDs[index]]);
+			if (index == sectionIDs.length - 1) {
+				boxURL = l[linkJSON_IDs[index]];
+				console.log(boxURL);
+			}
+		}
+		// Replace URL with hyperlink to Box file
+		$("#BoxLink").prop("href", boxURL);
+		$('#BoxLink').text('Link to File');
+		// Set infoPanelOnName to the current link ID
+		infoPanelOnName = l.source+l.target;
+		// Set linkClicked to be true
+		linkClicked = true;
+	}
+	else if (infoPanelOnName != l.source+l.target) {
+		$('#infoPanelL').css("pointer-events","auto")
+		for (var index= 0; index < sectionIDs.length; index++) {
+			console.log(sectionIDs[index]);
+			$(sectionIDs[index]).text(l[linkJSON_IDs[index]]);
+			if (index == sectionIDs.length - 1) {
+				boxURL = l[linkJSON_IDs[index]];
+				console.log(boxURL);
+			}
+		}
+		// Replace URL with hyperlink to Box file
+		$("#BoxLink").prop("href", boxURL);
+		$('#BoxLink').text('Link to File');
+		// Set infoPanelOnName to the current link ID
+		infoPanelOnName = l.source+l.target;
+		// Set linkClicked to be true
+		linkClicked = true;
+	}
+	else {
+		// Fade out the link info panel
+		$('#infoPanelL').fadeTo(500,0);
+		$('#infoPanelL').css("display","block")
+		$('#infoPanelL').css("pointer-events","none")
+		// Reset values for infoPanelOnName and linkClicked
+		infoPanelOnName = "None";
+		linkClicked = false;
+	}
+}
+
+// If x button is clicked on info panel, fade out info panel
+$(".exitPanel").on("click", function exitPanel() {
+	if (nodeClicked) {
+		console.log("Exit node info panel");
+		// Fade out node info panel
+		$('#infoPanel').fadeTo(500,0);
+		$('#infoPanel').css("display","block")
+		$('#infoPanel').css("pointer-events","none")
+		// Reset infoPanelOnName and nodeClicked
+		infoPanelOnName = "None";
+		nodeClicked = false;
+		searchedName = "None";
+		unfocus;
+	}
+	else if (linkClicked) {
+		console.log("Exit link info panel");
+		// Fade out the link info Panel
+		$('#infoPanelL').fadeTo(500,0);
+		$('#infoPanelL').css("display","block")
+		$('#infoPanelL').css("pointer-events","none")
+		// Reset values for infoPanelOnName linkClicked
+		infoPanelOnName = "None";
+		linkClicked = false;
+		unfocus;
+	}
+})
 
 //	FILTERING
 
@@ -602,11 +785,6 @@ function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// See if two arrays share a common element
-function findCommonElements3(arr1, arr2) {
-	return arr1.some(item => arr2.includes(item))
-}
-
 // Detects event when Filter Panel button is clicked, either opens the panel if currently closed or vice versa
 $('#filterPanel').on('click', function() {
 	if ($('#filterBar').css("display") == "none") {
@@ -679,12 +857,49 @@ $("#clear").click(
 		node.style("opacity", 1);
 		link.style("opacity", 1);
 		searchedName = "None";
-		infoBarOnName = "None";
-		$('#infoBar').fadeTo(500,0);
-		$('#infoBar').css("display","block")
-		$('#infoBar').css("pointer-events","none")
+		infoPanelOnName = "None";
+		$('#infoPanel').fadeTo(500,0);
+		$('#infoPanel').css("display","block")
+		$('#infoPanel').css("pointer-events","none")
 		unfocus();
 	}
+);
+
+// DOWNLOAD DATA
+
+// Downloads all ARCHES data as two csv files
+$('#download').on('click', 
+function exportCSV() {
+	var rows = [['id','totalFunding']]
+	store.nodes.forEach(function(d,i) {
+		rows.push([d.id,d.funding]);
+	});
+	let csvContent = "data:text/csv;charset=utf-8," 
+		+ rows.map(e => e.join(",")).join("\n");
+	var encodedUri = encodeURI(csvContent);
+	var link = document.createElement("a");
+	link.setAttribute("href", encodedUri);
+	link.setAttribute("download", "investigators.csv");
+	document.body.appendChild(link); // Required for FF
+	link.click(); // This will download the data file named "investigators.csv".
+
+	rows = [['Project Name','Project Number', 'Year','Funding Amount','Investigators']]
+	var projects = []
+	store.links.forEach(function(l,i) {
+		if (!projects.includes(l.projectName)) {
+			rows.push([l.projectName,l.projNum,l.year,l.amount,l.PIs + ", " + l.addInvestigators]);
+			projects.push(l.projectName);
+		}
+	});
+	csvContent = "data:text/csv;charset=utf-8," 
+		+ rows.map(e => e.join(",")).join("\n");
+	encodedUri = encodeURI(csvContent);
+	link = document.createElement("a");
+	link.setAttribute("href", encodedUri);
+	link.setAttribute("download", "projects.csv");
+	document.body.appendChild(link); // Required for FF
+	link.click(); // This will download the data file named "projects.csv".
+}
 );
 
 // DOCUMENT SIZE

@@ -12,18 +12,23 @@ function getConnections(d, store) {
 	})
     return connections;
 }
-// Gets the names of all the projects an investigator was a part of in a bulleted list
+// Gets the names of all the projects an investigator was a part of in a sorted bulleted list
 function getProjects(d, store) {
-    var projectsString = "<ul>";
-    var projects = []
+    var projectsStringArray = [];
+	var projectsString = "<ul>";
+    var projects = [];
     store.links.forEach(function(l) {
 		if (d.id == l.source || d.id == l.target) {
 			if (!projects.includes(l.projectName)) {
                 projects.push(l.projectName);
-                projectsString += "<li>" + l.projectName + "</li>";
+				projectsStringArray.push("<li>" + l.year + ": " + l.projectName + "</li>");
             }
         }
     })
+	projectsStringArray.sort();
+	for (var i = 0; i < projectsStringArray.length; i++) {
+		projectsString += projectsStringArray[i];
+	}
     return projectsString +=  '</ul>';
 }
 
