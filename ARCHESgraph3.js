@@ -7,24 +7,6 @@ var store;
 // pulls JSON file containing nodes and links from local directory
 var graphFile = "ARCHES_connections3.json";
 
-//	data read and store
-d3.json(graphFile)
-	.then(function(g) {
-		store = $.extend(true, {}, g);
-		store.nodes.forEach(function(n) {
-			n.visible = true;
-		});
-		store.links.forEach(function(l) {
-			l.visible = true;
-			l.sourceVisible = true;
-			l.targetVisible = true;
-		});
-		graph = g;
-		update();
-	}).catch(function(error){ 
-		throw error;
-		});
-
 //	window sizing
 var width = getWidth() - 40,
 	height = getHeight() - 30;
@@ -49,6 +31,43 @@ var clickThrough = false;
 var linkClicked = false;
 var nodeClicked = false;
 var adjlist = [];
+var storeAdjlist = [];
+
+//	data read and store
+d3.json(graphFile)
+	.then(function(g) {
+		store = $.extend(true, {}, g);
+		store.nodes.forEach(function(n) {
+			n.visible = true;
+		});
+		store.links.forEach(function(l) {
+			l.visible = true;
+			l.sourceVisible = true;
+			l.targetVisible = true;
+		});
+		graph = g;
+		
+		// find indexes of investigators who have collaborated on projects
+		store.links.forEach(function(l) {
+			var sourceIndex;
+			var targetIndex;
+			store.nodes.forEach(function(n, i) {
+				if (l.source == n.id) {
+					sourceIndex = i;
+				}
+				if (l.target == n.id) {
+					targetIndex = i;
+				}
+			})
+			if (sourceIndex !== null & targetIndex !== null) {
+				storeAdjlist[sourceIndex + "-" + targetIndex] = true;
+				storeAdjlist[targetIndex + "-" + sourceIndex] = true;
+			}
+		});
+		update();
+	}).catch(function(error){ 
+		throw error;
+		});
 
 // CONTAINER FORMATTING
 
@@ -289,9 +308,9 @@ function ticked() {
 	link.on("mouseover", focusLink);
 	// Moving away from node or links resets attributes and styles
 	link.on("mouseout", unfocus);
-	// Clicking any node opens or closes the node info panel.
+	// Clicking any node opens or closes the node info panel
     node.on("click", clickNode);
-	// Clicking any link opens or closes the link info panel.
+	// Clicking any link opens or closes the link info panel
 	link.on("click",clickLink);
 }
 
@@ -299,24 +318,8 @@ function fixna(x) {
 	if (isFinite(x)) return x;
 	return 0;
 }
-/*
-// redraws nodes per tick
-function updateNode(node) {
-	node.attr("transform", function(d) {
-		return "translate(" + fixna(d.x) + "," + fixna(d.y) + ")";
-	});
-}
 
-// redraws link endpoints per tick
-function updateLink(link) {
-	link.attr("x1", function(d) { return fixna(d.source.x); })
-		.attr("y1", function(d) { return fixna(d.source.y); })
-		.attr("x2", function(d) { return fixna(d.target.x); })
-		.attr("y2", function(d) { return fixna(d.target.y); });
-}
-*/
-
-// redraws nodes per tick
+// redraws nodes per tick with long duration to reduce twitchiness
 function updateNode(node) {
 	node.transition()
 		.duration(100)
@@ -325,7 +328,7 @@ function updateNode(node) {
 		})	
 }
 
-// redraws link endpoints per tick
+// redraws link endpoints per tick with long duration to reduce twitchiness
 function updateLink(link) {
 	link.transition()
 		.duration(100)
@@ -338,13 +341,19 @@ function updateLink(link) {
 // upon node mouseover, decreases opacity of nodes and links that are not linked to focused node
 function focus(d) {
 	if (((searchedName == "None" || searchedName == d.id) && infoPanelOnName == "None") || clickThrough) {
+		// get index of node in graph.nodes or index of link in graph.links
 		var index = d3.select(d3.event.target).datum().index;
+		// if a node is linked to the selected node, keep opacity at 1, otherwise opacity is set to 0.1
 		node.style("opacity", function(o) {
 			return neigh(index, o.index, adjlist) ? 1 : 0.1;
 		});
-		node.attr("r", function(o) {
-			return neigh(index, o.index, adjlist) ? 15 : 10;
-		});
+		// the selected node radius increases from 10 to 15
+		d3.select(this).select("circle").transition()
+			.duration(100)
+			.attr("r", function(o) {
+				return neigh(index, o.index, adjlist) ? 15 : 10;
+			});
+		// if a link is connected to the selected node, keep opacity at 1, otherwise opacity is set to 0.1
 		link.style("opacity", function(o) {
 			return o.source.index == index || o.target.index == index ? 1 : 0.1;
 		});
@@ -381,13 +390,15 @@ function focus(d) {
 // upon link mouseover, decreases opacity of all other nodes and links except the 2 nodes the end of the focused link
 function focusLink(l) {
 	if (searchedName == "None" && infoPanelOnName == "None") {
-		// Changes styling of nodes and links to focus only on the current link at hand.
+		// Changes styling of nodes and links to focus only on the current link at hand
+		// Nodes on each end of link keep opacity at 1, all other nodes have opacity of 0.1
 		node.style('opacity', function(d) {
 			return (d === l.source || d === l.target) ? 1 : 0.1;
 		});
-		node.attr("r", function(d) {
+		node.select("circle").attr("r", function(d) {
 			return (d === l.source || d === l.target) ? 15 : 10;
 		});
+		// Selected link has opacity of 1, all other links have opacity of 0.1
 		link.style("opacity", function(l2) {
 			return (l2 == l) ? 1 : 0.1;
 		});
@@ -408,7 +419,9 @@ function unfocus() {
 	if (searchedName == "None" && infoPanelOnName == 'None') {
 		node.style("opacity", 1);
 		link.style("opacity", 1);
-		node.attr("r", 10);
+		d3.selectAll("circle").transition()
+			.duration(100)
+			.attr("r", 10);
 		div.transition()     
 		.duration(500)       
 		.style("opacity", 0);
@@ -419,6 +432,7 @@ function unfocus() {
 function clickNode(d) {
 	// If a link has been clicked, fade out its info panel
 	if (linkClicked) {
+		console.log("Exit link info panel");
 		$('#infoPanelL').fadeTo(500,0);
 		$('#infoPanelL').css("display","block")
 		$('#infoPanelL').css("pointer-events","none")
@@ -436,7 +450,7 @@ function clickNode(d) {
 	// Variables for the collaborators names and the total number of researchers worked with
 	var collabOutput = "";
 	var numResearchers = 0;
-
+	console.log("Open node info panel");
 	if (infoPanelOnName == "None") {
 		// Initialize all relevant sections to the right information from the graph
 		$('#infoPanel').css("pointer-events","auto")
@@ -453,7 +467,7 @@ function clickNode(d) {
 		}
 		$('#TotalProjects').text(getConnections(d, store));
 		$('#ProjectNames').html(getProjects(d, store));
-		[numResearchers, collabOutput] = getResearchers(d, store, adjlist);
+		[numResearchers, collabOutput] = getResearchers(d, graph, adjlist, store, storeAdjlist);
 		$('#Collab').html(collabOutput);
 		// Set the infoPanelOnName to the current node and nodeClicked to true
 		infoPanelOnName = d.id;
@@ -473,13 +487,14 @@ function clickNode(d) {
 		}
 		$('#TotalProjects').text(getConnections(d, store));
 		$('#ProjectNames').html(getProjects(d, store));
-		[numResearchers, collabOutput] = getResearchers(d, store, adjlist);
+		[numResearchers, collabOutput] = getResearchers(d, graph, adjlist, store, storeAdjlist);
 		$('#Collab').html(collabOutput);
 		// Set the infoPanelOnName to the current node and nodeClicked to true
 		infoPanelOnName = d.id;
 		nodeClicked = true;
 	}
 	else {
+		console.log("Exit node info panel");
 		// Fade out node info panel
 		$('#infoPanel').fadeTo(500,0);
 		$('#infoPanel').css("display","block")
@@ -509,6 +524,7 @@ function clickNode(d) {
 function clickLink(l) {
 	// If a node was previously clicked, fade out its info panel
 	if (nodeClicked) {
+		console.log("Exit node info panel");
 		$('#infoPanel').fadeTo(500,0);
 		$('#infoPanel').css("display","block")
 		$('#infoPanel').css("pointer-events","none")
@@ -518,7 +534,7 @@ function clickLink(l) {
 	clickThrough = true;
 	focusLink(l);
 	clickThrough = false;
-	// Fade out the Pop up for the link
+	// Fade out the pop up for the link
 	div.transition()        
 	.duration(200)      
 	.style("opacity", 0);
@@ -526,6 +542,7 @@ function clickLink(l) {
 	var sectionIDs = ["#ProjectName", "#ProjectNumber", "#ProjectYear", "#CloseDate", "#ProjectFunding", "#PrincipleInvest", "#AddlInvest", "#Tags", "#BoxLink"];
 	var linkJSON_IDs = ["projectName","projNum","year", "closeDate", "amount", "PIs","addInvestigators", "tags", "boxLink"];
 	var boxURL = "none";
+	console.log("Open link info panel");
 	if (infoPanelOnName == "None") {
 		// Show the Info Panel and all pointer events
 		$('#infoPanelL').css("pointer-events","auto")
@@ -566,6 +583,7 @@ function clickLink(l) {
 		linkClicked = true;
 	}
 	else {
+		console.log("Exit link info panel");
 		// Fade out the link info panel
 		$('#infoPanelL').fadeTo(500,0);
 		$('#infoPanelL').css("display","block")
@@ -625,7 +643,6 @@ function filter() {
 				console.log("Added link " + l.id);
 			}
 		});
-		console.log(graph);
 	}
 	// if some filters are selected
 	else {
