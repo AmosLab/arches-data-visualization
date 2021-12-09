@@ -1,7 +1,7 @@
+<!DOCTYPE html>
 <html>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <head>
-    <script type="module" src="ARCHESgraph.js"></script>
 	<link rel="stylesheet" href="stylesheets/styles.css">
 </head>
 <body>
@@ -9,13 +9,14 @@
 		<p><b>JUMP ARCHES Data Visualizations</b></p>
 		<button class="toggleButton" id="filterPanel">Add Filters</button>
 		<button type="button" id="toggleNames">Hide Names</button>
+		<button type="button" id="toggleFunding">Hide Funding</button>
 		<input size="80" id="search" placeholder="Search for an Investigator...">
 		<button type="button" id="searchF">Search</button>
 		<button type="button" id="clear">Clear</button>
         <button type="button" id="download">Download Data</button>
 	</div>
-    <div class="infoBar" id="infoBar">
-        <h5>To Close This Information Bar, Click on The Same Node Again</h5>
+    <div class="infoPanel" id="infoPanel">
+		<button type="button" class="exitPanel" id="exitPanelNode">X</button>
         <h4>Investigator:</h4>
         <p id="Investigator"></p>
         <h4>Affiliation:</h4>
@@ -25,19 +26,21 @@
         <h4>Total Projects:</h4>
         <p id="TotalProjects"></p>
         <h4>Project Names:</h4>
-        <div id="ProjectNames"></div>
+        <div class="ProjectNames" id="ProjectNames"></div>
         <h4>Collaborating Investigators:</h4>
-        <div id="Collab"></div>
+        <div class="Collab" id="Collab"></div>
     </div>
-	<div class="infoBarL" id="infoBarL">
-        <h5>To Close This Information Bar, Click on The Same Node Again</h5>
+	<div class="infoPanelL" id="infoPanelL">
+		<button type="button" class="exitPanel" id="exitPanelLink">X</button>
         <h4>Project Title:</h4>
         <p id="ProjectName"></p>
-        <h4>Project Number</h4>
+        <h4>Project Number:</h4>
         <p id="ProjectNumber"></p>
-        <h4>Project Year</h4>
+        <h4>Project Year:</h4>
         <p id="ProjectYear"></p>
-        <h4>Project Funding</h4>
+		<h4>Close Date:</h4>
+		<p id="CloseDate"></p>
+        <h4>Project Funding:</h4>
         <p id="ProjectFunding"></p>
         <h4>Principle Investigators:</h4>
         <div id="PrincipleInvest"></div>
@@ -45,9 +48,11 @@
         <div id="AddlInvest"></div>
 		<h4>Tags:</h4>
         <div id="Tags"></div>
+		<h4>Box:</h4>
+        <a id="BoxLink" href="none">Link to File</a>
     </div>
 	<div class = "filterBar" id="filterBar">
-		<div class = tagFilters>
+		<div class = "tagFilters">
 			<br>
 			<input size="60" id="tagSearch" placeholder="Search for a Tag...">
 			<button type="button" id="addTag">Add Tag</button>
@@ -55,6 +60,16 @@
 			<br>
 			<div class = "tagListWindow" id ="tagListWindow">
 			</div>
+		</div>
+		<div class = "orgFilters">
+			<form>
+				<div class = "orgFilterWindow" id = "orgFilterWindow">
+				<input type="checkbox" id="orgOSF"/>OSF
+				<input type="checkbox" id="orgUICOMP"/>UICOMP
+				<input type="checkbox" id="orgUIUC"/>UIUC
+				<input type="checkbox" id="orgOther"/>Other
+				</div>
+			</form>
 		</div>
 		<form id = "yearSlider">		
 			<div>
@@ -67,30 +82,33 @@
 					<input type="text" class="sliderValue" data-index="1" value="2021" />
 				</div>
 			</div>
-			<br />
 			<div class = "sliderDiv">
+				<!--
 				<style>
 					.ui-slider-horizontal {
 						height: unset !important;
 					}
 				</style>
+				-->
 				<div id="slider">	
 				</div>
 			</div>
 		</form>
 		<div class= "finalFilterButtons">
-            <button type="button" id="filter" class="filterButton">Set Filters</button>
-            <button type="button" id="clearFilter" class="filterButton">Clear Filters</button>			
+            <button type="button" class="filterButton" id="filter">Set Filters</button>
+            <button type="button" class="filterButton" id="clearFilter">Clear Filters</button>			
 		</div>
 	</div>
-	
-	<script src='https://d3js.org/d3.v5.min.js'></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
-    
+
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
 	<div class = "graphToolContainer">
 		<div class = "graphContainer">
-			<svg id='viz'></svg>
-			<div class = "legend" id="colorLegend"></div>
+			<svg id="viz"></svg>
+			<svg class = "orgLegendSVG" id="orgLegendSVG"></svg>
+			<script src="scripts/orgLegend.js"></script>
+			<div class = "contLegend" id="colorLegend"></div>
 			<script src="scripts/contLegend.js"></script>
 		</div>
 	</div>	
@@ -99,13 +117,12 @@
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		crossorigin="anonymous"></script>
-    <script
+	<script
 		src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
 		integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
 		crossorigin="anonymous"></script>
     <link type='text/css' href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-    <script src="ARCHESgraph.js"></script>
+	<script type="module" src="ARCHESgraph.js"></script>
 	<script src="scripts/addTagList.js"></script>
 	<script src="scripts/yearSlider.js"></script>
 </body>

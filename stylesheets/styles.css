@@ -54,7 +54,7 @@ div.tooltip {
     z-index:2;
 }
 
-div.infoBar {
+div.infoPanel {
     position: absolute;         
     text-align: center;         
     width: 300px;                   
@@ -75,7 +75,16 @@ div.infoBar {
     z-index:2;
     pointer-events: none;  
 }
-div.infoBarL {
+
+div.ProjectNames {
+	text-align: left;
+}
+
+div.Collab {
+	text-align: left;
+}
+
+div.infoPanelL {
     position: absolute;         
     text-align: center;         
     width: 300px;                   
@@ -123,7 +132,7 @@ div.search {
 div.filterBar {
     float: left;
     position: absolute;
-    margin-top: 7%;
+    margin-top: 6%;
     width: 60%;
     height: 80%;
     border-color: grey;
@@ -148,6 +157,11 @@ div.tagFilters {
     float: center;
     text-align: center;
 	height: 80%;
+}
+
+div.orgFilters {
+	float: center;
+	text-align: center;
 }
 
 div.finalFilterButtons {
@@ -248,7 +262,9 @@ br {
 .link {
     fill: none;
     stroke: #ccc;
-    stroke-width: 1.5px;
+    /*
+	stroke-width: 1.5px;
+	*/
 }
 
 .templink {
@@ -288,5 +304,5 @@ form.tagList {
 	right:10px;
 	bottom:80px;
 	width:100px;
-	height:100px;
+	height:115px;
 }
