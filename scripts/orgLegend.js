@@ -6,7 +6,7 @@ var legendCircle = d3.symbol().type(d3.symbolCircle)();
 // assigning circle shape to each organization
 var symbolScale =  d3.scaleOrdinal()
 	.domain(["OSF", "UICOMP", "UIUC", "Other"])
-	.range([legendCircle, legendCircle, legendCircle] );
+	.range([legendCircle, legendCircle, legendCircle, legendCircle] );
 // assigning colors to each organization, used official color scheme hex values
 var colorScale = d3.scaleOrdinal()
 	.domain(["OSF", "UICOMP", "UIUC", "Other"])

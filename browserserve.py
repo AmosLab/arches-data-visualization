@@ -9,12 +9,6 @@ import threading
 import os
 import sys
 import getopt
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
-
-
-
-
 
 class CORSRequestHandler(SimpleHTTPRequestHandler):
 	""" Simple CORS request handler inherits simple http 
@@ -102,9 +96,7 @@ def run_server(argv):
 	
 	# TODO detect default browser and find compatible installed driver for selenium.
 	# for now, use Firefox.  Can chage this to any other webdriver installed with selenium.
-	# driver = webdriver.Chrome(ChromeDriverManager().install())
-	driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
-	# driver = webdriver.Firefox()
+	driver = webdriver.Firefox()
 	driver.maximize_window()
 	driver.get(_full_filename)
 	
