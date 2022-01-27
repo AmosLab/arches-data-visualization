@@ -802,7 +802,7 @@ function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// Detects event when Filter Panel button is clicked, either opens the panel if currently closed or vice versa
+// Detects event when Filter Panel button is clicked, either opens the filter window if currently closed or vice versa
 $('#filterPanel').on('click', function() {
 	if ($('#filterBar').css("display") == "none") {
 		$('#filterBar').css("display","block");
