@@ -779,6 +779,51 @@ function filter() {
 				}
 			});		
 		}
+		
+		// after filtering links, remove nodes that don't have any links visible
+		store.nodes.forEach(function(n) {
+			// if node is visible on the graph
+			if (n.visible == true) {
+				var linksVisbility = [];
+				// find visibilty of every link have that node present on either end of the link
+				store.links.forEach(function(l) {
+					if (l.source == n.id || l.target == n.id) {
+						linksVisbility.push(l.visible);
+					}
+				})
+				// check if every connected link on that node is not visible
+				let hasNoLinks = linksVisbility.every(e => e == false);
+				// only when the node has no visible links
+				if (hasNoLinks == true) {
+					store.links.forEach(function(l) {
+						// if the node is on the source end of the link and the link is not visible on the graph
+						if (l.source == n.id && l.visible == false) {
+							// remove the node from the graph
+							n.visible = false;
+							l.sourceVisible = false;
+							graph.nodes.forEach(function(d, i) {
+								if (n.id === d.id) {
+									graph.nodes.splice(i, 1);
+									console.log("Removed " + n.id);
+								}
+							});
+						}
+						// if the node is on the target end of the link and the link is not visible on the graph
+						else if (l.target == n.id && l.visible == false) {
+							// remove the node from the graph
+							n.visible = false;
+							l.targetVisible = false;
+							graph.nodes.forEach(function(d, i) {
+								if (n.id === d.id) {
+									graph.nodes.splice(i, 1);
+									console.log("Removed " + n.id);
+								}
+							});
+						}
+					})
+				}
+			}
+		})
 	}
 	update();
 }
