@@ -31,9 +31,9 @@ function createTagList() {
 		const br = document.createElement("br");
 		newTag.appendChild(br);
 		
-		// add div to tagList form
-		const tagListForm = document.getElementById("tagListWindow"); //need to add id tagList to form
-		tagListForm.appendChild(newTag);
+		// add div to tagList div
+		const tagListDiv = document.getElementById("tagListWindow"); //need to add id tagList to div
+		tagListDiv.appendChild(newTag);
 	}
 };
 createTagList();

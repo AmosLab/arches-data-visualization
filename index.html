@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="ui-widget">
-		<p><b>JUMP ARCHES Data Visualizations</b></p>
+		<p><b>Jump ARCHES Data Visualizations</b></p>
 		<button class="toggleButton" id="filterPanel">Add Filters</button>
 		<button type="button" id="toggleNames">Hide Names</button>
 		<button type="button" id="toggleFunding">Hide Funding</button>
@@ -53,7 +53,7 @@
     </div>
 	<div class = "filterBar" id="filterBar">
 		<div class = "tagFilters">
-			<br>
+			<p><b>Project Tags</b></p>
 			<input size="60" id="tagSearch" placeholder="Search for a Tag...">
 			<button type="button" id="addTag">Add Tag</button>
 			<button type="button" id="clearTags">Clear All Tags</button>
@@ -61,17 +61,8 @@
 			<div class = "tagListWindow" id ="tagListWindow">
 			</div>
 		</div>
-		<div class = "orgFilters">
-			<form>
-				<div class = "orgFilterWindow" id = "orgFilterWindow">
-				<input type="checkbox" id="orgOSF"/>OSF
-				<input type="checkbox" id="orgUICOMP"/>UICOMP
-				<input type="checkbox" id="orgUIUC"/>UIUC
-				<input type="checkbox" id="orgOther"/>Other
-				</div>
-			</form>
-		</div>
-		<form id = "yearSlider">		
+		<form class = "yearSlider" id = "yearSlider">
+			<p><b>Project Year Range</b></p>
 			<div>
 				<div class = "minYear">
 					<label>Minimum Year</label>
@@ -94,12 +85,22 @@
 				</div>
 			</div>
 		</form>
+		<div class = "orgFilters">
+			<p><b>Investigator Affiliation</b></p>
+			<form>
+				<div class = "orgFilterWindow" id = "orgFilterWindow">
+					<input type="checkbox" id="orgOSF" checked="false"/>OSF
+					<input type="checkbox" id="orgUICOMP" checked="false"/>UICOMP
+					<input type="checkbox" id="orgUIUC" checked="false"/>UIUC
+					<input type="checkbox" id="orgOther" checked="false"/>Other
+				</div>
+			</form>
+		</div>
 		<div class= "finalFilterButtons">
             <button type="button" class="filterButton" id="filter">Set Filters</button>
             <button type="button" class="filterButton" id="clearFilter">Clear Filters</button>			
 		</div>
 	</div>
-
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
