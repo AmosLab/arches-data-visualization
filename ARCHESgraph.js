@@ -232,7 +232,8 @@ function update() {
         .style("font-size", 18)
 		.attr("font-weight", "900")
 		.style("stroke", "#fff")
-        .style("stroke-width", 0.5)
+        .style("stroke-width", 0.8)
+		.style("paint-order", "stroke fill")
 		.style("pointer-events", "none") // to prevent mouseover/drag capture
 		.style("opacity", activeNameOpacity) // label visibility is toggled by button	
 		.attr('dy', 1);
