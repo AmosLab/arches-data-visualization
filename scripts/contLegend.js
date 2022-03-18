@@ -71,7 +71,7 @@ function continuous(selector_id, colorscale, axisScale) {
 	svg
 		.append("g")
 		.attr("class", "axis")
-		.style("font", "12px sans-serif")	
+		.style("font", "12px Roboto")	
 		.attr("transform", "translate(20," + (legendheight - margin.top - margin.bottom + 30) + ")")
 		.call(legendaxis);
 		

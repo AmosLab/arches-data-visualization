@@ -6,7 +6,7 @@
 } 
 
 body, h1, h2, h3, h4, h5, h6 {
-    font-family: Arial, Helvetica, Arial, sans-serif;
+    font-family: Roboto, Roboto, Roboto, Roboto;
 }
 
 .button {
@@ -18,6 +18,7 @@ body, h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+	font-family: Roboto;
     margin: 10px 20px;
     z-index: 2;
     top: 0;
@@ -43,7 +44,7 @@ div.tooltip {
     width: 300px;
     height: auto;
     padding: 2px;
-    font: 12px sans-serif;
+    font: 12px Roboto;
     background: white;
     border: 1px;
     border-color: black;
@@ -60,7 +61,7 @@ div.infoPanel {
     width: 300px;                   
     height: 80%;                  
     padding: 2px;               
-    font: 12px sans-serif;      
+    font: 14px Roboto;      
     background: white;  
     border: 1px;    
     border-color: black;
@@ -90,7 +91,7 @@ div.infoPanelL {
     width: 300px;                   
     height: 80%;                  
     padding: 2px;               
-    font: 12px sans-serif;      
+    font: 14px Roboto;      
     background: white;  
     border: 1px;    
     border-color: black;
@@ -112,9 +113,9 @@ div.ui-widget {
     left: 0;              
     width: 100%;
     padding-bottom: 10;
-    text-align: center;                              
-    font: 12px ;    
-    font-family: t;
+    text-align: center;  
+    font-family: Roboto;
+	font-weight: 700;
     border-color: black;
     border-bottom-style: solid;
     border-bottom: 2px;   
@@ -126,7 +127,6 @@ div.search {
     z-index: 1;
     text-align: center;
     width: 100%;
-
 }
 
 div.filterBar {
@@ -210,17 +210,19 @@ button.xbutton {
     content: 'x';
     color: #fff;
     font-weight: 300;
-    font-family: Arial, sans-serif;
+    font-family: Roboto, sans-serif;
 }
 button.filterButton {
     float: center;
     font-size: 16px;
     text-align: center;
+	font-family: Roboto;
 }
 
 button.toggleButton {
     float: left;
     font-size: 16px;
+	font-family: Roboto;
 }
 
 button.Investigator {
@@ -228,7 +230,8 @@ button.Investigator {
     border: none;
     padding: 0!important;
     /*optional*/
-    font-family: arial, sans-serif;
+    font-family: Roboto, sans-serif;
+	font-size: 14px;
     /*input has OS specific font-family*/
     color: #069;
     text-decoration: underline;
@@ -257,7 +260,7 @@ br {
 .node text {
     color:#808080;
     font-size:22px; 
-    font-family:sans-serif;
+    font-family:Roboto;
 }
 
 .link {
@@ -306,5 +309,17 @@ form.yearSlider {
 	right:10px;
 	bottom:80px;
 	width:100px;
-	height:115px;
+	height:145px;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: Roboto !important;
+}
+
+.ui-widget {
+	font-family: Roboto !important;
+}
+
+.ui-autocomplete-input {
+	font-family: Roboto !important;
 }

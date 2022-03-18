@@ -5,17 +5,17 @@ var svg = d3.select("#orgLegendSVG");
 var legendCircle = d3.symbol().type(d3.symbolCircle)();
 // assigning circle shape to each organization
 var symbolScale =  d3.scaleOrdinal()
-	.domain(["OSF", "UICOMP", "UIUC", "Other"])
-	.range([legendCircle, legendCircle, legendCircle, legendCircle] );
+	.domain(["OSF", "UIC", "UICOMP", "UIUC", "Other"])
+	.range([legendCircle, legendCircle, legendCircle, legendCircle, legendCircle] );
 // assigning colors to each organization, used official color scheme hex values
 var colorScale = d3.scaleOrdinal()
-	.domain(["OSF", "UICOMP", "UIUC", "Other"])
-	.range(["#70362a", "#001E62", "#E84A27", "#FFCE30"]);
+	.domain(["OSF", "UIC", "UICOMP", "UIUC", "Other"])
+	.range(["#6E3527", "#D50032", "#001E62", "#FF552E", "#FFCE30"]);
 // creating new container to hold node stroke color legend and placing in bottom right corner of the visualization
 var container2 = svg.append("g")
 	.attr("class", "legendSymbol")
 	.attr("transform", "translate(10,15)")
-	.style("font-family", "sans-serif")
+	.style("font-family", "Roboto")
 	.style("font-size", "16px")
 // using d3-legend to create ordinal legend
 var legendPath = d3.legendSymbol()

@@ -197,13 +197,16 @@ function update() {
 		)
 		.attr("stroke", function(d) {
             if (d.affiliation == "OSF") {
-                return "#70362a";
+                return "#6E3527";
+            }
+			else if (d.affiliation == "UIC") {
+				return "#D50032";
             }
             else if (d.affiliation == "UICOMP") {
                 return "#001E62";
             }
             else if (d.affiliation == "UIUC") {
-                return "#E84A27";
+                return "#FF552E";
             }
 			else if (d.affiliation == "Other") {
 				return "#FFCE30";
@@ -225,11 +228,11 @@ function update() {
 			return d.id;
 		})
 		.style("fill", "#000")
-        .style("font-family", "Arial")
+        .style("font-family", "Roboto")
         .style("font-size", 18)
-		.attr("font-weight", 700)
+		.attr("font-weight", "900")
 		.style("stroke", "#fff")
-        .style("stroke-width", 0.6)
+        .style("stroke-width", 0.5)
 		.style("pointer-events", "none") // to prevent mouseover/drag capture
 		.style("opacity", activeNameOpacity) // label visibility is toggled by button	
 		.attr('dy', 1);
