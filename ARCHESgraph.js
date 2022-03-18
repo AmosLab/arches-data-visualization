@@ -546,6 +546,7 @@ function clickLink(l) {
 	var sectionIDs = ["#ProjectName", "#ProjectNumber", "#ProjectYear", "#CloseDate", "#ProjectFunding", "#PrincipleInvest", "#AddlInvest", "#Tags", "#BoxLink"];
 	var linkJSON_IDs = ["projectName","projNum","year", "closeDate", "amount", "PIs","addInvestigators", "tags", "boxLink"];
 	var boxURL = "none";
+	var projectFunding = "";
 	console.log("Open link info panel");
 	if (infoPanelOnName == "None") {
 		// Show the Info Panel and all pointer events
@@ -555,11 +556,18 @@ function clickLink(l) {
 		// Fill in all relevant sections
 		for (var index= 0; index < sectionIDs.length; index++) {
 			$(sectionIDs[index]).text(l[linkJSON_IDs[index]]);
+			// store project funding for reformatting
+			if (index == 4) {
+				projectFunding = l[linkJSON_IDs[index]];
+			}
+			// store URL of Box file
 			if (index == sectionIDs.length - 1) {
 				boxURL = l[linkJSON_IDs[index]];
 				console.log(boxURL);
 			}
 		}
+		// Reformat project funding
+		$("#ProjectFunding").text("$" + numberWithCommas(projectFunding));
 		// Replace URL with hyperlink to Box file
 		$("#BoxLink").prop("href", boxURL);
 		$('#BoxLink').text('Link to File');
