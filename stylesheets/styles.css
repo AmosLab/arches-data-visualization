@@ -154,13 +154,11 @@ div.topFilters {
 }
 
 div.tagFilters {
-    float: center;
     text-align: center;
 	height: 50%;
 }
 
 div.orgFilters {
-	float: center;
 	text-align: center;
 	margin-top: 5%;
 	padding-top:2%;
@@ -291,7 +289,7 @@ form.tagList {
 
 form.yearSlider {
 	text-align:center;
-	margin-top:2%;
+	margin-top:5%;
 	padding-top:1%;
 }
 
